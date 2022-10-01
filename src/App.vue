@@ -1,44 +1,62 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark main-nav">
-      <router-link id="logo-url" to="/">
-        <img id="logo" src="../src/assets/logo.png" alt="alt">        
-      </router-link>
-      <div class="nav navbar-nav mx-auto">
-        <input type="text" v-model="search" placeholder="Pesquisar" /> <br> <br> 
+    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-nav bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
+          MedCenter
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="produtos-component" class="nav-link">Produtos</a>
+            </li>
+            <li class="nav-item">
+              <a href="pacientes-component" class="nav-link">Pacientes</a>
+            </li>
+            <li class="nav-item">
+              <a href="medicos-component" class="nav-link">Médicos</a>
+            </li>
+            <li class="nav-item">
+              <a href="sobre-component" class="nav-link">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a href="contato-component" class="nav-link">Contato</a>
+            </li>
+          </ul>
+          <div class="div-buttons">
+            <button type="button" class="btn btn-success text-light">Cadastre-se</button>
+            <button type="button" class="btn btn-success text-light">Log-in</button>
+          </div>
+        </div>
       </div>
-      <ul class="nav navbar-nav mx-right">
-        <li class="nav-item">
-          <router-link class="nav-link text-dark btn btn-light" to="/">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link text-dark btn btn-light ml-3" to="/dashboard">Dashboard</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link text-white btn btn-primary ml-3" to="/login" v-if="isLoggedIn === false">Login</router-link>
-          <button class="btn btn-primary ml-3 pl-3 pr-3 pb-2 pt-2" @click="handleSignOut" v-else-if="isLoggedIn">Sign Out</button>
-        </li>
-        <li class="nav-item">
-          <router-link 
-            class="nav-link text-white btn btn-primary ml-3" 
-            to="/signup"
-            v-if="isLoggedIn === false"
-          >
-          Sign Up</router-link
-          >
-        </li>
-      </ul>
     </nav>
-    <div>
-      <router-view />
-    </div>
   </div>
 </template>
 
-<script setup>
+<script>
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "vue-router"
+import Produtos from "@/components/Produtos";
+import Pacientes from "@/components/Pacientes";
+import Medicos from "@/components/Medicos";
+import Sobre from "@/components/Sobre";
+import Contato from "@/components/Contato";
+
+export default {
+  name: 'app',
+  components: {
+    produtos: Produtos,
+    pacientes: Pacientes,
+    medicos: Medicos,
+    sobre: Sobre,
+    contato: Contato
+  }
+}
 
 const router = useRouter();
 const isLoggedIn = ref(false);
@@ -63,33 +81,33 @@ const handleSignOut = () => {
 
 </script>
 
-<style>
-  * {
-    font-family: Helvetica;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+<style scoped lang="scss">
 
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
+  $success: #008894;
+
+  @import "../node_modules/bootstrap/scss/bootstrap";
 
   #logo {
     width: 40px;
     height: 40px;
   }
 
-  nav {
-    background-color: #008894;
+  .btn-success {
+
   }
 
   p {
     font-weight: bold;
     color: #000;
+  }
+
+  a { 
+    color: black;
+  }
+
+  .div-buttons {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
   }
 </style>
