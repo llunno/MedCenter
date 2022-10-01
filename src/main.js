@@ -5,6 +5,8 @@ import store from './store'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import VueGoogleMaps from '@fawmi/vue-google-maps'
+
 import { initializeApp } from "firebase/app";
 
 // declarado mas nunca usado
@@ -24,4 +26,8 @@ const firebaseConfig = {
 // declarado mas nunca usado
 const app = initializeApp(firebaseConfig);
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router).use(VueGoogleMaps, {
+  load: {
+      key: 'AIzaSyDGTj3uANtQSKlu4_-CSYTH0oAwU5qC8RY',
+  },
+}).mount('#app')
