@@ -3,9 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { initializeApp } from "firebase/app";
+
+// declarado mas nunca usado
 import { getAnalytics } from "firebase/analytics";
 
+// declarado mas nunca usado
 const firebaseConfig = {
   apiKey: "AIzaSyCN1WIQOQCiKK4dc8yu_3SdlAreLf36lbQ",
   authDomain: "infnet-at-front.firebaseapp.com",
@@ -16,6 +21,7 @@ const firebaseConfig = {
   measurementId: "G-LBZBTVYDCC"
 };
 
+// declarado mas nunca usado
 const app = initializeApp(firebaseConfig);
 
 createApp(App).use(store).use(router).mount('#app')
