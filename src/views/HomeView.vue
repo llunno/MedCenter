@@ -99,6 +99,7 @@
 
   header {
     background-image: url(@/assets/doctor.jpg);
+    font-family: 'Montserrat', sans-serif;
     height: 62rem;
     background-attachment: scroll;
     background-size: cover;

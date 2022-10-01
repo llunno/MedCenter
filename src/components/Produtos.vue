@@ -1,7 +1,7 @@
 <template>
     <section class="container-fluid text-center">
         <h2>Conheça nossos produtos</h2>
-        <div class="d-flex justify-content-xxl-center flex-wrap">
+        <div class="d-flex justify-content-sm-center flex-wrap">
             <div class="card m-2">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -67,5 +67,13 @@
 
     p {
         font-size: 1.12rem;
+    }
+
+    section {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .card-title {
+        font-weight: bold;
     }
 </style>

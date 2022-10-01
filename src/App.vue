@@ -36,6 +36,10 @@ const handleSignOut = () => {
 
 </script>
 
-<style scoped lang="scss">
-
+<style>
+  @font-face {
+    font-family: "Montserrat";
+    src: local('Montserrat'), 
+    url('@/fonts/Montserrat-Medium.ttf')  format('truetype');
+  }
 </style>
