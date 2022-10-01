@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <h1><p>Uma solução ideal para conectar <br>necessidade e oportunidade</p></h1>
-    <h1><span class="span-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/>
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco <br/>laboris nisi ut aliquip ex ea commodo consequat</span></h1>
+    <h2><span class="span-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br/>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco <br/>laboris nisi ut aliquip ex ea commodo consequat</span></h2>
   </div>
   <div class="produtos">
     <h1>Conheça nossos produtos</h1>
@@ -147,9 +147,9 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 pb-5">
           <form>
-              <div class="card">
+              <div class="formulario">
                   <div class="card-header p-0">
-                    <div class="bg-info text-white text-center py-2">
+                    <div class="bg text-white text-center py-2">
                       <h3><i class="fa fa-envelope"></i></h3>
                     </div>
                   </div>
@@ -157,7 +157,7 @@
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                          <div class="input-group-text"><i class="fa fa-user"></i></div>
                         </div>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder=" Nome e Sobrenome" required>
                       </div>
@@ -165,7 +165,7 @@
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                          <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                         </div>
                         <input type="email" class="form-control" id="nombre" name="email" placeholder=" Email" required>
                       </div>
@@ -173,7 +173,7 @@
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                            <div class="input-group-text"><i class="fa fa-comment"></i></div>
                         </div>
                         <textarea class="form-control" placeholder=" Descrição" required></textarea>
                       </div>
@@ -224,7 +224,16 @@ export default {
     text-align: left;
     align-items: center;
     justify-content: center;
-    margin: 40px 50px;
+    margin: 40px 50px 10px;
+  }
+
+  .home h2 {    
+    display: flex;
+    float: left;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 50px;
   }
 
   .home p {
@@ -252,11 +261,6 @@ export default {
 
   .card h5 {
     color: #EEEEEE;
-  }
-
-  .card p {
-    font-size: 12px;
-    color: #EEEEEE
   }
 
   .produtos h1 {
@@ -317,6 +321,11 @@ export default {
     line-height: 60px;
   }
 
+  .card p {
+    color: #EEEEEE;
+    font-size: 12px;
+  }
+
   .sobre h3 {
     color: #395B59;
   }
@@ -335,15 +344,48 @@ export default {
     color: #395B59;
   }
 
+  .formulario {
+    background-color: #EEEEEE;
+    border: 1px solid #395B59;
+  }
+
+  .bg {
+    background-color: #EEEEEE;
+    color: #EEEEEE;
+    border: 1px solid #395B59;
+  }
+
+  .form-control {
+    border: 1px solid #395B59;
+  }
+
+  .btn {
+    background-color: #395B59;
+    border: 1px solid #395B59;
+  }
+
+  .fa {
+    color: #395B59;
+  }
+
+  .input-group-text {
+    color: #395B59;
+    border: 1px solid #395B59;
+  }
+
   .footer {
     height: 50px;
-    background-color: #17a2b8;
+    background-color: #008894;
     color: #FFF;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     bottom: 0; 
+  }
+
+  .footer p {
+    color: #EEEEEE;
   }
 
 </style>
