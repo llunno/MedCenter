@@ -67,6 +67,7 @@
 
     p {
         font-size: 1.12rem;
+        line-height: 2;
     }
 
     section {
