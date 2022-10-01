@@ -1,67 +1,27 @@
 <template>
-    <div class="row">
-      <div class="col-12 text-center mb-4">
-        <h1>Sign Up</h1>
-      </div>
-      <div class="col-sm-5 m-auto">
-        <div v-if="errorMessage !== ''" class="alert alert-danger" role="alert">
-          {{ errorMessage }}
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">Cadastro</h5>
+          <form @submit.prevent="signupRequest">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Cadastrar</button>
+            </div>
+          </form>
         </div>
-        <div
-          v-if="successMessage !== ''"
-          class="alert alert-success"
-          role="alert"
-        >
-          {{ successMessage }}
-        </div>
-        <form @submit.prevent="signupRequest" id="signup-form">
-          <div class="row text-left">
-            <div class="col-sm-12 form-group">
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                v-model="email"
-                class="form-control form-control-lg"
-              />
-            </div>
-            <div class="col-sm-12 form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                v-model="password"
-                class="form-control form-control-lg"
-              />
-            </div>
-            <div class="col-sm-12 text-center form-group">
-              <button
-                v-bind:disabled="xhrRequest"
-                v-bind:class="{ disabled: xhrRequest }"
-                class="btn btn-lg btn-primary px-4"
-              >
-                <span v-if="!xhrRequest">Sign Up</span>
-                <span v-if="xhrRequest">Please Wait...</span>
-              </button>
-              <div
-                v-if="xhrRequest"
-                class="spinner-border text-secondary _loader"
-                role="status"
-              >
-                <span class="sr-only">Loading...</span>
-              </div>
-            </div>
-            <div class="col-sm-12 text-center form-group mt-5">
-              <p>
-                Already have an account?
-                <router-link to="/login">Login</router-link>
-              </p>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <script>
 
