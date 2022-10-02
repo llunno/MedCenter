@@ -31,6 +31,20 @@ export default {
         return {
             email: "",
             password: "",
+            medico: false,
+            nome: "",
+            sobrenome: "",
+            cpf:  "",
+            nascimento: "",
+            rg: "",
+            endereco: "",
+            bairro: "",
+            cidade: "",
+            uf: "",
+            cep: "",
+            crm: "",
+            ufemissao: "",
+
             xhrRequest: false,
             errorMessage: "",
             successMessage: "",
@@ -41,7 +55,26 @@ export default {
       async supabaseSignUp(){
       try {
           this.loading = true
-          const { user, session, error } = await supabase.auth.signUp({ email: this.email,password: this.password })
+          const { user, session, error } = await supabase.auth.signUp(
+            { email: this.email,password: this.password },
+            {
+              data: {
+                medico: this.medico,
+                nome: this.nome,
+                sobrenome: this.sobrenome,
+                cpf:  this.cpf,
+                nascimento: this.nascimento,
+                rg: this.rg,
+                endereco: this.endereco,
+                bairro: this.bairro,
+                cidade: this.cidade,
+                uf: this.uf,
+                cep:this.cep,
+                crm:this.crm,
+                ufemissao: this.ufemissao,
+                }
+            }
+            )
         } catch (error) {
           alert(error.error_description || error.message)
           this.errorMessage = error.message;
