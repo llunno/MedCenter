@@ -26,6 +26,11 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/clinicasprox",
+    name: "ClinicasProx",
+    component: () => import("../views/ClinicasProx.vue")
   }
 ];
 
