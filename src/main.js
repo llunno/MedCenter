@@ -7,6 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import VueGoogleMaps from '@fawmi/vue-google-maps'
 
+//font-awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faGooglePlay } from '@fortawesome/free-brands-svg-icons'
+import { faAppStore } from '@fortawesome/free-brands-svg-icons'
+import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
+
 import { initializeApp } from "firebase/app";
 
 // declarado mas nunca usado
@@ -23,6 +30,9 @@ const firebaseConfig = {
   measurementId: "G-LBZBTVYDCC"
 };
 
+//font-awesome
+library.add([faGooglePlay, faAppStore, faChevronCircleUp]);
+
 // declarado mas nunca usado
 const app = initializeApp(firebaseConfig);
 
@@ -30,4 +40,4 @@ createApp(App).use(store).use(router).use(VueGoogleMaps, {
   load: {
       key: 'AIzaSyDGTj3uANtQSKlu4_-CSYTH0oAwU5qC8RY',
   },
-}).mount('#app')
+}).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
