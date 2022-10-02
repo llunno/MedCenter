@@ -1,3 +1,4 @@
+<!-- Não implementado ainda, sugestão de utilização na tela de clínicas próximas -->
 <template>
   <div class="conteudo">
     <div class="botoes mt-5">
@@ -6,24 +7,8 @@
       <div class="button medium-btn" href="#">Acompanhar Status do Exame</div>
     </div>
     <div class="botoes mt-5">
-      <div class="button medium-btn" href="#">Consultar Clínicas Próximas</div>
-      <GMapMap
-      :center="center"
-      :zoom="7"
-      map-type-id="terrain"
-      style="width: 500px; height: 300px"
-      >
-        <GMapCluster>
-          <GMapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          :clickable="true"
-          :draggable="true"
-          @click="center=m.position"
-          />
-        </GMapCluster>
-      </GMapMap>
+      <div class="button medium-btn">Consultar Clínicas Próximas</div>
+      <small-map />
     </div>
     <div class="botoes mt-5">
       <div class="button medium-btn" href="#">Atualização Cadastral</div>
@@ -35,22 +20,13 @@
 </template>
 
 <script>
+  import SmallMap from '../components/SmallMap.vue'
   export default {
-    name: 'App',
-    data() {
-      return {
-        center: {lat: 51.093048, lng: 6.842120},
-        markers: [
-          {
-            position: {
-              lat: 51.093048, lng: 6.842120
-            },
-          }
-          , // Along list of clusters
-        ]
-      }
-    }
+  name: 'App',
+  components: {
+    SmallMap
   }
+}
 </script>
 
 <style>
