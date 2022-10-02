@@ -4,17 +4,17 @@
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
           <h5 class="card-title text-center mb-5 fw-light fs-5">Login</h5>
-          <form @submit.prevent="loginRequest">
+          <form @submit.prevent="supabaseLogin">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="this.email">
               <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="this.password">
               <label for="floatingPassword">Senha</label>
             </div>
             <div class="d-grid">
-              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Login</button>
+              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" :value="loading ? 'Loading' : 'Login'">Login</button>
             </div>
             <hr class="my-4">
             <div class="d-grid mb-2">
@@ -29,12 +29,7 @@
   </div>
 </template>
 <script>
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
-  GoogleAuthProvider, 
-  signInWithPopup 
-} from "firebase/auth";
+import { supabase } from '../supabase'
 export default {
   name: "Login",    
   data() {
@@ -43,40 +38,25 @@ export default {
       password: "",
       xhrRequest: false,
       errorMessage: "",
-      successMessage: "" 
+      successMessage: "",
+      loading: false
     };
   },
   methods: {
-    loginRequest() {
-      let v = this;
-      v.xhrRequest = true;
-      v.errorMessage = "";
-      v.successMessage = "";
-
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, v.email, v.password)
-        .then(() => {
+    async supabaseLogin(){
+      try {
+          this.loading = true
+          const { error } = await supabase.auth.signIn({ email: this.email,password: this.password })
+          if (error) throw error
+          alert('Check your email for the login link!')
+        } catch (error) {
+          alert(error.error_description || error.message)
+          this.errorMessage = error.message;
+        } finally {
+          this.loading = false
           this.$router.replace("dashboard");
-          v.xhrRequest = false;
-        })
-        .catch((error) => {
-          v.errorMessage = error.message;
-          v.xhrRequest = false;
-        });
+        }
     },
-
-    signInWithGoogle() {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(getAuth(), provider)
-      .then((result) => {
-        console.log(result.user);
-        this.$router.push("dashboard");
-      })
-      .catch((error) => {
-        console.log(error.code);
-        alert(error.message);
-      })
-    }
   },
 };
 </script>

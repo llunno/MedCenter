@@ -7,11 +7,21 @@
 
 <script>
 import { onMounted, ref } from "vue";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "vue-router"
+import { store } from './store'
+import { supabase } from './supabase'
 
+store.user = supabase.auth.user()
+supabase.auth.onAuthStateChange((_, session) => {
+  store.user = session.user
+})
 export default {
   name: 'app',
+  data(){
+    return {
+      store
+    }
+  }
   
 }
 
@@ -20,8 +30,8 @@ const isLoggedIn = ref(false);
 
 let auth;
 onMounted(() => {
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
+  auth = store.user;
+  supabase.auth.onAuthStateChange(auth, (user) => {
     if (user) {
       isLoggedIn.value = true;
     } else {

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/HomeView.vue";
 import { getAuth } from "firebase/auth";
+import { store } from '../store'
 
 const routes = [
   {
@@ -34,11 +35,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const auth = getAuth();
-  const authenticatedUser = auth.currentUser;
-  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-
-  if (requiresAuth && !authenticatedUser) {
+  const userSession = store.user
+  if (!userSession) {
     alert("Você não tem autorização para acessar essa tela, faça o login!");
     next("/login");
   } else {
