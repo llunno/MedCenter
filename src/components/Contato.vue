@@ -4,35 +4,37 @@
             <h2 class="mx-5">Contato</h2>
             <p class="mx-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </section>
-        <form @submit.prevent class="mx-auto">
-            <div class="row mb-5">
-                <label class="col-sm-2 col-form-label">Nome:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required>
+        <div id="container-form">
+            <form @submit.prevent class="mx-auto">
+                <div class="row mb-5">
+                    <label class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-5">
-                <label class="col-sm-2 col-form-label">E-mail:</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" required>
+                <div class="row mb-5">
+                    <label class="col-sm-2 col-form-label">E-mail:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-5">
-                <label class="col-sm-2 col-form-label">Telefone:</label>
-                <div class="col-sm-10">
-                    <input class="form-control" required>
+                <div class="row mb-5">
+                    <label class="col-sm-2 col-form-label">Telefone:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-5">
-                <label class="col-sm-2 col-form-label">Descrição:</label>
-                <div class="col-sm-10">
-                    <textarea class="form-control" required></textarea>
+                <div class="row mb-5">
+                    <label class="col-sm-2 col-form-label">Descrição:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" required></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="container-fluid mx-auto" id="containerBtn">
-                <button class="btn btn-success" id="sbmt-btn">Enviar</button>
-            </div>
-        </form>
+                <div class="container-fluid mx-auto" id="containerBtn">
+                    <button class="btn btn-success" id="sbmt-btn">Enviar</button>
+                </div>
+            </form>
+        </div>
     </section>
 </template>
 
@@ -55,6 +57,7 @@
 
     #container {
         padding-bottom: 4rem;
+
     }
 
     button {
@@ -73,6 +76,11 @@
         text-align: center;
         color: #395B59;
         text-decoration: underline;
+    }
+
+    #container-form {
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 
     form {

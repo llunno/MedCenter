@@ -1,7 +1,7 @@
 <template>
     <section class="container-fluid">
         <h2>Pacientes</h2>
-        <div class="d-flex flex-sm-wrap justify-content-sm-between align-content-center mx-5" id="divPacient">
+        <div class="d-flex flex-sm-wrap justify-content-sm-between align-items-center mx-5" id="divPacient">
             <div id="texto-paciente">
                 <h3 class="text-left">Nosso foco é saude</h3>
                 <p>
