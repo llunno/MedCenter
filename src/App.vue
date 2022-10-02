@@ -1,6 +1,8 @@
 <template>
+  <div id="app">
   <router-link to="/" aria-current="page"/>
   <router-view/>
+  </div>
 </template>
 
 <script>

@@ -1,55 +1,57 @@
 <template>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-nav">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
-          MedCenter
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a href="#produtos-component" class="nav-link">Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a href="#pacientes-component" class="nav-link">Pacientes</a>
-            </li>
-            <li class="nav-item">
-              <a href="#medicos-component" class="nav-link">Médicos</a>
-            </li>
-            <li class="nav-item">
-              <a href="#sobre-component" class="nav-link">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contato-component" class="nav-link">Contato</a>
-            </li>
-          </ul>
-          <div class="div-buttons">
-              <router-link class="btn btn-success text-light" to="/signup">Cadastre-se</router-link>
-              <router-link type="button" class="btn btn-success text-light" to="/login">Log-in</router-link>
+  <div class="main-page-container">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-fixed-top navbar-nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
+            MedCenter
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="#produtos-component" class="nav-link">Produtos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#pacientes-component" class="nav-link">Pacientes</a>
+              </li>
+              <li class="nav-item">
+                <a href="#medicos-component" class="nav-link">Médicos</a>
+              </li>
+              <li class="nav-item">
+                <a href="#sobre-component" class="nav-link">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contato-component" class="nav-link">Contato</a>
+              </li>
+            </ul>
+            <div class="div-buttons">
+                <router-link class="btn btn-success text-light" to="/signup">Cadastre-se</router-link>
+                <router-link type="button" class="btn btn-success text-light" to="/login">Log-in</router-link>
+            </div>
           </div>
         </div>
+      </nav>
+      <router-view/>
+      <div class="home">
+        <h1>Uma solução ideal para conectar necessidade e oportunidade</h1>
+        <h2>
+          <span class="span-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
+        </h2>
       </div>
-    </nav>
-    <router-view/>
-    <div class="home">
-      <h1>Uma solução ideal para conectar necessidade e oportunidade</h1>
-      <h2>
-        <span class="span-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-      </h2>
-    </div>
-  </header>
-  <main>
-    <produtos id="produtos-component"/>
-    <pacientes/>
-    <medicos/>
-    <sobre/>
-    <contato/>
-  </main>
+    </header>
+    <main>
+      <produtos id="produtos-component"/>
+      <pacientes/>
+      <medicos/>
+      <sobre/>
+      <contato/>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -105,6 +107,10 @@
     background-size: cover;
     width: 100%;
     background-repeat: no-repeat;
+  }
+
+  .main-page-container {
+    background-color: #eeee;
   }
 
   .home h1 {
