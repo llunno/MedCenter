@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -16,10 +15,6 @@ import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 
 import { initializeApp } from "firebase/app";
 
-// declarado mas nunca usado
-import { getAnalytics } from "firebase/analytics";
-
-// declarado mas nunca usado
 const firebaseConfig = {
   apiKey: "AIzaSyCN1WIQOQCiKK4dc8yu_3SdlAreLf36lbQ",
   authDomain: "infnet-at-front.firebaseapp.com",
@@ -33,10 +28,9 @@ const firebaseConfig = {
 //font-awesome
 library.add([faGooglePlay, faAppStore, faChevronCircleUp]);
 
-// declarado mas nunca usado
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
-createApp(App).use(store).use(router).use(VueGoogleMaps, {
+createApp(App).use(router).use(VueGoogleMaps, {
   load: {
       key: 'AIzaSyDGTj3uANtQSKlu4_-CSYTH0oAwU5qC8RY',
   },
