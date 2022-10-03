@@ -34,7 +34,7 @@
         <div class="button medium-btn" href="#">Acompanhar Status do Exame</div>
       </div>
       <div class="botoes mt-5">
-        <div class="button medium-btn">Consultar Clínicas Próximas</div>
+        <router-link type="button" class="button medium-btn" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
         <small-map />
       </div>
       <div class="botoes mt-5">
@@ -44,6 +44,7 @@
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
     </footer>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -76,7 +77,7 @@
       finally{
         alert("Logged Out")
       }
-    }
+    },
   }
 }
 </script>
