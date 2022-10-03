@@ -40,8 +40,7 @@ const router = createRouter({
 
  router.beforeEach((to,from,next) => {
    const { isLoggedIn } = useAuthUser();
-    if (!isLoggedIn() && to.meta.requiresAuth) {
-      alert("Você não tem autorização para acessar essa tela, faça o login!");
+    if (!isLoggedIn() && to.meta.requiresAuth) {      
       next("/login");
          } 
     else {

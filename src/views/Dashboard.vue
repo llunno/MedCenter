@@ -4,7 +4,9 @@
       <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
+            <router-link to="/">
+              <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>              
+            </router-link>    
             MedCenter
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,14 +16,14 @@
             <div class="container-fluid" id="formContainer">
               <form class="d-flex" role="search" @submit.prevent>
                 <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                <button class="btn btn-success" type="submit">Buscar</button>
+                <button class="btn btn-light btn-sm">Buscar</button>
               </form>
             </div>
             <div class="div-User d-flex align-items-center gap-2">
                 <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
                 <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
                   <!-- Provisório, favor fazer como preferirem -->
-                  <button @click="signOut">Sign-Out</button>
+                <button class="btn btn-light btn-sm" @click="signOut">Sign-Out</button>
             </div>
           </div>
         </div>
