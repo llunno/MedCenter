@@ -39,8 +39,7 @@
       <div class="home">
         <h1>Uma solução ideal para conectar necessidade e oportunidade</h1>
         <h2>
-          <span class="span-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
+          <span class="span-text">Considerando a necessidade de diversas pessoas para agendar uma colsulta ou exame à domicílio, oferecemos a você médico, a oportunidade de impulsionar a sua carreira e ser referência para a promoção e garantia do exercício ético da medicina</span>
         </h2>
       </div>
     </header>

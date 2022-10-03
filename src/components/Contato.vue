@@ -2,7 +2,7 @@
     <section id="container">
         <section class="container text-center">
             <h2 class="mx-5">Contato</h2>
-            <p class="mx-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="mx-5">Para dúvidas, reclamações, ouvidoria, elogios e sugestões. Nos envie uma mensagem abaixo, detalhando o fato.</p>
         </section>
         <div id="container-form">
             <form @submit.prevent class="mx-auto">

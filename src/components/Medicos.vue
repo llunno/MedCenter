@@ -6,7 +6,7 @@
             <div id="texto-paciente">
                 <h3 class="text-end">Te ajudamos a mostrar a qualidade do seu trabalho</h3>
                 <p class="text-end">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat”
+                Nós oferecemos uma oportunidade para os Médicos que procuram ganhar uma renda extra ou para aqueles que buscar fazer seu nome no mercado profissional.
                 </p>
             </div>
         </div>

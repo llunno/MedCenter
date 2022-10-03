@@ -1,25 +1,25 @@
 <template>
     <section class="container-fluid text-center">
         <h2 class="mx-5">Sobre</h2>
-        <p class="mx-5">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat”</p>
+        <p class="mx-5">"Somos uma empresa voltada para o atendimento do público, visando praticidade e facilidade, através de atendimento a domicílio, para suas consultas, exames e especialidades. </p>
         <article>
             <div class="d-flex justify-content-sm-center flex-wrap">
                 <div class="card m-2">
                     <div class="card-body">
                         <h5 class="card-title">Missão</h5>
-                        <p class="card-text">“Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat”</p>
+                        <p class="card-text">Prover soluções cada vez mais completas e integradas para a gestão da saúde e o bem-estar das pessoas, com excelência, humanidade e sustentabilidade.</p>
                     </div>
                 </div>
                 <div class="card m-2">
                     <div class="card-body">
                         <h5 class="card-title">Visão</h5>
-                        <p class="card-text">“Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat”</p>
+                        <p class="card-text">Ser referência para a promoção e garantia do exercício ético da medicina, da valorização e dignidade profissional do médico, tendo por princípio a melhoria das condições de vida e saúde da sociedade.</p>
                     </div>
                 </div>
                 <div class="card m-2">
                     <div class="card-body">
                         <h5 class="card-title">Valores</h5>
-                        <p class="card-text">“Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exerci ex ea commodo consequat”</p>
+                        <p class="card-text">Ética, justiça, equidade, sustentabilidade, credibilidade, comprometimento com o cliente e interesse público.</p>
                     </div>
                 </div>
             </div>

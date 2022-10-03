@@ -1,4 +1,3 @@
-<!-- Não implementado ainda, sugestão de utilização na tela de clínicas próximas -->
 <template>
   <div class="conteudo">
     <div class="botoes mt-5">

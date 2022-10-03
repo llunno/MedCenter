@@ -1,3 +1,4 @@
+<!-- Não implementado ainda, sugestão de utilização na tela de clínicas próximas -->
 <template>
     <div>
       <h1 style="text-align: center">Google Maps</h1>

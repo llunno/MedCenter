@@ -5,7 +5,7 @@
             <div id="texto-paciente">
                 <h3 class="text-left">Nosso foco é saude</h3>
                 <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat”
+                    Pensando nos pacientes com dificuldade de locomoção ou falta de tempo em se deslocar até um consultório médico para uma consulta ou exame, oferecemos a praticidade de realização deste serviço em sua residência ou local de preferência.
                 </p>
             </div>
             <img src="@/assets/pacientes.jpg" alt="imagem de estetoscópio" class="img-fluid">
