@@ -1,43 +1,39 @@
 <template>
   <div id="containerAll">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
-              MedCenter
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse">
-              <div class="container-fluid" id="formContainer">
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                  <button class="btn btn-success" type="submit">Buscar</button>
-                </form>
-              </div>
-              <div class="div-User d-flex align-items-center gap-2">
-                  <p class="m-0">User Name</p>
-                  <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
-              </div>
+      <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
+            MedCenter
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse">
+            <div class="container-fluid" id="formContainer">
+              <form class="d-flex" role="search" @submit.prevent>
+                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-success" type="submit">Buscar</button>
+              </form>
+            </div>
+            <div class="div-User d-flex align-items-center gap-2">
+                <p class="m-0">User Name</p>
+                <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
             </div>
           </div>
-        </nav>
-      </header>
-    <div class="container-fluid">
-      <div class="botoes mt-5">
-        <div class="button medium-btn" href="#">Minhas Consultas</div>
-        <div class="button medium-btn" href="#">Agendar Nova Consulta</div>
-        <div class="button medium-btn" href="#">Acompanhar Status do Exame</div>
-      </div>
-      <div class="botoes mt-5">
-        <div class="button medium-btn">Consultar Clínicas Próximas</div>
-        <small-map />
-      </div>
-      <div class="botoes mt-5">
-        <div class="button medium-btn" href="#">Atualização Cadastral</div>
-      </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mb-auto mt-auto" id="containerMainContent">
+        <div class="button medium-btn cel cel-1" href="#">Minhas Consultas</div>
+        <div class="button medium-btn cel cel-2" href="#">Agendar Nova Consulta</div>
+        <div class="button medium-btn cel cel-3" href="#">Acompanhar Status do Exame</div>
+        <div class="button medium-btn cel cel-4">Consultar Clínicas Próximas</div>
+        <div class="button medium-btn cel cel-5" href="#">Atualização Cadastral</div>
+        <div class="cel cel-6">
+          <small-map id="mapsGoogle"/>
+        </div>
     </div>
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -69,13 +65,66 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(@/assets/backgroundDashboard.png);
-    background-attachment: scroll;
-    background-size: cover;
+    overflow: auto;
+    position: relative;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+
+      display: block;
+      background-image: url(@/assets/backgroundDashboard.png);
+      background-size:cover;
+      width: 100%;
+      height: 100%;
+
+      -webkit-filter: blur(2px);
+      -moz-filter: blur(2px);
+      -o-filter: blur(2px);
+      -ms-filter: blur(2px);
+      filter: blur(2px);
+    }
+
+    #containerMainContent {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 50%;
+      align-items: center;
+      grid-gap: 1rem;
+      justify-content: center;
+      text-align: center;
+
+      .cel {
+        margin: 0;
+      }
+
+      .cel-5 {
+        grid-column: 1;
+      }
+
+      .cel-6 {
+        grid-column: 2/4;
+        grid-row: 2/5;
+        width: 100%;
+        box-shadow: 1px 1px 1px black;
+
+        #mapsGoogle {
+          width: 10%;
+          height: 100%;
+        }
+      }
+    }
   }
 
   footer {
-    margin-top: auto;
+    margin-top: 0;
   }
 
   .div-User {
@@ -116,7 +165,6 @@
     background-color: #008894;
     color: #FFFFFF;
     cursor: pointer;
-    margin: 10px;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
