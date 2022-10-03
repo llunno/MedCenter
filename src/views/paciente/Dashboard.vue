@@ -28,14 +28,14 @@
       </nav>
     </header>
     <div class="container mb-auto mt-auto" id="containerMainContent">
-        <div class="button medium-btn cel cel-1" href="#">Minhas Consultas</div>
-        <div class="button medium-btn cel cel-2" href="#">Agendar Nova Consulta</div>
-        <div class="button medium-btn cel cel-3" href="#">Acompanhar Status do Exame</div>
-        <router-link type="button" class="button medium-btn cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
-        <div class="button medium-btn cel cel-5" href="#">Atualização Cadastral</div>
-        <div class="cel cel-6">
-          <small-map id="mapsGoogle"/>
-        </div>
+      <router-link type="button" class="button medium-btn cel cel-1" to="/consultaspaciente">Minhas Consultas</router-link>
+      <router-link type="button" class="button medium-btn cel cel-2" to="/novaconsulta">Agendar Nova Consulta</router-link>
+      <router-link type="button" class="button medium-btn cel cel-3" to="/consultarstatus">Acompanhar Status do Exame</router-link>
+      <router-link type="button" class="button medium-btn cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
+      <router-link type="button" class="button medium-btn cel cel-5" to="/atualizarcadastro">Atualização Cadastral</router-link>
+      <div class="cel cel-6">
+        <small-map id="mapsGoogle"/>
+      </div>
     </div>
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-  import SmallMap from '../components/SmallMap.vue'
+  import SmallMap from '../../components/SmallMap.vue'
   import useAuthUser from '@/useAuthUser';
 
   const { logout, user } = useAuthUser();
@@ -82,7 +82,7 @@
 
   $success: #395B59;
 
-  @import "../../node_modules/bootstrap/scss/bootstrap";
+  @import "../../../node_modules/bootstrap/scss/bootstrap";
 
   header, div, footer {
     font-family: 'Montserrat', sans-serif;

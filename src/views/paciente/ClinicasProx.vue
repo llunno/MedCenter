@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import Locations from '../components/Locations.vue'
-import GoogleMap from '../components/GoogleMap.vue'
+import Locations from '../../components/Locations.vue'
+import GoogleMap from '../../components/GoogleMap.vue'
 import useAuthUser from '@/useAuthUser';
 
 const { logout, user } = useAuthUser()
@@ -73,7 +73,7 @@ export default {
 <style scoped lang="scss">
   $success: #395B59;
 
-  @import "../../node_modules/bootstrap/scss/bootstrap";
+  @import "../../../node_modules/bootstrap/scss/bootstrap";
 
   header, div, footer {
     font-family: 'Montserrat', sans-serif;
