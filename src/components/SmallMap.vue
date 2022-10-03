@@ -3,7 +3,7 @@
         :center="center"
         :zoom="7"
         map-type-id="terrain"
-        style="width: 500px; height: 300px"
+        style="width: 100%; height: 100%;"
     >
       <GMapCluster>
         <GMapMarker
@@ -39,5 +39,7 @@
   <style>
     .mapa {
       display: inline-block;
+      width: 100%;
+      height: 100%;
     }
   </style>

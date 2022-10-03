@@ -21,7 +21,7 @@
                 <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
                 <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
                   <!-- Provisório, favor fazer como preferirem -->
-                  <button @click="signOut">Sign-Out</button>
+                  <button @click="signOut" class="btn" id="signout-btn">Sign-Out</button>
             </div>
           </div>
         </div>
@@ -88,6 +88,12 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  #signout-btn {
+    color: rgb(236, 236, 236);
+    font-size: 0.7rem;
+    text-decoration: underline;
+  }
+
   #containerAll {
     min-height: 100vh;
     display: flex;
@@ -140,12 +146,8 @@
         grid-column: 2/4;
         grid-row: 2/5;
         width: 100%;
-        box-shadow: 1px 1px 1px black;
-
-        #mapsGoogle {
-          width: 10%;
-          height: 100%;
-        }
+        height: 100%;
+        border: 3px solid #008894;
       }
     }
   }
