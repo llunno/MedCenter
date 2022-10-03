@@ -23,6 +23,7 @@
                 <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
                 <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
                   <!-- Provisório, favor fazer como preferirem -->
+
                 <button class="btn btn-light btn-sm" @click="signOut">Sign-Out</button>
             </div>
           </div>
@@ -30,23 +31,24 @@
       </nav>
     </header>
     <div class="container mb-auto mt-auto" id="containerMainContent">
-        <div class="button medium-btn cel cel-1" href="#">Minhas Consultas</div>
-        <div class="button medium-btn cel cel-2" href="#">Agendar Nova Consulta</div>
-        <div class="button medium-btn cel cel-3" href="#">Acompanhar Status do Exame</div>
-        <div class="button medium-btn cel cel-4">Consultar Clínicas Próximas</div>
-        <div class="button medium-btn cel cel-5" href="#">Atualização Cadastral</div>
-        <div class="cel cel-6">
-          <small-map id="mapsGoogle"/>
-        </div>
+      <router-link type="button" class="button medium-btn cel cel-1" to="/consultaspaciente">Minhas Consultas</router-link>
+      <router-link type="button" class="button medium-btn cel cel-2" to="/novaconsulta">Agendar Nova Consulta</router-link>
+      <router-link type="button" class="button medium-btn cel cel-3" to="/consultarstatus">Acompanhar Status do Exame</router-link>
+      <router-link type="button" class="button medium-btn cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
+      <router-link type="button" class="button medium-btn cel cel-5" to="/atualizarcadastro">Atualização Cadastral</router-link>
+      <div class="cel cel-6">
+        <small-map id="mapsGoogle"/>
+      </div>
     </div>
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
     </footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import SmallMap from '../components/SmallMap.vue'
+  import SmallMap from '../../components/SmallMap.vue'
   import useAuthUser from '@/useAuthUser';
 
   const { logout, user } = useAuthUser();
@@ -74,7 +76,7 @@
       finally{
         alert("Logged Out")
       }
-    }
+    },
   }
 }
 </script>
@@ -83,10 +85,16 @@
 
   $success: #395B59;
 
-  @import "../../node_modules/bootstrap/scss/bootstrap";
+  @import "../../../node_modules/bootstrap/scss/bootstrap";
 
   header, div, footer {
     font-family: 'Montserrat', sans-serif;
+  }
+
+  #signout-btn {
+    color: rgb(236, 236, 236);
+    font-size: 0.7rem;
+    text-decoration: underline;
   }
 
   #containerAll {
@@ -141,12 +149,8 @@
         grid-column: 2/4;
         grid-row: 2/5;
         width: 100%;
-        box-shadow: 1px 1px 1px black;
-
-        #mapsGoogle {
-          width: 10%;
-          height: 100%;
-        }
+        height: 100%;
+        border: 3px solid #008894;
       }
     }
   }

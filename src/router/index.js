@@ -21,7 +21,31 @@ const routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: () => import("../views/Dashboard.vue"),
+    component: () => import("../views/paciente/Dashboard.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/consultaspaciente",
+    name: "ConsultasPaciente",
+    component: () => import("../views/paciente/ConsultasPaciente.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/novaconsulta",
+    name: "NovaConsulta",
+    component: () => import("../views/paciente/NovaConsulta.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/consultarstatus",
+    name: "ConsultarStatus",
+    component: () => import("../views/paciente/ConsultarStatus.vue"),
     meta: {
       requiresAuth: true
     }
@@ -29,7 +53,18 @@ const routes = [
   {
     path: "/clinicasprox",
     name: "ClinicasProx",
-    component: () => import("../views/ClinicasProx.vue")
+    component: () => import("../views/paciente/ClinicasProx.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/atualizarcadastro",
+    name: "AtualizarCadastro",
+    component: () => import("../views/paciente/AtualizarCadastro.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 
