@@ -95,7 +95,6 @@
   import Contato from "@/components/Contato";
 
   export default {
-    
   name: 'app',
   components: {
     produtos: Produtos,
@@ -104,13 +103,25 @@
     sobre: Sobre,
     contato: Contato
   },
+  mounted() {
+    window.onscroll = () => {
+      this.showScroll();
+    }
+  },
   methods: {
     scrollBack: function() {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       })
-      console.log(this.scrollNumber)
+    },
+    showScroll() {
+      const scrollBtn = document.querySelector('#rollback-btn');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
     }
   }
 
@@ -255,6 +266,7 @@
     border-radius: 100px;
     border: none;
     box-shadow: 5px 5px  10px rgba(0, 0, 0, 0.452);
+    display: none;
   }
 
   #rollback-btn:hover {
