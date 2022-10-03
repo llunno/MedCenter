@@ -29,7 +29,11 @@
   </div>
 </template>
 <script>
-import { supabase } from '../supabase'
+import useAuthUser from '@/useAuthUser';
+
+
+const {login, loginWithSocialProvider} = useAuthUser();
+
 export default {
   name: "Login",    
   data() {
@@ -45,15 +49,13 @@ export default {
   methods: {
     async supabaseLogin(){
       try {
-          this.loading = true
-          const { error } = await supabase.auth.signIn({ email: this.email,password: this.password })
-        } catch (error) {
+          await login({ email: this.email,password: this.password });
+          this.$router.replace("dashboard");
+        } 
+      catch (error) {
           alert(error.error_description || error.message)
           this.errorMessage = error.message;
-        } finally {
-          this.loading = false
-          this.$router.replace("dashboard");
-        }
+        } 
     },
   },
 };

@@ -8,31 +8,26 @@
 <script>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router"
+import useAuthUser from "./useAuthUser";
 
 export default {
   name: 'app'
 }
 
 const router = useRouter();
-const isLoggedIn = ref(false);
 
-let auth;
-onMounted(() => {
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      isLoggedIn.value = true;
-    } else {
-      isLoggedIn.value = false;
-    }
-  });
-});
 
-const handleSignOut = () => {
-  signOut(auth).then(() => {
-    router.push("/");
-  })
-}
+//  const {isLoggedIn} = useAuthUser();
+//  const auth = ref(false);
+//  onMounted(() => {
+//    auth = isLoggedIn;
+//  });
+
+// const handleSignOut = () => {
+//   signOut(auth).then(() => {
+//     router.push("/");
+//   })
+// }
 
 </script>
 

@@ -24,8 +24,8 @@
 </template>
 
 <script>
-
-import { supabase } from '../supabase'
+import useAuthUser from '@/useAuthUser';
+const {register} = useAuthUser();
 export default {
     data() {
         return {
@@ -55,10 +55,9 @@ export default {
       async supabaseSignUp(){
       try {
           this.loading = true
-          const { user, session, error } = await supabase.auth.signUp(
-            { email: this.email,password: this.password },
-            {
-              data: {
+          await register({ 
+                email: this.email,
+                password: this.password,
                 medico: this.medico,
                 nome: this.nome,
                 sobrenome: this.sobrenome,
@@ -72,16 +71,14 @@ export default {
                 cep:this.cep,
                 crm:this.crm,
                 ufemissao: this.ufemissao,
-                }
-            }
-            )
+                })
+          this.successMessage = "Register Sucessfully"
+          this.$router.replace("/login");
         } catch (error) {
           alert(error.error_description || error.message)
           this.errorMessage = error.message;
         } finally {
           this.loading = false
-          this.successMessage = "Register Sucessfully"
-          this.$router.replace("dashboard");
         }
     }
   }
