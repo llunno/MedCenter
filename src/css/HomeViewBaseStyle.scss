@@ -1,0 +1,132 @@
+#logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  a { 
+    color: black;
+  }
+
+  .div-buttons {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-item {
+    font-weight: bold;
+    color: black;
+  }
+
+  header {
+    background-image: url(@/assets/doctor.jpg);
+    font-family: 'Montserrat', sans-serif;
+    height: 62rem;
+    background-attachment: scroll;
+    background-size:cover;
+    width: 100%;
+    background-repeat: no-repeat;
+
+    h1,h2 {
+      font-weight: bold;
+      margin-top: 100px;
+      margin-left: 60px;
+      max-width: 50%;
+      color: #FFF;
+      text-shadow: black 0.1em 0.1em 0.2em;
+      line-height: 1.5;
+    }
+  }
+
+  .main-page-container {
+    background-color: #eeee;
+  }
+
+  .home h1 {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    margin: 150px 50px 10px;
+
+  }
+
+  .home h2 {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 50px;
+  }
+
+  footer {
+    background-color: #395B59;
+    margin-top: 4.4rem;
+    padding: 4rem;
+    padding-top: 4.4rem;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    ul {
+
+      li {
+        line-height: 2.4;
+      }
+    }
+
+    #section-legal {
+      max-width: 30%;
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+    }
+
+    #gplay, #apple-store {
+      border-radius: 4rem;
+      background-color: rgba(0, 0, 0, 0.329);
+      max-width: 8rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+      
+    }
+
+    #icon-gplay, #icon-apple{
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 0.75rem;
+      }
+    }
+
+    #faqc{
+      font-weight: bold;
+    }
+  }
+
+  #rollback-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+    z-index: 99;
+    cursor: pointer;
+    outline: none;
+    font-size: 3.5rem;
+    color: #395B59;
+    background-color: rgba(255, 255, 255, 0.596);
+    border-radius: 100px;
+    border: none;
+    box-shadow: 5px 5px  10px rgba(0, 0, 0, 0.452);
+  }
+
+  #rollback-btn:hover {
+    color: #2f4b49;
+  }

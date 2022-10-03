@@ -1,7 +1,7 @@
 <template>
   <div class="main-page-container">
     <header>
-      <nav class="navbar navbar-expand-md navbar-fixed-top navbar-nav" id="navElement">
+      <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" id="navElement">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
@@ -83,7 +83,7 @@
         <p>Copyright</p>
       </section>
     </footer>
-    <font-awesome-icon @click="scrollBack" id="rollback-btn" icon="fa-solid fa-circle-chevron-up"/>
+    <font-awesome-icon @click="scrollBack" id="rollback-btn" v-show="shouldShow" icon="fa-solid fa-circle-chevron-up"/>
   </div>
 </template>
 
@@ -103,6 +103,11 @@
     sobre: Sobre,
     contato: Contato
   },
+  data() {
+    return {
+      shouldShow: false,
+    }
+  },
   mounted() {
     window.onscroll = () => {
       this.showScroll();
@@ -116,160 +121,82 @@
       })
     },
     showScroll() {
-      const scrollBtn = document.querySelector('#rollback-btn');
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
+        this.shouldShow = true;
       } else {
-        scrollBtn.style.display = "none";
+        this.shouldShow = false;
       }
     }
   }
-
 }
 </script>
 
 <style scoped lang="scss">
 
-  #scrollNumber {
-    position: fixed;
-  }
-
   $primary: rgba(58, 58, 58, 0.329);
   $success: #008894;
 
   @import "../../node_modules/bootstrap/scss/bootstrap";
+  @import "@/css/HomeViewBaseStyle.scss";
 
-  #logo {
-    width: 40px;
-    height: 40px;
-  }
-
-  a { 
-    color: black;
-  }
-
-  .div-buttons {
-    flex-wrap: wrap;
-    display: flex;
-    gap: 1rem;
-  }
-
-  .nav-item {
-    font-weight: bold;
-    color: black;
-  }
-
-  header {
-    background-image: url(@/assets/doctor.jpg);
-    font-family: 'Montserrat', sans-serif;
-    height: 62rem;
-    background-attachment: scroll;
-    background-size: cover;
-    width: 100%;
-    background-repeat: no-repeat;
-
-    h1,h2 {
-      font-weight: bold;
-      margin-top: 100px;
-      margin-left: 60px;
-      max-width: 50%;
-      color: #FFF;
-      text-shadow: black 0.1em 0.1em 0.2em;
-      line-height: 1.5;
+  @media(max-width: 970px) {
+    .home * {
+      max-width: 75%;
     }
   }
 
-  .main-page-container {
-    background-color: #eeee;
+  @media(max-width: 903px) {
+    .home * {
+      text-align: center !important;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      line-height: 2;
+    }
+
+    .home h1 {
+      margin-bottom: 4rem;
+    }
   }
 
-  .home h1 {
-    text-align: left;
-    align-items: center;
-    justify-content: center;
-    margin: 150px 50px 10px;
+  @media(max-width: 830px) {
+    footer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
 
-  }
+      #section-legal {
+        max-width: 100%;
+        text-align: center;
+      }
 
-  .home h2 {
-    text-align: left;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 50px;
-  }
+      #section-contatos {
+        text-align: center;
+        max-width: 100%;
 
-  footer {
-    background-color: #395B59;
-    margin-top: 4.4rem;
-    padding: 4rem;
-    padding-top: 4.4rem;
-    padding-bottom: 3rem;
-    display: flex;
-    justify-content: space-between;
-    color: white;
+        ul {
+          list-style: none;
+          padding-left: 0;
+        }
+      }
 
-    ul {
-
-      li {
-        line-height: 2.4;
+      #faqc{
+        text-align: center !important;
       }
     }
+  }
 
-    #section-legal {
-      max-width: 30%;
-
-      ul {
-        list-style: none;
-        padding-left: 0;
-      }
-    }
-
-    #gplay, #apple-store {
-      border-radius: 4rem;
-      background-color: rgba(0, 0, 0, 0.329);
-      max-width: 8rem;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 0.7rem;
-      padding-bottom: 0.7rem;
-      
-    }
-
-    #icon-gplay, #icon-apple{
-      margin: 0;
-      padding: 0;
-    }
-
-    div {
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 0.75rem;
-      }
-    }
-
-    #faqc{
-      font-weight: bold;
+  @media(max-width: 553px) {
+    .home * {
+      font-size: 1.5rem;
     }
   }
 
-  #rollback-btn {
-    position: fixed;
-    right: 30px;
-    bottom: 20px;
-    z-index: 99;
-    cursor: pointer;
-    outline: none;
-    font-size: 3.5rem;
-    color: #395B59;
-    background-color: rgba(255, 255, 255, 0.596);
-    border-radius: 100px;
-    border: none;
-    box-shadow: 5px 5px  10px rgba(0, 0, 0, 0.452);
-    display: none;
-  }
-
-  #rollback-btn:hover {
-    color: #2f4b49;
+  @media(max-width: 553px) {
+    .home * {
+      font-size: 1.25rem;
+    }
   }
 </style>

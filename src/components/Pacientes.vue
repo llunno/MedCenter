@@ -48,4 +48,20 @@
         font-size: 24px;
     }
 
+    @media(max-width: 1172px) {
+        #divPacient {
+            flex-direction: column;
+            text-align: center;
+
+            #texto-paciente {
+                max-width: 100%;
+                line-height: 2;
+            }
+
+            img {
+                max-width: 80%;
+            }
+        }
+    }
+
 </style>
