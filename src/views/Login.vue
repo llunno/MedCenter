@@ -18,7 +18,7 @@
             </div>
             <hr class="my-4">
             <div class="d-grid mb-2">
-              <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit" @click="signInWithGoogle" >
+              <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit" @click="loginGoogle" >
                 <i class="fab fa-google me-2"></i> Sign in with Google
               </button>
             </div>
@@ -50,6 +50,16 @@ export default {
     async supabaseLogin(){
       try {
           await login({ email: this.email,password: this.password });
+           this.$router.replace("dashboard");
+        } 
+      catch (error) {
+          alert(error.error_description || error.message)
+          this.errorMessage = error.message;
+        } 
+    },
+    async loginGoogle(){
+      try {
+          await loginWithSocialProvider("google");
           this.$router.replace("dashboard");
         } 
       catch (error) {
