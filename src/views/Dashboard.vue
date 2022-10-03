@@ -18,8 +18,10 @@
                 </form>
               </div>
               <div class="div-User d-flex align-items-center gap-2">
-                  <p class="m-0">User Name</p>
+                  <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
                   <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
+                  <!-- Provisório, favor fazer como preferirem -->
+                  <button @click="signOut">Sign-Out</button>
               </div>
             </div>
           </div>
@@ -47,10 +49,34 @@
 
 <script>
   import SmallMap from '../components/SmallMap.vue'
+  import useAuthUser from '@/useAuthUser';
+
+  const { logout, user } = useAuthUser();
+
   export default {
   name: 'App',
   components: {
     SmallMap
+  },
+  data() {
+    return {
+      user
+    };
+  },
+  methods: {
+    async signOut(){
+      try{
+        await logout();
+        this.$router.replace("/");
+      }
+      catch{
+        alert(error.error_description || error.message)
+        this.errorMessage = error.message;
+      }
+      finally{
+        alert("Logged Out")
+      }
+    }
   }
 }
 </script>

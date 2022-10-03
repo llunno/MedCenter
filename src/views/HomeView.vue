@@ -28,9 +28,15 @@
                 <a href="#contato-component" class="nav-link">Contato</a>
               </li>
             </ul>
-            <div class="div-buttons">
-                <router-link class="btn btn-success text-light" to="/signup">Cadastre-se</router-link>
-                <router-link type="button" class="btn btn-success text-light" to="/login">Log-in</router-link>
+            <div>
+              <div class="div-buttons" v-if="!logado" >
+                <router-link class="btn btn-success text-light" to="/signup" >Cadastre-se</router-link>
+                <router-link type="button" class="btn btn-success text-light" to="/login" >Log-in</router-link>
+              </div>
+              <div class="div-buttons" v-else>
+                <router-link class="btn btn-success text-light" to="/dashboard" >Dashboard</router-link>
+                <button @click="signOut" class="btn btn-success text-light">Log-out</button>
+              </div>
             </div>
           </div>
         </div>
@@ -93,7 +99,11 @@
   import Medicos from "@/components/Medicos";
   import Sobre from "@/components/Sobre";
   import Contato from "@/components/Contato";
+  import useAuthUser from '@/useAuthUser';
 
+  const { logout, isLoggedIn, user, session } = useAuthUser();
+
+  let logado = isLoggedIn()
   export default {
   name: 'app',
   components: {
@@ -106,12 +116,14 @@
   data() {
     return {
       shouldShow: false,
+      logado
     }
   },
   mounted() {
     window.onscroll = () => {
       this.showScroll();
     }
+    this.logado = isLoggedIn()
   },
   methods: {
     scrollBack: function() {
@@ -126,7 +138,32 @@
       } else {
         this.shouldShow = false;
       }
-    }
+    },
+    async signOut(){
+      try{
+        await logout();
+        this.$router.go();
+      }
+      catch{
+        alert(error.error_description || error.message)
+        this.errorMessage = error.message;
+      }
+    },
+    // função teste user
+    // getUser(){
+    //   if (user){
+    //     alert(user.value.email)
+    //     console.log(user.value.email)
+    //     if (isLoggedIn){
+    //       console.log("logado")
+    //     }
+    //     else{
+    //       console.log("não")
+    //     }
+    //   }else{
+    //     alert("Dont have user")
+    //   }
+    // }
   }
 }
 </script>

@@ -14,24 +14,12 @@ import { faAppStore } from '@fortawesome/free-brands-svg-icons'
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCN1WIQOQCiKK4dc8yu_3SdlAreLf36lbQ",
-  authDomain: "infnet-at-front.firebaseapp.com",
-  projectId: "infnet-at-front",
-  storageBucket: "infnet-at-front.appspot.com",
-  messagingSenderId: "342341795836",
-  appId: "1:342341795836:web:e9acc183d3f3fcde4a7c79",
-  measurementId: "G-LBZBTVYDCC"
-};
-
 //font-awesome
 library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle]);
 
-initializeApp(firebaseConfig);
-
-createApp(App).use(router).use(VueGoogleMaps, {
+createApp(App)
+.use(router)
+.use(VueGoogleMaps, {
   load: {
       key: 'AIzaSyDGTj3uANtQSKlu4_-CSYTH0oAwU5qC8RY',
   },
