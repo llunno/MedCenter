@@ -10,6 +10,10 @@ supabase.auth.onAuthStateChange((event, session) => {
   const { user } = useAuthUser();
   user.value = session?.user || null;
   //console.log(event, session)
+
+  if (event == 'SIGNED_IN'){
+    
+  }
 });
 
 
