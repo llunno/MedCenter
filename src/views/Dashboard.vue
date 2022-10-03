@@ -1,20 +1,47 @@
 <template>
-  <div class="conteudo">
-    <div class="botoes mt-5">
-      <div class="button medium-btn" href="#">Minhas Consultas</div>
-      <div class="button medium-btn" href="#">Agendar Nova Consulta</div>
-      <div class="button medium-btn" href="#">Acompanhar Status do Exame</div>
+  <div id="containerAll">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
+              MedCenter
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <div class="container-fluid" id="formContainer">
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                  <button class="btn btn-success" type="submit">Buscar</button>
+                </form>
+              </div>
+              <div class="div-User d-flex align-items-center gap-2">
+                  <p class="m-0">User Name</p>
+                  <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <div class="container-fluid">
+      <div class="botoes mt-5">
+        <div class="button medium-btn" href="#">Minhas Consultas</div>
+        <div class="button medium-btn" href="#">Agendar Nova Consulta</div>
+        <div class="button medium-btn" href="#">Acompanhar Status do Exame</div>
+      </div>
+      <div class="botoes mt-5">
+        <div class="button medium-btn">Consultar Clínicas Próximas</div>
+        <small-map />
+      </div>
+      <div class="botoes mt-5">
+        <div class="button medium-btn" href="#">Atualização Cadastral</div>
+      </div>
     </div>
-    <div class="botoes mt-5">
-      <div class="button medium-btn">Consultar Clínicas Próximas</div>
-      <small-map />
-    </div>
-    <div class="botoes mt-5">
-      <div class="button medium-btn" href="#">Atualização Cadastral</div>
-    </div>
-  </div>
-    <div class="footer-dashboard">
-    <p>Sistema para Médicos &copy; 2022</p>
+    <footer class="footer-dashboard">
+      <p class="m-0">Sistema para Médicos &copy; 2022</p>
+    </footer>
   </div>
 </template>
 
@@ -28,7 +55,48 @@
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+
+  $success: #395B59;
+
+  @import "../../node_modules/bootstrap/scss/bootstrap";
+
+  header, div, footer {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #containerAll {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(@/assets/backgroundDashboard.png);
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  footer {
+    margin-top: auto;
+  }
+
+  .div-User {
+    #userIcon {
+      font-size: 2.4rem;
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  #formContainer {
+    max-width: 50%;
+
+    form * {
+      border-radius: 0;
+    }
+  }
+
   .minhas-consultas {
     display: inline-block;
     cursor: pointer;

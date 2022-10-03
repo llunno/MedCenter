@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGooglePlay } from '@fortawesome/free-brands-svg-icons'
 import { faAppStore } from '@fortawesome/free-brands-svg-icons'
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 import { initializeApp } from "firebase/app";
 
@@ -26,7 +27,7 @@ const firebaseConfig = {
 };
 
 //font-awesome
-library.add([faGooglePlay, faAppStore, faChevronCircleUp]);
+library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle]);
 
 initializeApp(firebaseConfig);
 
