@@ -8,7 +8,16 @@
     </main>
     <routerview/>
 </template>
+<script>
+export default {
+    name: 'App',
+    data() {
+    return {
+    };
+    },
+    }
 
+    </script>
 <style lang="scss" scoped>
     main {
         position: absolute;

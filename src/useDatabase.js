@@ -1,16 +1,17 @@
 import useSupabase from './supabase'
 import useAuthUser from './useAuthUser'
 import { ref } from "vue";
-const novaConsulta = ref({
+const {user} = useAuthUser();
+let novaConsulta = ref({
   consulta: "",
   hora_de: "",
   hora_ate: "",
-  pagamento: ""
+  pagamento: "",
+  usuario: user.value.id
 });
 export default function useDatabase() {
 
   const {supabase} = useSupabase();
-  const {user} = useAuthUser();
 
   const fetchConsultaMedico =  async () => {
     const { data, error } = await supabase
@@ -35,18 +36,18 @@ export default function useDatabase() {
       return data;
   };
   const insertConsulta = async () =>{
-    // const {data,error} = await supabase
-    // .from('consultas')
-    // .insert([novaConsulta])
-    // if(error) throw error;
-    // novaConsulta = ref({
-    //   consulta: "",
-    //   hora_de: "",
-    //   hora_ate: "",
-    //   pagamento: ""
-    // });
-    // return data;
-    console.log(novaConsulta.value)
+     const {data,error} = await supabase
+     .from('consultas')
+     .insert([novaConsulta.value])
+     if(error) throw error;
+     novaConsulta = ref({
+       consulta: "",
+       hora_de: "",
+       hora_ate: "",
+       pagamento: "",
+       usuario: user.value.id
+     });
+     return data;
   }
 
   

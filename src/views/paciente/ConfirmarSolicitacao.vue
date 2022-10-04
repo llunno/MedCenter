@@ -74,7 +74,7 @@
         async confirmar() {
           try{
             await insertConsulta();
-            // this.$router.replace("/solicitacaoefetuada");
+            this.$router.replace("/solicitacaoefetuada");
           }
           catch(error){
             alert(error.error_description || error.message)
