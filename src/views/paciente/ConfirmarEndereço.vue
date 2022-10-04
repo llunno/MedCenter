@@ -32,6 +32,7 @@
 		</section>
 		<router-link class="btn btn-primary mb-4" to="/confirmarpagamento">Confirmar</router-link>
 	</main>
+	<router-view/>
 </template>
 
 <styles lang="scss" scoped>

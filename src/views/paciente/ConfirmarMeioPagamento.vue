@@ -1,7 +1,7 @@
 <template>
     <main class="d-flex flex-column justify-content-center align-items-center gap-3 text-center">
         <h2>Confirme o meio de pagamento</h2>
-        <button class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item">{{item}}</button>
+        <router-link class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" to="/confirmarsolicitacao">{{item}}</router-link>
     </main>
 </template>
 
@@ -25,7 +25,7 @@
         font-family: "Montserrat", sans-serif;
     }
 
-    button {
+    .btn {
         color: white !important;
         width: 35rem;
         border-radius: 0 !important;
