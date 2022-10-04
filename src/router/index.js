@@ -83,6 +83,14 @@ const routes = [
     }
   },
   {
+    path: "/confirmarsolicitacao",
+    name: "ConfirmarSolicitacao",
+    component: () => import("../views/paciente/ConfirmarSolicitacao.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: "/consultarsolicitacoes",
     name: "ConsultarSolicitacoes",
     component: () => import("../views/paciente/ConsultarSolicitacoes.vue"),

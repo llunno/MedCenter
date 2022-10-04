@@ -39,13 +39,13 @@
 		</header>
       <div class="container-fluid mb-auto mt-auto d-flex flex-column" id="containerMainContent">
         <h2 class="titulo">Selecione o tipo de consulta que deseja:</h2>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Coleta de sangue</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Exame geral</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Exame dermatológico</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">ASO (Atestado de Saúde Ocupacional)</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Vacinação</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Fisioterapia</router-link>
-        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Nutricionista</router-link>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
       </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -58,7 +58,7 @@ import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
-const { fetchConsultaMedico } = useDatabase();
+const { novaConsulta } = useDatabase();
 
 export default {
   name: 'App',
@@ -81,16 +81,18 @@ export default {
         alert("Logged Out")
       }
     },
-    async test() {
+    selectConsulta(consulta) {
       try{
-        const data = await fetchConsultaMedico();   
-        console.log(data);     
+        novaConsulta.value.consulta = consulta ;
+        console.log(novaConsulta.value);
+        this.$router.replace("/confirmarendereço");
       }
-      catch{
+      catch(error){
         alert(error.error_description || error.message)
         console.log(error)
       }
     },
+
   }
 }
 </script>
