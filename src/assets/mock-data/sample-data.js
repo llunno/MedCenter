@@ -38,21 +38,21 @@ export const sampleData = [{
 	]
 }, {
 	id: 3,
-	name: 'Clems Carwash',
+	name: 'Clínica Rio de Janeiro Duque de Caxias',
 	location: {
-		lat: 42.367793,
-		lon: -71.081200
+		lat: -22.78,
+		lon: -43.31
 	}
 },
  {
 	id: 4,
-	name: 'Pets Plus',
+	name: 'Clinipae',
 	location: {
-		lat: 42.331319,
-		lon: -71.044207
+		lat: -22.79,
+		lon: -43.37
 	},
 	details: {
-		description: 'We sell pets PLUS almost everything else. Seriously. We\'re also the largest owner of albino dwarf hamsters in North America.',
+		description: '',
 		avgStoreTraffic: {
 			monday: 12,
 			tuesday: 37,
@@ -68,13 +68,13 @@ export const sampleData = [{
 	]
 }, {
 	id: 5,
-	name: 'Evans Bakery',
+	name: 'Exame Brasil',
 	location: {
-		lat: 42.373056,
-		lon: -70.993910
+		lat: -23.60,
+		lon: -46.56
 	},
 	details: {
-		description: 'Evan has been baking bread since he was 6 months old. Known around the world for his homemade english muffins, he\'s been featured in Healthy Living an incredible 118 times. Come in to experience the magic of homemade bread!'
+		description: ''
 	},
 	images: [
 		'https://s-media-cache-ak0.pinimg.com/736x/4c/0a/c1/4c0ac1e45df77367c680ce4bbf9e1ffc.jpg',
@@ -83,72 +83,72 @@ export const sampleData = [{
 	]
 }, {
 	id: 6,
-	name: 'The Secret Store',
+	name: 'Exame Agora',
 	location: {
-		lat: 42.344516,
-		lon: -70.953655
+		lat: -23.51,
+		lon: -46.70
 	}
 }, {
 	id: 7,
-	name: 'Shoes on Shoes',
+	name: 'Clinica Biovida',
 	location: {
-		lat: 42.365066,
-		lon: -71.019402
+		lat: -15.79,
+		lon: -47.93
 	}
 }, {
 	id: 8,
-	name: 'Bertas Bees',
+	name: 'Hospital Daher Lago Sul',
 	location: {
-		lat: 42.368554,
-		lon: -71.038971
+		lat: -15.83,
+		lon: -47.88
 	}
 }, {
 	id: 9,
-	name: 'The Cranky Elf',
+	name: 'Clínica Hosper',
 	location: {
-		lat: 42.375720,
-		lon: -71.056395
+		lat: -15.85,
+		lon: -48.07
 	}
 }, {
 	id: 10,
-	name: 'Nanas Bananas',
+	name: 'Centro Vital',
 	location: {
-		lat: 42.362593,
-		lon: -71.082315
+		lat: -5.82,
+		lon: -35.21
 	}
 }, {
 	id: 11,
-	name: 'Cycling for Cyclists',
+	name: 'Clínica Maria Lacerda',
 	location: {
-		lat: 42.360129,
-		lon: -71.094160
+		lat: -5.87,
+		lon: -35.22
 	}
 }, {
 	id: 12,
-	name: 'The Ugly Kitten',
+	name: 'Clínica Médica Vida Plena',
 	location: {
-		lat: 42.350669,
-		lon: -71.089354
+		lat: -7.15,
+		lon: -34.83
 	}
 }, {
 	id: 13,
-	name: 'Family Boots',
+	name: 'Clínica Esperança',
 	location: {
-		lat: 42.350732,
-		lon: -71.080427
+		lat: -7.10,
+		lon: -34.83
 	}
 }, {
 	id: 14,
-	name: 'Smoothies \'n Things',
+	name: 'Clínica Dez Messejana',
 	location: {
-		lat: 42.344204,
-		lon: -71.077423
+		lat: -3.81,
+		lon: -38.49
 	}
 }, {
 	id: 15,
-	name: 'Johnys Furniture',
+	name: 'Top Saúde Mozart',
 	location: {
-		lat: 42.342332,
-		lon: -71.075191
+		lat: -3.71,
+		lon: -38.59
 	}
 }]

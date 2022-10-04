@@ -8,8 +8,8 @@ export const getSearchingData = (inputValue) => {
 }
 
 export const getResultMessage = (resultList) => {
-    const NOT_FOUND_MESSAGE = "Nothing is worse than thinking it's trying to load forever!";
+    const NOT_FOUND_MESSAGE = "Local não encontrado!";
 
-    if(resultList?.length > 0) return `Found ${resultList.length} Results`;
+    if(resultList?.length > 0) return `Encontrado ${resultList.length} resultados`;
     else return NOT_FOUND_MESSAGE;
 }
