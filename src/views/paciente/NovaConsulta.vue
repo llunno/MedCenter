@@ -37,15 +37,15 @@
 				</div>
 			</nav>
 		</header>
-      <div class="container mb-auto mt-auto" id="containerMainContent">
-        <h1 class="titulo">Selecione o tipo de consulta que deseja:</h1>
-        <button type="button" class="button small-btn cel cel-1" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
-        <button type="button" class="button small-btn cel cel-2" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
-        <button type="button" class="button small-btn cel cel-3" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
-        <button type="button" class="button small-btn cel cel-4" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
-        <button type="button" class="button small-btn cel cel-5" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
-        <button type="button" class="button small-btn cel cel-6" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
-        <button type="button" class="button small-btn cel cel-7" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
+      <div class="container-fluid mb-auto mt-auto d-flex flex-column" id="containerMainContent">
+        <h2 class="titulo">Selecione o tipo de consulta que deseja:</h2>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
+        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
       </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -99,6 +99,7 @@ export default {
 
 <style scoped lang="scss">
   $success: #395B59;
+  $primary: #008894;
 
   @import "../../../node_modules/bootstrap/scss/bootstrap";
 
@@ -139,33 +140,21 @@ export default {
   }
 
   #containerMainContent {
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 50%;
+    max-width: 60%;
     align-items: center;
-    grid-gap: 1rem;
     justify-content: center;
     text-align: center;
+    gap: 1.2rem;
   }
 
-  .button {
-    background-color: #008894;
-    color: #FFFFFF;
-    cursor: pointer;
-    border-radius: 10px;
-    margin: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    }
-    
-    .small-btn {
-        line-height: 50px;
-        width: 300px;
-        height: 50px;
-        font-size: 10px;
-        text-align: center;
-    }
+  .btn {
+    width: 60%;
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+    border-radius: 0;
+    color: #FFFFFF !important;
+  }
 
   .footer-dashboard {
     position: relative;
@@ -181,5 +170,15 @@ export default {
 
   .footer-dashboard p {
     color: #EEEEEE;
+  }
+
+  @media(max-width: 890px) {
+    #containerMainContent {
+      max-width: 90%;
+    }
+
+    .btn {
+      width: 90%;
+    }
   }
 </style>
