@@ -122,66 +122,98 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$success: #395b59;
-$primary: #008894;
+ $success: #395B59;
+  $primary: #008894;
 
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+  @import "../../../node_modules/bootstrap/scss/bootstrap";
 
-@import "@/css/DashBoardBaseStyle.scss";
+  header, div, footer {
+    font-family: 'Montserrat', sans-serif;
+  }
 
-@media (max-height: 900px) {
-	#containerAll {
-		#containerMainContent {
-			width: 70%;
+  #containerAll {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-attachment: scroll;
+    background-size: cover;
+  }
 
-			.cel-6 {
-				grid-row: 2/6;
-			}
+  footer {
+    margin-top: auto;
+  }
 
-			.btn-cel {
-				padding-top: 2rem;
-				padding-bottom: 2rem;
-			}
-		}
-	}
+  .div-User {
+    #userIcon {
+      font-size: 2.4rem;
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  #formContainer {
+    max-width: 50%;
+
+    form * {
+      border-radius: 0;
+    }
+  }
+
+  .footer-dashboard {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #008894;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-dashboard p {
+    color: #EEEEEE;
+  }
+
+  #signout-btn {
+	color: rgb(236, 236, 236);
+	font-size: 0.7rem;
+	text-decoration: underline;
 }
 
-@media (max-width: 1200px) {
-	#containerAll {
-		#containerMainContent {
-			.cel-6 {
-				grid-row: 2/6;
-			}
-		}
-	}
+#tableContainer {
+  max-width: 75%;
+  border: 1px solid black;
+  padding: 2rem 3rem 2rem 3rem;
+  min-height: 20rem;
+  overflow-x: auto;
 }
 
-@media (max-width: 995px) {
-	#containerAll {
-		#containerMainContent {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			width: 100%;
-			padding-bottom: 3rem;
-			padding-top: 3rem;
+.btn-voltar {
+  width: 15rem;
+  padding: 1rem;
+  color: white !important;
+}
 
-			.cel {
-				width: 90%;
-			}
 
-			.cel-6 {
-				height: 30rem;
-			}
-		}
 
-		&::before {
-			-webkit-filter: blur(10px);
-			-moz-filter: blur(10px);
-			-o-filter: blur(10px);
-			-ms-filter: blur(10px);
-			filter: blur(10px);
-		}
-	}
+table {
+  min-width: 20rem !important;
+  th {
+    color: white;
+    font-weight: normal;
+  }
+
+  thead {
+    p {
+      background-color: #008894;
+      padding: 1rem;
+      margin: 0;
+      min-width: 10rem;
+    }
+  }
 }
 </style>
