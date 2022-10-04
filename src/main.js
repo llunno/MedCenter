@@ -13,9 +13,10 @@ import { faGooglePlay } from '@fortawesome/free-brands-svg-icons'
 import { faAppStore } from '@fortawesome/free-brands-svg-icons'
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 //font-awesome
-library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle]);
+library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle, faPlus]);
 
 createApp(App)
 .use(router)
