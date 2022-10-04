@@ -105,6 +105,22 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/solicitacaoefetuada",
+    name: "SolicitacaoEfetuada",
+    component: () => import("../views/paciente/SolicitacaoEfetuada.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/confirmarsolicitacao",
+    name: "ConfirmarSolicitacao",
+    component: () => import("../views/paciente/ConfirmarSolicitacao.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 
