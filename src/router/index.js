@@ -81,7 +81,24 @@ const routes = [
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {
+    path: "/consultarsolicitacoes",
+    name: "ConsultarSolicitacoes",
+    component: () => import("../views/paciente/ConsultarSolicitacoes.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/editarstatusexame",
+    name: "EditarStatusExame",
+    component: () => import("../views/paciente/EditarStatusExame.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+
 ];
 
 const router = createRouter({

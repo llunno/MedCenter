@@ -99,7 +99,7 @@
               <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating input-container">
-              <input type="email" class="form-control" id="floatingCPF" v-model="this.cpf" />
+              <input type="text" class="form-control" id="floatingCPF" v-model="this.cpf" />
               <label for="floatingCPF">CPF</label>
             </div>
             <div class="form-floating input-container">
