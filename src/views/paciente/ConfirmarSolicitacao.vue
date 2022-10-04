@@ -53,8 +53,9 @@
                     <p class="text-start total-text">Total: </p>
                     <p class="text-end">R$ 192,00</p>
                 </div>
-                <button class="btn btn-primary">Confirmar solicitação</button>
+                <router-link class="btn btn-primary" to="/solicitacaoefetuada">Confirmar solicitação</router-link>
             </section>
+            <router-view/>
         </main>
     </div>
 </template>
