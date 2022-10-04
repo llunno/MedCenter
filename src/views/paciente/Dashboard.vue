@@ -178,20 +178,6 @@
     }
   }
 
-  .minhas-consultas {
-    display: inline-block;
-    cursor: pointer;
-    width: 300px;
-    padding: 5px 10px;
-  }
-
-  .nova-consulta {
-    display: inline-block;
-    cursor: pointer;
-    width: 300px;
-    padding: 5px 10px;
-  }
-
   .button {
     display: inline-block;
     background-color: #008894;
@@ -212,11 +198,6 @@
         text-align: center;
         width: 300px;
         height: 100px;
-    }
-    
-    .big-btn {
-        width: 620px;
-        height: 300px;
     }
 
   .footer-dashboard {
