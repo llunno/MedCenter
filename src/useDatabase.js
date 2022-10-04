@@ -48,7 +48,15 @@ export default function useDatabase() {
        usuario: user.value.id
      });
      return data;
-  }
+  };
+  const pegarConsulta = async (passId) =>{
+    const {data,error} = await supabase
+    .from('consultas')
+    .update({pego:true},{medico: user.value.id})
+    .match({id: passId})
+    if(error) throw error;
+    return data;
+ };
 
   
 
@@ -56,6 +64,7 @@ export default function useDatabase() {
     fetchConsultaMedico,
     fetchConsultaPaciente,
     insertConsulta,
-    novaConsulta
+    novaConsulta,
+    pegarConsulta
   };
 }
