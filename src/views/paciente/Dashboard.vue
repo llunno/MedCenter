@@ -43,7 +43,6 @@
 			<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/consultarsolicitacoes" v-else>Consultar Solicitações de consulta</router-link>
 			<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/consultarstatus" v-if="!user.user_metadata.medico">Acompanhar Status do Exame</router-link>
 			<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/editarstatusexame" v-else>Editar status de exame</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/solicitacoesmedico" v-show="user.user_metadata.medico">Solicitações de atendimento</router-link>
 			<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
 			<router-link type="button" class="btn btn-primary btn-cel cel cel-5" to="/atualizarcadastro">Atualização Cadastral</router-link>
 			<div class="cel cel-6">
