@@ -28,6 +28,16 @@
             </div>
           </nav>
       </header>
+      <div class="container mb-auto mt-auto" id="containerMainContent">
+        <h1 class="titulo">Selecione o tipo de consulta que deseja:</h1>
+        <router-link type="button" class="button small-btn cel cel-1" to="/confirmarendereço">Coleta de sangue</router-link>
+        <router-link type="button" class="button small-btn cel cel-2" to="/confirmarendereço">Exame geral</router-link>
+        <router-link type="button" class="button small-btn cel cel-3" to="/confirmarendereço">Exame dermatológico</router-link>
+        <router-link type="button" class="button small-btn cel cel-4" to="/confirmarendereço">ASO (Atestado de Saúde Ocupacional)</router-link>
+        <router-link type="button" class="button small-btn cel cel-5" to="/confirmarendereço">Vacinação</router-link>
+        <router-link type="button" class="button small-btn cel cel-6" to="/confirmarendereço">Fisioterapia</router-link>
+        <router-link type="button" class="button small-btn cel cel-7" to="/confirmarendereço">Nutricionista</router-link>
+      </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
       </footer>
@@ -85,15 +95,6 @@ export default {
     font-family: 'Montserrat', sans-serif;
   }
 
-  #containerAll {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: url(@/assets/backgroundDashboard.png);
-    background-attachment: scroll;
-    background-size: cover;
-  }
-
   footer {
     margin-top: auto;
   }
@@ -116,6 +117,44 @@ export default {
       border-radius: 0;
     }
   }
+
+  #containerAll {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(@/assets/backgroundDashboard.png);
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  #containerMainContent {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    align-items: center;
+    grid-gap: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .button {
+    background-color: #008894;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    }
+    
+    .small-btn {
+        line-height: 50px;
+        width: 300px;
+        height: 50px;
+        font-size: 10px;
+        text-align: center;
+    }
 
   .footer-dashboard {
     position: relative;
