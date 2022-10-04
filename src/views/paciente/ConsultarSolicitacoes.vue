@@ -90,36 +90,50 @@
 </template>
 
 <script>
-import SmallMap from "../../components/SmallMap.vue";
-import useAuthUser from "@/useAuthUser";
+import useAuthUser from '@/useAuthUser';
+import useDatabase from '@/useDatabase';
 
-const { logout, user } = useAuthUser();
+const { logout, user } = useAuthUser()
+const { fetchConsultaLivre } = useDatabase();
 
 export default {
-	name: "App",
-	components: {
-		SmallMap,
-	},
+	name: 'App',
 	data() {
-		return {
-			user,
-		};
+	return {
+		user,
+		consultas: null
+	};
 	},
 	methods: {
-		async signOut() {
-			try {
-				await logout();
-				this.$router.replace("/");
-			} catch {
-				alert(error.error_description || error.message);
-				this.errorMessage = error.message;
-			} finally {
-				alert("Logged Out");
-			}
-		},
+	async signOut(){
+		try{
+		await logout();
+		this.$router.replace("/");
+		}
+		catch (error){
+		alert(error.error_description || error.message)
+		this.errorMessage = error.message;
+		}
+		finally{
+		alert("Logged Out")
+		}
 	},
-};
-</script>
+	getBack(){
+		this.$router.replace("/dashboard");
+	},
+	},
+	async mounted(){
+		try{
+		const data = await fetchConsultaLivre();   
+		console.log(data); 
+		this.consultas = data
+		}
+		catch(error){
+			alert(error.error_description || error.message)
+		}
+	}
+}
+	</script>
 
 <style scoped lang="scss">
 $success: #395b59;

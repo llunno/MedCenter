@@ -35,6 +35,17 @@ export default function useDatabase() {
       if (error) throw error;
       return data;
   };
+  const fetchConsultaLivre =  async () => {
+    const { data, error } = await supabase
+      .from('consultas')
+      .select(`
+      *,
+      usuario(data),
+      medico(data)
+    `).eq('pego',false)
+      if (error) throw error;
+      return data;
+  };
   const insertConsulta = async () =>{
      const {data,error} = await supabase
      .from('consultas')
@@ -65,6 +76,7 @@ export default function useDatabase() {
     fetchConsultaPaciente,
     insertConsulta,
     novaConsulta,
-    pegarConsulta
+    pegarConsulta,
+    fetchConsultaLivre
   };
 }
