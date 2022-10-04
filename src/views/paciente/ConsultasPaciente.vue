@@ -37,24 +37,25 @@
 				</div>
 			</nav>
 		</header>
-    <main class="text-center container my-auto">
+    <main class="d-flex flex-column align-items-center justify-content-center gap-4 text-center container-fluid my-auto">
+    <div id="tableContainer" class="text-center container-fluid my-auto">
       <table class="table table-responsive table-hover table-borderless align-middle">
         <thead>
           <tr>
             <th scope="col">
-              Tipo
+              <p>Tipo</p>
             </th>
             <th scope="col">
-              Data
+              <p>Data</p>
             </th>
             <th scope="col">
-              Horário (24h)
+              <p>Horário (24h)</p>
             </th>
             <th scope="col">
-              Médico
+              <p>Médico</p>
             </th>
             <th scope="col">
-              Observações
+             <p>Observações</p>
             </th>
           </tr>
         </thead>
@@ -78,7 +79,9 @@
           </tr>
         </tbody>
       </table>
-    </main>
+    </div>
+    <button class="btn btn-primary btn-voltar">Voltar</button>
+  </main>
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
     </footer>
@@ -116,6 +119,7 @@ export default {
 
 <style scoped lang="scss">
   $success: #395B59;
+  $primary: #008894;
 
   @import "../../../node_modules/bootstrap/scss/bootstrap";
 
@@ -176,20 +180,36 @@ export default {
 	text-decoration: underline;
 }
 
-main {
-  max-width: 70%;
+#tableContainer {
+  max-width: 75%;
   border: 1px solid black;
   padding: 2rem 3rem 2rem 3rem;
+  min-height: 20rem;
+  overflow-x: auto;
 }
 
+.btn-voltar {
+  width: 15rem;
+  padding: 1rem;
+  color: white !important;
+}
+
+
+
 table {
-  padding: 5rem !important;
+  min-width: 20rem !important;
   th {
-    border: 1px solid black;
-    padding: 1rem;
-    background-color: #008894 !important;
     color: white;
     font-weight: normal;
+  }
+
+  thead {
+    p {
+      background-color: #008894;
+      padding: 1rem;
+      margin: 0;
+      min-width: 10rem;
+    }
   }
 }
 </style>
