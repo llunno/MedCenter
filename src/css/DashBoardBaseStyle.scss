@@ -1,0 +1,131 @@
+header,
+div,
+footer {
+	font-family: "Montserrat", sans-serif;
+}
+
+#signout-btn {
+	color: rgb(236, 236, 236);
+	font-size: 0.7rem;
+	text-decoration: underline;
+}
+
+#containerAll {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	position: relative;
+	justify-content: center;
+
+	&::before {
+		content: "";
+		position: fixed;
+		left: 0;
+		right: 0;
+		z-index: -1;
+
+		display: block;
+		background-image: url(@/assets/backgroundDashboard.png);
+		background-size: cover;
+		background-attachment: cover;
+		width: 100%;
+		height: 100%;
+
+		-webkit-filter: blur(2px);
+		-moz-filter: blur(2px);
+		-o-filter: blur(2px);
+		-ms-filter: blur(2px);
+		filter: blur(2px);
+	}
+
+	#containerMainContent {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		margin-left: auto;
+		margin-right: auto;
+		align-items: center;
+		grid-gap: 1rem;
+		justify-content: center;
+		text-align: center;
+
+		.cel {
+			margin: 0;
+			text-decoration: none;
+			color: white;
+		}
+
+		.btn-cel {
+			margin: 0;
+			text-align: center;
+			padding-top: 2.7rem;
+			padding-bottom: 2.7rem;
+		}
+
+		.cel-5 {
+			grid-column: 1;
+		}
+
+		.cel-6 {
+			grid-column: 2/4;
+			grid-row: 2/13;
+			width: 100%;
+			height: 100%;
+			border: 3px solid #008894;
+		}
+	}
+}
+
+footer {
+	margin-top: 0;
+}
+
+.div-User {
+	#userIcon {
+		font-size: 2.4rem;
+		color: white;
+	}
+
+	p {
+		color: white;
+	}
+}
+
+#formContainer {
+	max-width: 50%;
+
+	form * {
+		border-radius: 0;
+	}
+}
+
+.minhas-consultas {
+	display: inline-block;
+	cursor: pointer;
+	width: 300px;
+	padding: 5px 10px;
+}
+
+.nova-consulta {
+	display: inline-block;
+	cursor: pointer;
+	width: 300px;
+	padding: 5px 10px;
+}
+
+.footer-dashboard {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #008894;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-dashboard p {
+	color: #eeeeee;
+}
