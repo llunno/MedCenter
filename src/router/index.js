@@ -73,6 +73,14 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/confirmarpagamento",
+    name: "ConfirmarPagamento",
+    component: () => import("../views/paciente/ConfirmarMeioPagamento.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 

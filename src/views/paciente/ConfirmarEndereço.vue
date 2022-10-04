@@ -30,11 +30,11 @@
 				<input class="form-control" type="text" />
 			</div>
 		</section>
-		<button class="btn btn-primary mb-4">Confirmar</button>
+		<router-link class="btn btn-primary mb-4" to="/confirmarpagamento">Confirmar</router-link>
 	</main>
 </template>
 
-<styles scoped lang="scss">
+<styles lang="scss" scoped>
 $primary: #008894;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
