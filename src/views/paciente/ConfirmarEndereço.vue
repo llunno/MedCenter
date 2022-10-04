@@ -23,11 +23,11 @@
 		<section id="manageHorarios" class="d-flex text-center justify-content-center m-2 align-items-center gap-4 mb-5 my-5">
 			<div id="startHorario" class="d-flex align-items-center justify-content-center gap-2">
 				<p class="m-0">De</p>
-				<input class="form-control" type="text" v-model="this.hora_de" />
+				<input class="form-control" type="datetime-local" v-model="this.hora_de" />
 			</div>
 			<div id="endHorario" class="d-flex align-items-center justify-content-center gap-2">
 				<p class="m-0">Até</p>
-				<input class="form-control" type="text" v-model="this.hora_ate" />
+				<input class="form-control" type="datetime-local" v-model="this.hora_ate" />
 			</div>
 		</section>
 		<button class="btn btn-primary mb-4" @click.prevent="selectHorario">Confirmar</button>
