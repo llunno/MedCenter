@@ -84,6 +84,8 @@
 <style scoped lang="scss">
 
   $success: #395B59;
+  $primary: #395B59;
+  
 
   @import "../../node_modules/bootstrap/scss/bootstrap";
 

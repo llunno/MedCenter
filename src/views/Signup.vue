@@ -151,6 +151,7 @@ export default {
 
 <style scoped lang="scss">
 $success: #008894;
+$primary: #008894;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
