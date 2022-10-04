@@ -60,27 +60,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="c in consultas" :key="c.id">
             <td>
-              Coleta de Sangue
+              {{c.consulta}}
             </td>
             <td>
-              18/08/2022
+              {{c.hora_ate}}
             </td>
             <td>
-              11:00
+              {{c.pego ? c.hora_marcada : "-"}}
             </td>
             <td>
-              Carlos Januzzi
+              {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
             </td>
             <td>
-              Pode atrasar 15 minutos
+              Sem informações
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <button class="btn btn-primary btn-voltar">Voltar</button>
+    <button class="btn btn-primary btn-voltar" @click="getBack">Voltar</button>
   </main>
     <footer class="footer-dashboard">
       <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -90,13 +90,17 @@
 
 <script>
 import useAuthUser from '@/useAuthUser';
+import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
+const { fetchConsultaMedico } = useDatabase();
+
 export default {
   name: 'App',
   data() {
     return {
-      user
+      user,
+      consultas: null
     };
   },
   methods: {
@@ -105,7 +109,7 @@ export default {
         await logout();
         this.$router.replace("/");
       }
-      catch{
+      catch (error){
         alert(error.error_description || error.message)
         this.errorMessage = error.message;
       }
@@ -113,7 +117,20 @@ export default {
         alert("Logged Out")
       }
     },
-  }
+    getBack(){
+      this.$router.replace("/dashboard");
+    },
+  },
+  async mounted(){
+      try{
+        const data = await fetchConsultaMedico();   
+        console.log(data); 
+        this.consultas = data
+      }
+      catch(error){
+        alert(error.error_description || error.message)
+      }
+    }
 }
 </script>
 

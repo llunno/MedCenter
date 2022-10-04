@@ -6,14 +6,11 @@ export default function useDatabase() {
   const fetchConsultaMedico =  async () => {
     const { data, error } = await supabase
       .from('consultas')
-      .select(`consulta,
-       usuario,
-       user(email),
-       hora_de, 
-       hora_ate, 
-       pego, 
-       hora_marcada`)
-      .match({pego:false})
+      .select(`
+      *,
+      usuario(data),
+      medico(data)
+    `)
       if (error) throw error;
       return data;
   };
