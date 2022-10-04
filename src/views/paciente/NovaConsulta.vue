@@ -146,27 +146,14 @@ export default {
     align-items: center;
     justify-content: center;
     text-align: center;
-  }
-
-  .button {
-    background-color: #008894;
-    color: #FFFFFF;
-    cursor: pointer;
-    border-radius: 10px;
-    margin: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    line-height: 50px;
-    width: 300px;
-    height: 50px;
-    font-size: 10px;
-    text-align: center;
+    gap: 1.2rem;
   }
 
   .btn {
     width: 60%;
     padding: 0.6rem 1.2rem 0.6rem 1.2rem;
     border-radius: 0;
+    color: #FFFFFF !important;
   }
 
   .footer-dashboard {
