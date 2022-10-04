@@ -15,6 +15,11 @@ export default {
     return {
     };
     },
+    mounted() {
+        setTimeout(() => {
+            this.$router.replace("/dashboard");
+        }, 2000)
+    }
     }
 
     </script>

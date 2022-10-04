@@ -78,7 +78,7 @@
 import useAuthUser from '@/useAuthUser';
 import { computed, onMounted, ref } from "@vue/runtime-core";
 import { getLocation } from "../../services/MapServices";
-import { Loader } from "@googlemaps/js-api-loader";
+//import { Loader } from "@googlemaps/js-api-loader";
 import {
   getSearchingData,
   getResultMessage,
