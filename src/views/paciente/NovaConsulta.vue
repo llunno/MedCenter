@@ -37,15 +37,15 @@
 				</div>
 			</nav>
 		</header>
-      <div class="container mb-auto mt-auto" id="containerMainContent">
-        <h1 class="titulo">Selecione o tipo de consulta que deseja:</h1>
-        <router-link type="button" class="button small-btn cel cel-1" to="/confirmarendereço">Coleta de sangue</router-link>
-        <router-link type="button" class="button small-btn cel cel-2" to="/confirmarendereço">Exame geral</router-link>
-        <router-link type="button" class="button small-btn cel cel-3" to="/confirmarendereço">Exame dermatológico</router-link>
-        <router-link type="button" class="button small-btn cel cel-4" to="/confirmarendereço">ASO (Atestado de Saúde Ocupacional)</router-link>
-        <router-link type="button" class="button small-btn cel cel-5" to="/confirmarendereço">Vacinação</router-link>
-        <router-link type="button" class="button small-btn cel cel-6" to="/confirmarendereço">Fisioterapia</router-link>
-        <router-link type="button" class="button small-btn cel cel-7" to="/confirmarendereço">Nutricionista</router-link>
+      <div class="container-fluid mb-auto mt-auto d-flex flex-column" id="containerMainContent">
+        <h2 class="titulo">Selecione o tipo de consulta que deseja:</h2>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Coleta de sangue</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Exame geral</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Exame dermatológico</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">ASO (Atestado de Saúde Ocupacional)</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Vacinação</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Fisioterapia</router-link>
+        <router-link type="button" class="btn btn-primary" to="/confirmarendereço">Nutricionista</router-link>
       </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -97,6 +97,7 @@ export default {
 
 <style scoped lang="scss">
   $success: #395B59;
+  $primary: #008894;
 
   @import "../../../node_modules/bootstrap/scss/bootstrap";
 
@@ -137,12 +138,10 @@ export default {
   }
 
   #containerMainContent {
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 50%;
+    max-width: 60%;
     align-items: center;
-    grid-gap: 1rem;
     justify-content: center;
     text-align: center;
   }
@@ -155,15 +154,18 @@ export default {
     margin: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    }
-    
-    .small-btn {
-        line-height: 50px;
-        width: 300px;
-        height: 50px;
-        font-size: 10px;
-        text-align: center;
-    }
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .btn {
+    width: 60%;
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+    border-radius: 0;
+  }
 
   .footer-dashboard {
     position: relative;
@@ -179,5 +181,15 @@ export default {
 
   .footer-dashboard p {
     color: #EEEEEE;
+  }
+
+  @media(max-width: 890px) {
+    #containerMainContent {
+      max-width: 90%;
+    }
+
+    .btn {
+      width: 90%;
+    }
   }
 </style>
