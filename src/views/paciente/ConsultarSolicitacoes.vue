@@ -74,7 +74,7 @@
               {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
             </td>
             <td>
-              <input class="form-check-input" type="checkbox"/>
+              <button class="btn btn-primary" id="marcarBtn">Marcar</button>
             </td>
           </tr>
         </tbody>
@@ -143,6 +143,10 @@ export default {
 
   header, div, footer {
     font-family: 'Montserrat', sans-serif;
+  }
+
+  #marcarBtn {
+    color: white !important;
   }
 
   #containerAll {
