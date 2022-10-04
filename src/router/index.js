@@ -121,7 +121,16 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/solicitacoesmedico",
+    name: "SolicitacoesMedico",
+    component: () => import("../views/medicos/SolicitacoesMedico.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
+
 ];
 
 const router = createRouter({
