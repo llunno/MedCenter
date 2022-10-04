@@ -39,13 +39,13 @@
 		</header>
       <div class="container mb-auto mt-auto" id="containerMainContent">
         <h1 class="titulo">Selecione o tipo de consulta que deseja:</h1>
-        <router-link type="button" class="button small-btn cel cel-1" to="/confirmarendereço">Coleta de sangue</router-link>
-        <router-link type="button" class="button small-btn cel cel-2" to="/confirmarendereço">Exame geral</router-link>
-        <router-link type="button" class="button small-btn cel cel-3" to="/confirmarendereço">Exame dermatológico</router-link>
-        <router-link type="button" class="button small-btn cel cel-4" to="/confirmarendereço">ASO (Atestado de Saúde Ocupacional)</router-link>
-        <router-link type="button" class="button small-btn cel cel-5" to="/confirmarendereço">Vacinação</router-link>
-        <router-link type="button" class="button small-btn cel cel-6" to="/confirmarendereço">Fisioterapia</router-link>
-        <router-link type="button" class="button small-btn cel cel-7" to="/confirmarendereço">Nutricionista</router-link>
+        <button type="button" class="button small-btn cel cel-1" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
+        <button type="button" class="button small-btn cel cel-2" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
+        <button type="button" class="button small-btn cel cel-3" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
+        <button type="button" class="button small-btn cel cel-4" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
+        <button type="button" class="button small-btn cel cel-5" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
+        <button type="button" class="button small-btn cel cel-6" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
+        <button type="button" class="button small-btn cel cel-7" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
       </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -58,7 +58,7 @@ import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
-const { fetchConsultaMedico } = useDatabase();
+const { novaConsulta } = useDatabase();
 
 export default {
   name: 'App',
@@ -81,16 +81,18 @@ export default {
         alert("Logged Out")
       }
     },
-    async test() {
+    selectConsulta(consulta) {
       try{
-        const data = await fetchConsultaMedico();   
-        console.log(data);     
+        novaConsulta.value.consulta = consulta ;
+        console.log(novaConsulta.value);
+        this.$router.replace("/confirmarendereço");
       }
-      catch{
+      catch(error){
         alert(error.error_description || error.message)
         console.log(error)
       }
     },
+
   }
 }
 </script>
