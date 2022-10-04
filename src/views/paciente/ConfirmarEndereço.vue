@@ -1,5 +1,5 @@
 <template>
-	<main class="container-fluid d-flex flex-column align-items-center my-auto mb-auto">
+	<main class="container-fluid d-flex flex-column align-items-center justify-content-center" id="container-all">
 		<h2 class="mb-5 my-2">Confirmar Endereço</h2>
 		<section id="manageEnderecos" class="container-fluid d-flex gap-2 mx-auto justify-content-center">
 			<div class="card actualEndereço p-2 justify-content-center m-2">
@@ -15,7 +15,7 @@
 				<h5 class="card-title"></h5>
 				<div class="card-body">
 					<font-awesome-icon id="idconPlus" icon="fa-solid fa-plus" />
-					<p class="card-text">Adicionar outro endereço</p>
+					<p class="card-text">Adicionar outro endereço...</p>
 				</div>
 			</div>
 		</section>
@@ -37,10 +37,6 @@
 <styles scoped lang="scss">
 $primary: #008894;
 
-$theme-colors: (
-	"primary": #008894,
-);
-
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 //@import "../../../node_modules/bootstrap/scss/functions";
@@ -49,6 +45,17 @@ $theme-colors: (
 
 * {
 	font-family: "Montserrat", sans-serif;
+}
+
+#container-all {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .btn {
@@ -66,8 +73,8 @@ h1 {
 .card {
 	background-color: #008894;
 	color: white;
-	width: 35%;
 	border-radius: 0;
+	min-width: 30rem;
 }
 
 input {
@@ -77,5 +84,24 @@ input {
 .actualEndereço,
 .newEndereço {
 	cursor: pointer;
+}
+
+@media(max-width: 1413px) {
+	.card {
+		min-width: 40%;
+	}
+}
+
+@media(max-width: 960px) {
+	#manageEnderecos {
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.card {
+		width: 70%;
+	}
 }
 </styles>
