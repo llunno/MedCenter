@@ -22,6 +22,7 @@
                     <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
                     <!-- Provisório, favor fazer como preferirem -->
                     <button @click="signOut">Sign-Out</button>
+                    <button @click="test">test</button>
                 </div>
               </div>
             </div>
@@ -35,8 +36,11 @@
 
 <script>
 import useAuthUser from '@/useAuthUser';
+import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
+const { fetchConsultaMedico } = useDatabase();
+
 export default {
   name: 'App',
   data() {
@@ -56,6 +60,16 @@ export default {
       }
       finally{
         alert("Logged Out")
+      }
+    },
+    async test() {
+      try{
+        const data = await fetchConsultaMedico();   
+        console.log(data);     
+      }
+      catch{
+        alert(error.error_description || error.message)
+        this.errorMessage = error.message;
       }
     },
   }

@@ -3,12 +3,14 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+
             <router-link to="/">
-              <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>              
-            </router-link>    
-            MedCenter
-          </a>
+              <a class="navbar-brand" href="#">
+                <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>      
+                  MedCenter
+              </a>
+            </router-link>
+            
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -20,7 +22,7 @@
               </form>
             </div>
             <div class="div-User d-flex align-items-center gap-2">
-                <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
+                <p class="m-0">{{user.user_metadata.medico ? "Medico" : user.email}}</p>
                 <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
                   <!-- Provisório, favor fazer como preferirem -->
                   <button class="btn btn-light btn-sm" @click="signOut">Sign-Out</button>

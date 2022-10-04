@@ -3,7 +3,7 @@ import { ref } from "vue";
 const user = ref(null);
 
 
-import  useSupabase  from './supabase'
+import useSupabase from './supabase'
 export default function useAuthUser() {
 
   const {supabase} = useSupabase();
