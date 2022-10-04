@@ -46,16 +46,16 @@
               <p>Tipo</p>
             </th>
             <th scope="col">
-              <p>Data</p>
+              <p>Horário Inicial</p>
             </th>
             <th scope="col">
-              <p>Horário (24h)</p>
+              <p>Horário FInal</p>
             </th>
             <th scope="col">
-              <p>Médico</p>
+              <p>Status</p>
             </th>
             <th scope="col">
-             <p>Observações</p>
+              <p>Adquirir</p>
             </th>
           </tr>
         </thead>
@@ -74,7 +74,7 @@
               {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
             </td>
             <td>
-              Sem informações
+              <input class="form-check-input" type="checkbox"/>
             </td>
           </tr>
         </tbody>
