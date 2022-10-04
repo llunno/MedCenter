@@ -4,8 +4,8 @@
         <div class="d-flex flex-sm-wrap justify-content-sm-between align-items-center mx-5" id="divMedico">
             <img src="@/assets/medico.jpg" alt="imagem de estetoscópio" class="img-fluid"/>
             <div id="texto-medico">
-                <h3 class="text-end">Te ajudamos a mostrar a qualidade do seu trabalho</h3>
-                <p class="text-end">
+                <h3 class="text-end" tabindex="0">Te ajudamos a mostrar a qualidade do seu trabalho</h3>
+                <p class="text-end" tabindex="0">
                 Nós oferecemos uma oportunidade para os Médicos que procuram ganhar uma renda extra ou para aqueles que buscar fazer seu nome no mercado profissional.
                 </p>
             </div>

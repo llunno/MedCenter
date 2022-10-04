@@ -1,14 +1,14 @@
 <template>
     <section class="container-fluid">
-        <h2>Pacientes</h2>
+        <h2 tabindex="0">Pacientes</h2>
         <div class="d-flex flex-sm-wrap justify-content-sm-between align-items-center mx-5" id="divPacient">
             <div id="texto-paciente">
-                <h3 class="text-left">Nosso foco é saude</h3>
-                <p>
+                <h3 class="text-left" tabindex="0">Nosso foco é saude</h3>
+                <p tabindex="0">
                     Pensando nos pacientes com dificuldade de locomoção ou falta de tempo em se deslocar até um consultório médico para uma consulta ou exame, oferecemos a praticidade de realização deste serviço em sua residência ou local de preferência.
                 </p>
             </div>
-            <img src="@/assets/pacientes.jpg" alt="imagem de estetoscópio" class="img-fluid">
+            <img src="@/assets/pacientes.jpg" alt="imagem de estetoscópio" class="img-fluid" tabindex="0">
         </div>
     </section>
 </template>

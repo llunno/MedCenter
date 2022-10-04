@@ -1,37 +1,37 @@
 <template>
     <section id="container">
         <section class="container text-center">
-            <h2 class="mx-5">Contato</h2>
-            <p class="mx-5">Para dúvidas, reclamações, ouvidoria, elogios e sugestões. Nos envie uma mensagem abaixo, detalhando o fato.</p>
+            <h2 class="mx-5" tabindex="0">Contato</h2>
+            <p class="mx-5" tabindex="0">Para dúvidas, reclamações, ouvidoria, elogios e sugestões. Nos envie uma mensagem abaixo, detalhando o fato.</p>
         </section>
         <div id="container-form">
             <form @submit.prevent class="mx-auto">
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" tabindex="0" required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label">E-mail:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" required>
+                        <input type="email" class="form-control" tabindex="0" required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label">Telefone:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" required>
+                        <input class="form-control" tabindex="0" required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label">Descrição:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" required></textarea>
+                        <textarea class="form-control" tabindex="0" required></textarea>
                     </div>
                 </div>
                 <div class="container-fluid mx-auto" id="containerBtn">
-                    <button class="btn btn-success" id="sbmt-btn">Enviar</button>
+                    <button class="btn btn-success" id="sbmt-btn" tabindex="0">Enviar</button>
                 </div>
             </form>
         </div>

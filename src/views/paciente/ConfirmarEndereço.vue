@@ -1,9 +1,9 @@
 <template>
 	<main class="container-fluid d-flex flex-column align-items-center justify-content-center" id="container-all">
-		<h2 class="mb-5 my-2">Confirmar Endereço</h2>
+		<h2 class="mb-5 my-2" tabindex="0">Confirmar Endereço</h2>
 		<section id="manageEnderecos" class="container-fluid d-flex gap-2 mx-auto justify-content-center">
 			<div class="card actualEndereço p-2 justify-content-center m-2">
-				<div class="card-body">
+				<div class="card-body" tabindex="0">
 					<h5 class="card-title">Rua Lapada Paiva de Souza, 487</h5>
 					<p class="card-text">Bairro: Centro</p>
 					<p class="card-text">Cidade: Mogi das Cruzes</p>
@@ -13,24 +13,24 @@
 			</div>
 			<div class="card newEndereço p-4 text-center justify-content-center m-2">
 				<h5 class="card-title"></h5>
-				<div class="card-body">
+				<div class="card-body" tabindex="0">
 					<font-awesome-icon id="idconPlus" icon="fa-solid fa-plus" />
 					<p class="card-text">Adicionar outro endereço...</p>
 				</div>
 			</div>
 		</section>
-		<h2 class="mb-4 my-5">Insira um horário de preferência</h2>
+		<h2 class="mb-4 my-5" tabindex="0">Insira um horário de preferência</h2>
 		<section id="manageHorarios" class="d-flex text-center justify-content-center m-2 align-items-center gap-4 mb-5 my-5">
-			<div id="startHorario" class="d-flex align-items-center justify-content-center gap-2">
+			<div id="startHorario" class="d-flex align-items-center justify-content-center gap-2" tabindex="0">
 				<p class="m-0">De</p>
 				<input class="form-control" type="datetime-local" v-model="this.hora_de" />
 			</div>
-			<div id="endHorario" class="d-flex align-items-center justify-content-center gap-2">
+			<div id="endHorario" class="d-flex align-items-center justify-content-center gap-2" tabindex="0">
 				<p class="m-0">Até</p>
 				<input class="form-control" type="datetime-local" v-model="this.hora_ate" />
 			</div>
 		</section>
-		<button class="btn btn-primary mb-4" @click.prevent="selectHorario">Confirmar</button>
+		<button class="btn btn-primary mb-4" @click.prevent="selectHorario" tabindex="0">Confirmar</button>
 	</main>
 	<router-view/>
 </template>

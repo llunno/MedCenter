@@ -1,24 +1,24 @@
 <template>
     <div id="containerAll" class="container-fluid text-center">
-        <h2>Confirmação da solicitação</h2>
+        <h2 tabindex="0">Confirmação da solicitação</h2>
         <main class="container-content d-flex justify-content-between align-items-start container-fluid">
             <section id="containerCards" class="text-center d-flex flex-wrap justify-content-center align-items-center">
-                <article class="card">
+                <article class="card" tabindex="0">
                     <h3 class="card-header">Tipo de Consulta</h3>
                     <p class="card-body d-flex justify-content-center align-items-center">Coleta de Sangue</p>
                 </article>
-                <article class="card">
+                <article class="card" tabindex="0">
                     <h3 class="card-header">Endereço</h3>
                     <div class="card-body">
                         <p>Rua Lapada Paiva Souza, 467. Centro, Mogi das Cruzes - MG</p>
                         <p>CEP: 12456-543</p>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card" tabindex="0">
                     <h3 class="card-header">Método de Pagamento</h3>
                     <p class="card-body d-flex justify-content-center align-items-center">Cartão de crédito 5x</p>
                 </article>
-                <article class="card">
+                <article class="card" tabindex="0">
                     <h3 class="card-header">Horário</h3>
                     <div class="card-body d-flex justify-content-center align-items-center">
                         <div class="horarioDiv d-flex">
@@ -37,23 +37,23 @@
                 </article>
             </section>
             <section class="d-flex flex-column justify-content-center" id="section-horarios">
-                <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex justify-content-between gap-2" tabindex="0">
                     <p class="text-start">Valor da consulta: </p>
                     <p class="text-end">R$ 200,00</p>
                 </div>
-                <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex justify-content-between gap-2" tabindex="0">
                     <p class="text-start">Descontos: </p>
                     <p class="text-end">R$ 18,00</p>
                 </div>
-                <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex justify-content-between gap-2" tabindex="0">
                     <p class="text-start">Juros: </p>
                     <p class="text-end">R$ 10,00</p>
                 </div>
-                <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex justify-content-between gap-2" tabindex="0">
                     <p class="text-start total-text">Total: </p>
                     <p class="text-end">R$ 192,00</p>
                 </div>
-                <button class="btn btn-primary" @click.prevent="confirmar">Confirmar solicitação</button>
+                <button class="btn btn-primary" @click.prevent="confirmar" tabindex="0">Confirmar solicitação</button>
             </section>
             <router-view/>
         </main>

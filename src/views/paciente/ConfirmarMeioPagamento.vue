@@ -1,7 +1,7 @@
 <template>
     <main class="d-flex flex-column justify-content-center align-items-center gap-3 text-center">
-        <h2>Confirme o meio de pagamento</h2>
-        <button class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" @click.prevent="selectPagamento(item)">{{item}}</button>
+        <h2 tabindex="0">Confirme o meio de pagamento</h2>
+        <button class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" @click.prevent="selectPagamento(item)" tabindex="0">{{item}}</button>
     </main>
     <router-view/>
 </template>
