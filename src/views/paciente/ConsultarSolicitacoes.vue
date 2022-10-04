@@ -37,16 +37,51 @@
 				</div>
 			</nav>
 		</header>
-		<div class="container mb-auto mt-auto" id="containerMainContent">
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-1" to="/consultaspaciente">Minhas Consultas</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/novaconsulta">Agendar Nova Consulta</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/consultarstatus">Acompanhar Status do Exame</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-5" to="/atualizarcadastro">Atualização Cadastral</router-link>
-			<div class="cel cel-6">
-				<small-map id="mapsGoogle" />
-			</div>
-		</div>
+		<main class="d-flex flex-column align-items-center justify-content-center gap-4 text-center container-fluid my-auto">
+    <div id="tableContainer" class="text-center container-fluid my-auto">
+      <table class="table table-responsive table-hover table-borderless align-middle">
+        <thead>
+          <tr>
+            <th scope="col">
+              <p>Tipo</p>
+            </th>
+            <th scope="col">
+              <p>Data</p>
+            </th>
+            <th scope="col">
+              <p>Horário (24h)</p>
+            </th>
+            <th scope="col">
+              <p>Médico</p>
+            </th>
+            <th scope="col">
+             <p>Observações</p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="c in consultas" :key="c.id">
+            <td>
+              {{c.consulta}}
+            </td>
+            <td>
+              {{c.hora_ate}}
+            </td>
+            <td>
+              {{c.pego ? c.hora_marcada : "-"}}
+            </td>
+            <td>
+              {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
+            </td>
+            <td>
+              Sem informações
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary btn-voltar" @click="getBack">Voltar</button>
+  </main>
 		<footer class="footer-dashboard">
 			<p class="m-0">Sistema para Médicos &copy; 2022</p>
 		</footer>
