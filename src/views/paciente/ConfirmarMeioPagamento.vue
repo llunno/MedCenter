@@ -3,6 +3,7 @@
         <h2>Confirme o meio de pagamento</h2>
         <router-link class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" to="/confirmarsolicitacao">{{item}}</router-link>
     </main>
+    <router-view/>
 </template>
 
 <script>
