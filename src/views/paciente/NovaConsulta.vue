@@ -31,6 +31,7 @@
 							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome : user.email }}</p>
 							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
 							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
+              <button class="btn btn-sm" id="signout-btn" @click="test">Sign-Out</button>
 						</div>
 					</div>
 				</div>
@@ -87,7 +88,7 @@ export default {
       }
       catch{
         alert(error.error_description || error.message)
-        this.errorMessage = error.message;
+        console.log(error)
       }
     },
   }

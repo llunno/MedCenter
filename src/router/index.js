@@ -83,7 +83,6 @@ const routes = [
     }
   },
   {
-<<<<<<< Updated upstream
     path: "/consultarsolicitacoes",
     name: "ConsultarSolicitacoes",
     component: () => import("../views/paciente/ConsultarSolicitacoes.vue"),
@@ -100,15 +99,6 @@ const routes = [
     }
   },
 
-=======
-    path: "/confirmarsolicitacao",
-    name: "ConfirmarSolicitacao",
-    component: () => import("../views/paciente/ConfirmarSolicitacao.vue"),
-    meta: {
-      requiresAuth: true
-    }
-  }
->>>>>>> Stashed changes
 ];
 
 const router = createRouter({
