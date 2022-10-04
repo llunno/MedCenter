@@ -7,7 +7,7 @@
 						<router-link to="/">
 							<img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top" />
 						</router-link>
-						MedCenter
+						MedCenter 
 					</a>
 					<button
 						class="navbar-toggler"
@@ -28,10 +28,10 @@
 							</form>
 						</div>
 						<div class="div-User d-flex align-items-center gap-2">
-							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome : user.email }}</p>
+							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
+							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
 							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
 							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
-              <button class="btn btn-sm" id="signout-btn" @click="test">Sign-Out</button>
 						</div>
 					</div>
 				</div>
@@ -39,13 +39,13 @@
 		</header>
       <div class="container-fluid mb-auto mt-auto d-flex flex-column" id="containerMainContent">
         <h2 class="titulo">Selecione o tipo de consulta que deseja:</h2>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
-        <button type="button" class="btn btn-primary" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Coleta de Sangue')">Coleta de sangue</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Exame geral')">Exame geral</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Exame dermatológico')">Exame dermatológico</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('ASO (Atestado de Saúde Ocupacional)')">ASO (Atestado de Saúde Ocupacional)</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Vacinação')">Vacinação</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Fisioterapia')">Fisioterapia</button>
+        <button type="button" class="btn btn-primary btn-exame" @click.prevent="selectConsulta('Nutricionista')">Nutricionista</button>
       </div>
       <footer class="footer-dashboard">
         <p class="m-0">Sistema para Médicos &copy; 2022</p>
@@ -85,7 +85,7 @@ export default {
       try{
         novaConsulta.value.consulta = consulta ;
         console.log(novaConsulta.value);
-        this.$router.replace("/confirmarendereço");
+        this.$router.replace("/confirmarendereco");
       }
       catch(error){
         alert(error.error_description || error.message)
@@ -110,6 +110,13 @@ export default {
   footer {
     margin-top: auto;
   }
+
+  
+#signout-btn {
+	color: rgb(236, 236, 236);
+	font-size: 0.7rem;
+	text-decoration: underline;
+}
 
   .div-User {
     #userIcon {
@@ -149,7 +156,7 @@ export default {
     gap: 1.2rem;
   }
 
-  .btn {
+  .btn-exame {
     width: 60%;
     padding: 0.6rem 1.2rem 0.6rem 1.2rem;
     border-radius: 0;

@@ -67,8 +67,8 @@ const routes = [
     }
   },
   {
-    path: "/confirmarendereço",
-    name: "ConfirmarEndereço",
+    path: "/confirmarendereco",
+    name: "ConfirmarEndereco",
     component: () => import("../views/paciente/ConfirmarEndereço.vue"),
     meta: {
       requiresAuth: true
