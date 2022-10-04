@@ -1,90 +1,162 @@
 <template>
-	<header class="container-fluid mx-auto my-4 d-flex align-items-center justify-content-around gap-2">
+  <div>
+    <header class="container-fluid mx-auto my-4 d-flex align-items-center justify-content-around gap-2">
 		<section id="paciente-signup" class="d-flex align-items-center justify-content-center gap-4">
 			<h2>Sou Paciente...</h2>
-			<button class="btn btn-success">Cadastre-se</button>
+			<button class="btn btn-success" @click.prevent="setPaciente">Cadastre-se</button>
 		</section>
 		<section id="medico-signup" class="d-flex align-items-center justify-content-center gap-4">
 			<h2>Sou Médico...</h2>
-			<button class="btn btn-success">Associe-se</button>
+			<button class="btn btn-success" @click.prevent="setMedico">Associe-se</button>
 		</section>
 	</header>
-	<main class="mx-auto">
-		<div class="card shadow my-5" id="formContainer">
-			<div class="card-body p-4 p-sm-5">
-				<form @submit.prevent="supabaseSignUp">
-					<h5 class="card-title text-start fw-light fs-5">Criar nova conta</h5>
-					<div class="d-flex gap-3">
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingFirstName" class="form-control" v-model="this.nome" />
-							<label for="floatingFirstName">Nome</label>
-						</div>
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingSecondName" class="form-control" v-model="this.sobrenome" />
-							<label for="floatingSecondName">Sobrenome</label>
-						</div>
-					</div>
-					<div class="form-floating input-container">
-						<input type="email" class="form-control" id="floatingInput" v-model="this.email" />
-						<label for="floatingInput">Email</label>
-					</div>
-					<div class="form-floating input-container">
-						<input type="email" class="form-control" id="floatingCPF" v-model="this.cpf" />
-						<label for="floatingCPF">CPF</label>
-					</div>
-					<div class="form-floating input-container">
-						<input type="email" class="form-control" id="floatingNascimento" v-model="this.nascimento" />
-						<label for="floatingNascimento">Data de Nascimento</label>
-					</div>
-					<div class="form-floating input-container">
-						<input type="email" class="form-control" id="floatingRg" v-model="this.rg" />
-						<label for="floatingRg">RG</label>
-					</div>
-					<div class="d-flex gap-3">
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingCRM" class="form-control" v-model="this.crm" />
-							<label for="floatingCRM">CRM</label>
-						</div>
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingUfEmissao" class="form-control" v-model="this.ufemissao" />
-							<label for="floatingUfEmissao">UF de Emissão</label>
-						</div>
-					</div>
-					<div class="form-floating input-container">
-						<input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
-						<label for="floatingPassword">Senha</label>
-					</div>
-					<div class="form-floating input-container">
-						<input type="password" class="form-control" id="floatingEndereço" v-model="this.endereco" />
-						<label for="floatingEndereço">Endereço</label>
-					</div>
-					<div class="d-flex gap-3">
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingBairro" class="form-control" v-model="this.bairro" />
-							<label for="floatingBairro">Bairro</label>
-						</div>
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingCidade" class="form-control" v-model="this.cidade" />
-							<label for="floatingCidade">Cidade</label>
-						</div>
-					</div>
-					<div class="d-flex gap-3">
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingUF" class="form-control" v-model="this.uf" />
-							<label for="floatingUF">UF</label>
-						</div>
-						<div class="col form-floating input-container flex-form">
-							<input type="text" id="floatingCEP" class="form-control" v-model="this.cep" />
-							<label for="floatingCEP">CEP</label>
-						</div>
-					</div>
-					<div class="">
-						<button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</main>
+  <transition name="paciente">
+    <main class="mx-auto" v-show="cadastroAtivo && !medico">
+      <div class="card shadow my-5" id="formContainer">
+        <div class="card-body p-4 p-sm-5">
+          <form @submit.prevent="supabaseSignUp">
+            <h5 class="card-title text-start fw-light fs-5">Criar nova conta</h5>
+              <div class="d-flex gap-3">
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingFirstName" class="form-control" v-model="this.nome" />
+                      <label for="floatingFirstName">Nome</label>
+                    </div>
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingSecondName" class="form-control" v-model="this.sobrenome" />
+                      <label for="floatingSecondName">Sobrenome</label>
+                    </div>
+              </div>
+            <div class="form-floating input-container">
+              <input type="email" class="form-control" id="floatingInput" v-model="this.email" />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingCPF" v-model="this.cpf" />
+              <label for="floatingCPF">CPF</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="date" class="form-control" id="floatingNascimento" v-model="this.nascimento" />
+              <label for="floatingNascimento">Data de Nascimento</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingRg" v-model="this.rg" />
+              <label for="floatingRg">RG</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
+              <label for="floatingEndereço">Endereço</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingBairro" class="form-control" v-model="this.bairro" />
+                <label for="floatingBairro">Bairro</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCidade" class="form-control" v-model="this.cidade" />
+                <label for="floatingCidade">Cidade</label>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUF" class="form-control" v-model="this.uf" />
+                <label for="floatingUF">UF</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCEP" class="form-control" v-model="this.cep" />
+                <label for="floatingCEP">CEP</label>
+              </div>
+            </div>
+            <div class="">
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </transition>
+  <transition name="medico">
+    <main class="mx-auto" v-show="cadastroAtivo && medico">
+      <div class="card shadow my-5" id="formContainer">
+        <div class="card-body p-4 p-sm-5">
+          <form @submit.prevent="supabaseSignUp">
+            <h5 class="card-title text-start fw-light fs-5">Criar nova conta</h5>
+              <div class="d-flex gap-3">
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingFirstName" class="form-control" v-model="this.nome" />
+                      <label for="floatingFirstName">Nome</label>
+                    </div>
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingSecondName" class="form-control" v-model="this.sobrenome" />
+                      <label for="floatingSecondName">Sobrenome</label>
+                    </div>
+              </div>
+            <div class="form-floating input-container">
+              <input type="email" class="form-control" id="floatingInput" v-model="this.email" />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="email" class="form-control" id="floatingCPF" v-model="this.cpf" />
+              <label for="floatingCPF">CPF</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="date" class="form-control" id="floatingNascimento" v-model="this.nascimento" />
+              <label for="floatingNascimento">Data de Nascimento</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingRg" v-model="this.rg" />
+              <label for="floatingRg">RG</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCRM" class="form-control" v-model="this.crm" />
+                <label for="floatingCRM">CRM</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUfEmissao" class="form-control" v-model="this.ufemissao" />
+                <label for="floatingUfEmissao">UF de Emissão</label>
+              </div>
+            </div>
+            <div class="form-floating input-container">
+              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
+              <label for="floatingEndereço">Endereço</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingBairro" class="form-control" v-model="this.bairro" />
+                <label for="floatingBairro">Bairro</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCidade" class="form-control" v-model="this.cidade" />
+                <label for="floatingCidade">Cidade</label>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUF" class="form-control" v-model="this.uf" />
+                <label for="floatingUF">UF</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCEP" class="form-control" v-model="this.cep" />
+                <label for="floatingCEP">CEP</label>
+              </div>
+            </div>
+            <div class="">
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </transition>
+  </div>
 </template>
 
 <script>
@@ -112,6 +184,7 @@ export default {
 			xhrRequest: false,
 			errorMessage: "",
 			successMessage: "",
+      cadastroAtivo: false
 		};
 	},
 
@@ -145,11 +218,78 @@ export default {
 				this.loading = false;
 			}
 		},
+    setPaciente (){
+      if(!this.medico){
+        this.cadastroAtivo = !this.cadastroAtivo
+      }
+      else{
+        this.medico = false
+        if (!this.cadastroAtivo){
+          this.cadastroAtivo = !this.cadastroAtivo
+        }
+      }
+      // this.medico == false ? this.cadastroAtivo = !this.cadastroAtivo : this.medico = true
+    },
+    setMedico (){
+      if(this.medico){
+        this.cadastroAtivo = !this.cadastroAtivo
+      }
+      else{
+        this.medico = true
+        if (!this.cadastroAtivo){
+          this.cadastroAtivo = !this.cadastroAtivo
+        }
+      }
+      // this.medico == false ? this.cadastroAtivo = !this.cadastroAtivo : this.medico = true
+    },
 	},
 };
 </script>
 
 <style scoped lang="scss">
+.paciente-enter-from{
+  opacity: 0;
+}
+.paciente-enter-to {
+  opacity: 1;
+}
+.paciente-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.paciente-leave-from {
+  opacity: 1;
+}
+.paciente-leave-to {
+  opacity: 0;
+}
+.paciente-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+
+.medico-enter-from{
+  opacity: 0;
+}
+.medico-enter-to {
+  opacity: 1;
+}
+.medico-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.medico-leave-from {
+  opacity: 1;
+}
+.medico-leave-to {
+  opacity: 0;
+}
+.medico-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+
+
 $success: #008894;
 $primary: #008894;
 

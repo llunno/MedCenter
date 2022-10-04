@@ -7,7 +7,7 @@
 						<router-link to="/">
 							<img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top" />
 						</router-link>
-						MedCenter
+						MedCenter 
 					</a>
 					<button
 						class="navbar-toggler"
@@ -28,7 +28,8 @@
 							</form>
 						</div>
 						<div class="div-User d-flex align-items-center gap-2">
-							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome : user.email }}</p>
+							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
+							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
 							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
 							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
 						</div>

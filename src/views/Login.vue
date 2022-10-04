@@ -17,9 +17,9 @@
           </div>
           <hr class="my-4">
           <div class="d-grid mb-2">
-            <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit" @click="loginGoogle" >
+            <!-- <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit" @click="loginGoogle" >
               <i class="fab fa-google me-2"></i> Sign in with Google
-            </button>
+            </button> -->
           </div>
         </form>
       </div>
