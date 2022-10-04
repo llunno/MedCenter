@@ -93,7 +93,7 @@ import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
-const { fetchConsultaMedico } = useDatabase();
+const { fetchConsultaMedico,fetchConsultaPaciente } = useDatabase();
 
 export default {
   name: 'App',
@@ -122,13 +122,25 @@ export default {
     },
   },
   async mounted(){
-      try{
+      if (user.value.user_metadata.medico){
+        try{
         const data = await fetchConsultaMedico();   
         console.log(data); 
         this.consultas = data
+        }
+        catch(error){
+          alert(error.error_description || error.message)
+        }
       }
-      catch(error){
-        alert(error.error_description || error.message)
+      else{
+        try{
+        const data = await fetchConsultaPaciente();   
+        console.log(data); 
+        this.consultas = data
+        }
+        catch(error){
+          alert(error.error_description || error.message)
+        }
       }
     }
 }
