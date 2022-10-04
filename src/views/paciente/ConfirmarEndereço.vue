@@ -23,17 +23,50 @@
 		<section id="manageHorarios" class="d-flex text-center justify-content-center m-2 align-items-center gap-4 mb-5 my-5">
 			<div id="startHorario" class="d-flex align-items-center justify-content-center gap-2">
 				<p class="m-0">De</p>
-				<input class="form-control" type="text" />
+				<input class="form-control" type="text" v-model="this.hora_de" />
 			</div>
 			<div id="endHorario" class="d-flex align-items-center justify-content-center gap-2">
 				<p class="m-0">Até</p>
-				<input class="form-control" type="text" />
+				<input class="form-control" type="text" v-model="this.hora_ate" />
 			</div>
 		</section>
-		<router-link class="btn btn-primary mb-4" to="/confirmarpagamento">Confirmar</router-link>
+		<button class="btn btn-primary mb-4" @click.prevent="selectHorario">Confirmar</button>
 	</main>
 	<router-view/>
 </template>
+<script>
+
+
+import useDatabase from '@/useDatabase';
+
+const { novaConsulta } = useDatabase();
+
+export default {
+  name: 'App',
+  data() {
+    return {
+		hora_de: "",
+		hora_ate:""
+    };
+  },
+  methods: {
+    selectHorario() {
+      try{
+        novaConsulta.value.hora_de = this.hora_de ;
+		novaConsulta.value.hora_ate = this.hora_ate ;
+        console.log(novaConsulta.value);
+        this.$router.replace("/confirmarpagamento");
+      }
+      catch(error){
+        alert(error.error_description || error.message)
+        console.log(error)
+      }
+    },
+
+  }
+}
+
+</script>
 
 <styles lang="scss" scoped>
 $primary: #008894;

@@ -1,20 +1,38 @@
 <template>
     <main class="d-flex flex-column justify-content-center align-items-center gap-3 text-center">
         <h2>Confirme o meio de pagamento</h2>
-        <router-link class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" to="/confirmarsolicitacao">{{item}}</router-link>
+        <button class="btn btn-primary p-3" v-for="item in metodosPagamento" :key="item" @click.prevent="selectPagamento(item)">{{item}}</button>
     </main>
     <router-view/>
 </template>
 
 <script>
-    export default {
-        name: 'app',
-        data() {
-            return {
-                metodosPagamento: ["Cartão de Crédito", "Cartão de Débito", "Boleto", "PIX"]
-            };
-        }
-    }
+import useDatabase from '@/useDatabase';
+
+const { novaConsulta } = useDatabase();
+
+export default {
+  name: 'App',
+  data() {
+    return {
+        metodosPagamento: ["Cartão de Crédito", "Cartão de Débito", "Boleto", "PIX"]
+    };
+  },
+  methods: {
+    selectPagamento(pagamento) {
+      try{
+		novaConsulta.value.pagamento = pagamento ;
+        console.log(novaConsulta.value);
+        this.$router.replace("/confirmarsolicitacao");
+      }
+      catch(error){
+        alert(error.error_description || error.message)
+        console.log(error)
+      }
+    },
+
+  }
+}
 </script>
 
 <style lang="scss" scoped>

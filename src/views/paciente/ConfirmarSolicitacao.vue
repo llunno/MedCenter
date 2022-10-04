@@ -53,13 +53,38 @@
                     <p class="text-start total-text">Total: </p>
                     <p class="text-end">R$ 192,00</p>
                 </div>
-                <router-link class="btn btn-primary" to="/solicitacaoefetuada">Confirmar solicitação</router-link>
+                <button class="btn btn-primary" @click.prevent="confirmar">Confirmar solicitação</button>
             </section>
             <router-view/>
         </main>
     </div>
 </template>
-
+<script>
+    import useDatabase from '@/useDatabase';
+    
+    const { insertConsulta } = useDatabase();
+    
+    export default {
+      name: 'App',
+      data() {
+        return {
+        };
+      },
+      methods: {
+        async confirmar() {
+          try{
+            await insertConsulta();
+            // this.$router.replace("/solicitacaoefetuada");
+          }
+          catch(error){
+            alert(error.error_description || error.message)
+            console.log(error)
+          }
+        },
+    
+      }
+    }
+    </script>
 <styles lang="scss" scoped>
 
     $primary: #008894;
