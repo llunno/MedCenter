@@ -125,7 +125,7 @@ export default {
 		try{
 			await pegarConsulta(consulta_id);
 			//console.log(data)
-			// this.$router.go();
+			 this.$router.go();
 		}
 		catch (error){
 			alert(error.error_description || error.message)
