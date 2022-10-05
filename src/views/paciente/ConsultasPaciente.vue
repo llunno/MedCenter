@@ -54,9 +54,11 @@
             <th scope="col">
               <p>Hora Marcada</p>
             </th>
-            <th scope="col">
-              <p v-if="!user.user_metadata.medico">Médico</p>
-              <p v-else>Paciente</p>
+            <th scope="col" v-if="!user.user_metadata.medico">
+              <p >Médico</p>
+            </th>
+            <th scope="col" v-else>
+              <p >Paciente</p>
             </th>
             <th scope="col">
              <p>Observações</p>
