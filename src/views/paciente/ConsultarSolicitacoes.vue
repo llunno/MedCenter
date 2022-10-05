@@ -74,7 +74,7 @@
               {{c.usuario.data.nome + " " + c.usuario.data.sobrenome}}
             </td>
             <td>
-              <button class="btn btn-primary" id="marcarBtn" @click.prevent="updatePego(c.id)">Marcar</button>
+              <button class="btn btn-primary" id="marcarBtn" @click.prevent="updatePego(c.id)">Obter</button>
             </td>
           </tr>
         </tbody>
