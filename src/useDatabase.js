@@ -63,9 +63,10 @@ export default function useDatabase() {
   const pegarConsulta = async (passId) =>{
     const {data,error} = await supabase
     .from('consultas')
-    .update({pego:true},{medico: user.value.id})
+    .update({pego:true, medico: user.value.id})
     .match({id: passId})
     if(error) throw error;
+    console.log(data)
     return data;
  };
 

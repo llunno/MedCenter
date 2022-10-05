@@ -46,16 +46,23 @@
               <p>Tipo</p>
             </th>
             <th scope="col">
-              <p>Data</p>
+              <p>Entre</p>
             </th>
             <th scope="col">
-              <p>Horário (24h)</p>
+              <p>E</p>
             </th>
             <th scope="col">
-              <p>Médico</p>
+              <p>Hora Marcada</p>
+            </th>
+            <th scope="col">
+              <p v-if="!user.user_metadata.medico">Médico</p>
+              <p v-else>Paciente</p>
             </th>
             <th scope="col">
              <p>Observações</p>
+            </th>
+            <th scope="col" v-show="!user.user_metadata.medico">
+             <p>Pego?</p>
             </th>
           </tr>
         </thead>
@@ -65,16 +72,25 @@
               {{c.consulta}}
             </td>
             <td>
+              {{c.hora_de}}
+            </td>
+            <td>
               {{c.hora_ate}}
             </td>
             <td>
               {{c.pego ? c.hora_marcada : "-"}}
             </td>
-            <td>
+            <td v-if="!user.user_metadata.medico">
               {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
+            </td>
+            <td v-else>
+              {{c.usuario.data.nome}}
             </td>
             <td>
               Sem informações
+            </td>
+            <td v-show="!user.user_metadata.medico">
+              {{c.pego }}
             </td>
           </tr>
         </tbody>

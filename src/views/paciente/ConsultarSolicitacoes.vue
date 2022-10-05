@@ -49,10 +49,10 @@
               <p>Horário Inicial</p>
             </th>
             <th scope="col">
-              <p>Horário FInal</p>
+              <p>Horário Final</p>
             </th>
             <th scope="col">
-              <p>Status</p>
+              <p>Paciente</p>
             </th>
             <th scope="col">
               <p>Adquirir</p>
@@ -68,13 +68,13 @@
               {{c.hora_ate}}
             </td>
             <td>
-              {{c.pego ? c.hora_marcada : "-"}}
+              {{c.hora_ate}}
             </td>
             <td>
-              {{c.pego? c.medico.data.nome + " " + c.medico.data.sobrenome  : "Sem Médico"}}
+              {{c.usuario.data.nome + " " + c.usuario.data.sobrenome}}
             </td>
             <td>
-              <button class="btn btn-primary" id="marcarBtn">Marcar</button>
+              <button class="btn btn-primary" id="marcarBtn" @click.prevent="updatePego(c.id)">Marcar</button>
             </td>
           </tr>
         </tbody>
@@ -94,7 +94,7 @@ import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
 
 const { logout, user } = useAuthUser()
-const { fetchConsultaLivre } = useDatabase();
+const { fetchConsultaLivre,pegarConsulta } = useDatabase();
 
 export default {
 	name: 'App',
@@ -121,6 +121,18 @@ export default {
 	getBack(){
 		this.$router.replace("/dashboard");
 	},
+	async updatePego(consulta_id){
+		try{
+			await pegarConsulta(consulta_id);
+			//console.log(data)
+			// this.$router.go();
+		}
+		catch (error){
+			alert(error.error_description || error.message)
+			this.errorMessage = error.message;
+		}
+	},
+	
 	},
 	async mounted(){
 		try{
