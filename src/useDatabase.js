@@ -29,9 +29,10 @@ export default function useDatabase() {
       .from('consultas')
       .select(`
       *,
-      usuario(data),
       medico(data)
     `).eq('usuario',user.value.id)
+    console.log("fetch")
+    console.log(data)
       if (error) throw error;
       return data;
   };
