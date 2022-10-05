@@ -122,6 +122,14 @@ const routes = [
       requiresAuth: true
     }
   },
+  {
+    path: "/atualizacaocadastral",
+    name: "AtualizacaoCadastral",
+    component: () => import("../views/AtualizacaoCadastral.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  }
 ];
 
 const router = createRouter({

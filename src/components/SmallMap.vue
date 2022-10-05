@@ -22,11 +22,11 @@
     name: 'App',
     data() {
       return {
-        center: {lat: 51.093048, lng: 6.842120},
+        center: {lat: -15.79, lng: -47.89},
         markers: [
           {
             position: {
-              lat: 51.093048, lng: 6.842120
+              lat:-15.79, lng: -47.89
             },
           }
           , // Along list of clusters
