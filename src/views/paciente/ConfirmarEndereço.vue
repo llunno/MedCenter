@@ -4,11 +4,11 @@
 		<section id="manageEnderecos" class="container-fluid d-flex gap-2 mx-auto justify-content-center">
 			<div class="card actualEndereço p-2 justify-content-center m-2">
 				<div class="card-body" tabindex="0">
-					<h5 class="card-title">Rua Lapada Paiva de Souza, 487</h5>
-					<p class="card-text">Bairro: Centro</p>
-					<p class="card-text">Cidade: Mogi das Cruzes</p>
-					<p class="card-text">Estado: Minas Gerais</p>
-					<p class="card-text">CEP: 12456-543</p>
+					<h5 class="card-title">Endereço: {{user.user_metadata.endereco}}</h5>
+					<p class="card-text">Bairro: {{user.user_metadata.bairro}}</p>
+					<p class="card-text">Cidade: {{user.user_metadata.cidade}}</p>
+					<p class="card-text">Estado: {{user.user_metadata.uf}}</p>
+					<p class="card-text">CEP: {{user.user_metadata.cep}}</p>
 				</div>
 			</div>
 			<div class="card newEndereço p-4 text-center justify-content-center m-2">
@@ -35,7 +35,9 @@
 	<router-view/>
 </template>
 <script>
+import useAuthUser from '@/useAuthUser';
 
+const { user } = useAuthUser()
 
 import useDatabase from '@/useDatabase';
 
@@ -45,6 +47,7 @@ export default {
   name: 'App',
   data() {
     return {
+		user,
 		hora_de: "",
 		hora_ate:""
     };
