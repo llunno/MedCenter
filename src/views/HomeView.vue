@@ -13,29 +13,29 @@
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a href="#produtos-component" class="nav-link">Produtos</a>
+                <a href="#produtos-component" class="nav-link" tabindex="0">Produtos</a>
               </li>
               <li class="nav-item">
-                <a href="#pacientes-component" class="nav-link">Pacientes</a>
+                <a href="#pacientes-component" class="nav-link" tabindex="0">Pacientes</a>
               </li>
               <li class="nav-item">
-                <a href="#medicos-component" class="nav-link">Médicos</a>
+                <a href="#medicos-component" class="nav-link" tabindex="0">Médicos</a>
               </li>
               <li class="nav-item">
-                <a href="#sobre-component" class="nav-link">Sobre</a>
+                <a href="#sobre-component" class="nav-link" tabindex="0">Sobre</a>
               </li>
               <li class="nav-item">
-                <a href="#contato-component" class="nav-link">Contato</a>
+                <a href="#contato-component" class="nav-link" tabindex="0">Contato</a>
               </li>
             </ul>
             <div>
               <div class="div-buttons" v-if="!logado" >
-                <router-link class="btn btn-success text-light" to="/signup" >Cadastre-se</router-link>
-                <router-link type="button" class="btn btn-success text-light" to="/login" >Log-in</router-link>
+                <router-link class="btn btn-success text-light" to="/signup" tabindex="0">Cadastre-se</router-link>
+                <router-link type="button" class="btn btn-success text-light" to="/login" tabindex="0">Log-in</router-link>
               </div>
               <div class="div-buttons" v-else>
-                <router-link class="btn btn-success text-light" to="/dashboard" >Dashboard</router-link>
-                <button @click="signOut" class="btn btn-success text-light">Log-out</button>
+                <router-link class="btn btn-success text-light" to="/dashboard" tabindex="0">Dashboard</router-link>
+                <button @click="signOut" class="btn btn-success text-light" tabindex="0">Log-out</button>
               </div>
             </div>
           </div>

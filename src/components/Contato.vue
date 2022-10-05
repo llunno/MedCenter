@@ -7,31 +7,31 @@
         <div id="container-form">
             <form @submit.prevent class="mx-auto">
                 <div class="row mb-5">
-                    <label class="col-sm-2 col-form-label">Nome:</label>
+                    <label class="col-sm-2 col-form-label" role="Input nome">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" tabindex="0" required>
+                        <input type="text" class="form-control" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
-                    <label class="col-sm-2 col-form-label">E-mail:</label>
+                    <label class="col-sm-2 col-form-label" role="Input email">E-mail:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" tabindex="0" required>
+                        <input type="email" class="form-control" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
-                    <label class="col-sm-2 col-form-label">Telefone:</label>
+                    <label class="col-sm-2 col-form-label" role="Input telefone">Telefone:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" tabindex="0" required>
+                        <input class="form-control" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
-                    <label class="col-sm-2 col-form-label">Descrição:</label>
+                    <label class="col-sm-2 col-form-label" role="Descrição enviar">Descrição:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" tabindex="0" required></textarea>
+                        <textarea class="form-control" tabindex="0" required aria-required></textarea>
                     </div>
                 </div>
                 <div class="container-fluid mx-auto" id="containerBtn">
-                    <button class="btn btn-success" id="sbmt-btn" tabindex="0">Enviar</button>
+                    <button class="btn btn-success" id="sbmt-btn" tabindex="0" role="Botão Input enviar">Enviar</button>
                 </div>
             </form>
         </div>
