@@ -1,152 +1,294 @@
 <template>
 	<div id="containerAll">
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#">
-						<router-link to="/">
-							<img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top" />
-						</router-link>
-						MedCenter 
-					</a>
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse">
-						<div class="container-fluid" id="formContainer">
-							<form class="d-flex" role="search" @submit.prevent>
-								<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
-								<button class="btn btn-success">Buscar</button>
-							</form>
-						</div>
-						<div class="div-User d-flex align-items-center gap-2">
-							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
-							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
-							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
-							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</header>
-		<div class="container mb-auto mt-auto" id="containerMainContent">
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-1" to="/consultaspaciente">Minhas Consultas</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/novaconsulta">Agendar Nova Consulta</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/consultarstatus">Acompanhar Status do Exame</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/clinicasprox">Consultar Clínicas Próximas</router-link>
-			<router-link type="button" class="btn btn-primary btn-cel cel cel-5" to="/atualizarcadastro">Atualização Cadastral</router-link>
-			<div class="cel cel-6">
-				<small-map id="mapsGoogle" />
+	  <header>
+	  <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">
+			<router-link to="/">
+			  <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top" />
+			</router-link>
+			MedCenter 
+		  </a>
+		  <button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		  >
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse">
+			<div class="container-fluid" id="formContainer">
+			  <form class="d-flex" role="search" @submit.prevent>
+				<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+				<button class="btn btn-success">Buscar</button>
+			  </form>
 			</div>
+			<div class="div-User d-flex align-items-center gap-2">
+			  <p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
+			  <p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
+			  <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
+			  <button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
+			</div>
+		  </div>
 		</div>
-		<footer class="footer-dashboard">
-			<p class="m-0">Sistema para Médicos &copy; 2022</p>
-		</footer>
-		<router-view></router-view>
+	  </nav>
+	</header>
+	<main class="d-flex flex-column align-items-center justify-content-center gap-4 text-center container-fluid my-auto">
+	<div id="tableContainer" class="text-center container-fluid my-auto">
+	  <table class="table table-responsive table-hover table-borderless align-middle">
+		<thead>
+		  <tr>
+			<th scope="col">
+			  <p>Tipo</p>
+			</th>
+			<th scope="col">
+			  <p>Hora Marcada</p>
+			</th>
+			<th scope="col" v-if="!user.user_metadata.medico">
+			  <p >Médico</p>
+			</th>
+			<th scope="col" v-else>
+			  <p >Paciente</p>
+			</th>
+			<th scope="col">
+			 <p>Observações</p>
+			</th>
+			<th scope="col">
+			 <p>Status</p>
+			</th>
+			<th scope="col" >
+			 <p>Alterações</p>
+			</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr v-for="(c,index) in consultas" :key="index">
+			<td>
+			  {{c.consulta}}
+			</td>
+			<td>
+				<input class="form-control" type="datetime-local" v-model="this.hora_marcada[index].hora_marcada" @change="onChangeHora(index,c)" />
+			</td>
+			<td v-if="!user.user_metadata.medico">
+			  {{c.pego? c.medico ? (c.medico.data.nome + " " + c.medico.data.sobrenome) : "-"  : "Sem Médico"}}
+			</td>
+			<td v-else>
+			  {{c.pego? c.usuario ? (c.usuario.data.nome + " " + c.usuario.data.sobrenome): "-"  : "Sem Médico"}}
+			</td>
+			<td>
+				<input class="form-control" type="text" v-model="this.observacoes" />
+			</td>
+			<td>
+			  {{c.pego ? (!!c.hora_marcada ? (c.situacao ? "Definido" : "Agendado") : "Não agendado")   : "Não Obtido" }}
+			</td>
+			<td v-show="this.alterado[index].value">
+              <button class="btn btn-primary" id="marcarBtn" @click.prevent="acertarHora(c.id,index)">Confirmar</button>
+            </td>
+		  </tr>
+		</tbody>
+	  </table>
 	</div>
-</template>
-
-<script>
-import SmallMap from "../../components/SmallMap.vue";
-import useAuthUser from "@/useAuthUser";
-
-const { logout, user } = useAuthUser();
-
-export default {
-	name: "App",
-	components: {
-		SmallMap,
+	<button class="btn btn-primary btn-voltar" @click="getBack">Voltar</button>
+  </main>
+	<footer class="footer-dashboard">
+	  <p class="m-0">Sistema para Médicos &copy; 2022</p>
+	</footer>
+	</div>
+  </template>
+  
+  <script>
+  import useAuthUser from '@/useAuthUser';
+  import useDatabase from '@/useDatabase';
+  
+  const { logout, user } = useAuthUser()
+  const { fetchConsultaMedico,fetchConsultaPaciente, marcarHora } = useDatabase();
+  
+  export default {
+  name: 'App',
+  data() {
+	return {
+	  user,
+	  consultas: null,
+	  alterado: [],
+	  hora_marcada: [],
+	  observacoes: ""
+	};
+  },
+  methods: {
+	async signOut(){
+	  try{
+		await logout();
+		this.$router.replace("/");
+	  }
+	  catch (error){
+		alert(error.error_description || error.message)
+		this.errorMessage = error.message;
+	  }
+	  finally{
+		alert("Logged Out")
+	  }
 	},
-	data() {
-		return {
-			user,
-		};
+	getBack(){
+	  this.$router.replace("/dashboard");
 	},
-	methods: {
-		async signOut() {
-			try {
-				await logout();
-				this.$router.replace("/");
-			} catch {
-				alert(error.error_description || error.message);
-				this.errorMessage = error.message;
-			} finally {
-				alert("Logged Out");
-			}
-		},
+	onChangeHora( index,c){
+		if (this.hora_marcada[index].hora_marcada == !!c.hora_marcada){
+			this.alterado[index].value = false
+		}
+		else{
+			this.alterado[index].value = true
+		}
 	},
-};
-</script>
-
-<style scoped lang="scss">
-$success: #395b59;
-$primary: #008894;
-
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-
-@import "@/css/DashBoardBaseStyle.scss";
-
-@media (max-height: 900px) {
-	#containerAll {
-		#containerMainContent {
-			width: 70%;
-
-			.cel-6 {
-				grid-row: 2/6;
-			}
-
-			.btn-cel {
-				padding-top: 2rem;
-				padding-bottom: 2rem;
-			}
-		}
+	async acertarHora(passId,index){
+		try{
+			await marcarHora(passId,this.hora_marcada[index].hora_marcada);
+			this.$router.go();
+	  }
+	  catch (error){
+		alert(error.error_description || error.message)
+		this.errorMessage = error.message;
+	  }
 	}
-}
-
-@media (max-width: 1200px) {
-	#containerAll {
-		#containerMainContent {
-			.cel-6 {
-				grid-row: 2/6;
+  },
+  async mounted(){
+	  if (user.value.user_metadata.medico){
+		try{
+		const data = await fetchConsultaMedico();   
+		this.consultas = data
+		data.forEach(c => {
+			this.alterado.push({alter: false})
+			if(!!c.hora_marcada){
+				this.hora_marcada.push({hora_marcada:c.hora_marcada})
 			}
+			else{
+				this.hora_marcada.push({hora_marcada:""})
+			}
+		});
 		}
+		catch(error){
+		  alert(error.error_description || error.message)
+		}
+	  }
+	  else{
+		try{
+		const data = await fetchConsultaPaciente();   
+		this.consultas = data
+		data.forEach(c => {
+			this.alterado.push({alter: false})
+			if(!!c.hora_marcada){
+				this.hora_marcada.push({hora_marcada:c.hora_marcada})
+			}
+			else{
+				this.hora_marcada.push({hora_marcada:""})
+			}
+		});
+		}
+		catch(error){
+		  alert(error.error_description || error.message)
+		}
+	  }
+	  console.log(this.consultas)
 	}
-}
-
-@media (max-width: 995px) {
-	#containerAll {
-		#containerMainContent {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			width: 100%;
-			padding-bottom: 3rem;
-			padding-top: 3rem;
-
-			.cel {
-				width: 90%;
-			}
-
-			.cel-6 {
-				height: 30rem;
-			}
-		}
-
-		&::before {
-			-webkit-filter: blur(10px);
-			-moz-filter: blur(10px);
-			-o-filter: blur(10px);
-			-ms-filter: blur(10px);
-			filter: blur(10px);
-		}
+  }
+  </script>
+  
+  <style scoped lang="scss">
+  $success: #395B59;
+  $primary: #008894;
+  
+  @import "../../../node_modules/bootstrap/scss/bootstrap";
+  
+  header, div, footer {
+	font-family: 'Montserrat', sans-serif;
+  }
+  
+  #containerAll {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-attachment: scroll;
+	background-size: cover;
+  }
+  
+  footer {
+	margin-top: auto;
+  }
+  
+  .div-User {
+	#userIcon {
+	  font-size: 2.4rem;
+	  color: white;
 	}
-}
-</style>
+  
+	p {
+	  color: white;
+	}
+  }
+  
+  #formContainer {
+	max-width: 50%;
+  
+	form * {
+	  border-radius: 0;
+	}
+  }
+  
+  .footer-dashboard {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #008894;
+	color: #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .footer-dashboard p {
+	color: #EEEEEE;
+  }
+  
+  #signout-btn {
+  color: rgb(236, 236, 236);
+  font-size: 0.7rem;
+  text-decoration: underline;
+  }
+  
+  #tableContainer {
+  max-width: 75%;
+  border: 1px solid black;
+  padding: 2rem 3rem 2rem 3rem;
+  min-height: 20rem;
+  overflow-x: auto;
+  }
+  
+  .btn-voltar {
+  width: 15rem;
+  padding: 1rem;
+  color: white !important;
+  }
+  
+  
+  
+  table {
+  min-width: 20rem !important;
+  th {
+	color: white;
+	font-weight: normal;
+  }
+  
+  thead {
+	p {
+	  background-color: #008894;
+	  padding: 1rem;
+	  margin: 0;
+	  min-width: 10rem;
+	}
+  }
+  }
+  </style>

@@ -70,6 +70,15 @@ export default function useDatabase() {
     console.log(data)
     return data;
  };
+ const marcarHora = async (passId,hora) =>{
+  const {data,error} = await supabase
+  .from('consultas')
+  .update({hora_marcada:hora})
+  .match({id: passId})
+  if(error) throw error;
+  console.log(data)
+  return data;
+};
 
   
 
@@ -79,6 +88,7 @@ export default function useDatabase() {
     insertConsulta,
     novaConsulta,
     pegarConsulta,
-    fetchConsultaLivre
+    fetchConsultaLivre,
+    marcarHora
   };
 }
