@@ -46,10 +46,10 @@
               <p>Tipo</p>
             </th>
             <th scope="col">
-              <p>Entre</p>
+              <p>Horário (Mín)</p>
             </th>
             <th scope="col">
-              <p>E</p>
+              <p>Horário (Máx)</p>
             </th>
             <th scope="col">
               <p>Hora Marcada</p>
