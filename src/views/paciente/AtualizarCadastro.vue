@@ -1,121 +1,385 @@
 <template>
-    <div id="containerAll">
-      <header>
-          <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top"/>
-                MedCenter
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse">
-                <div class="container-fluid" id="formContainer">
-                  <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Buscar</button>
-                  </form>
-                </div>
-                <div class="div-User d-flex align-items-center gap-2">
-                    <p class="m-0">{{user.user_metadata.nome ? user.user_metadata.nome : user.email}}</p>
-                    <font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user"/>
-                    <!-- Provisório, favor fazer como preferirem -->
-                    <button @click="signOut">Sign-Out</button>
-                </div>
+     <div>
+    <header class="container-fluid mx-auto my-4 d-flex align-items-center justify-content-around gap-2">
+		<section id="paciente-signup" class="d-flex align-items-center justify-content-center gap-4">
+			<h2>Sou Paciente...</h2>
+			<button class="btn btn-success" @click.prevent="setPaciente">Cadastre-se</button>
+		</section>
+		<section id="medico-signup" class="d-flex align-items-center justify-content-center gap-4">
+			<h2>Sou Médico...</h2>
+			<button class="btn btn-success" @click.prevent="setMedico">Associe-se</button>
+		</section>
+	</header>
+  <transition name="paciente">
+    <main class="mx-auto" v-show="cadastroAtivo && !medico">
+      <div class="card shadow my-5" id="formContainer">
+        <div class="card-body p-4 p-sm-5">
+          <form @submit.prevent="supabaseSignUp">
+            <h5 class="card-title text-start fw-light fs-5">Atualizar dados</h5>
+              <div class="d-flex gap-3">
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingFirstName" class="form-control" v-model="this.nome" />
+                      <label for="floatingFirstName">Nome</label>
+                    </div>
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingSecondName" class="form-control" v-model="this.sobrenome" />
+                      <label for="floatingSecondName">Sobrenome</label>
+                    </div>
+              </div>
+            <div class="form-floating input-container">
+              <input type="email" class="form-control" id="floatingInput" v-model="this.email" />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingCPF" v-model="this.cpf" />
+              <label for="floatingCPF">CPF</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="date" class="form-control" id="floatingNascimento" v-model="this.nascimento" />
+              <label for="floatingNascimento">Data de Nascimento</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingRg" v-model="this.rg" />
+              <label for="floatingRg">RG</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
+              <label for="floatingEndereço">Endereço</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingBairro" class="form-control" v-model="this.bairro" />
+                <label for="floatingBairro">Bairro</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCidade" class="form-control" v-model="this.cidade" />
+                <label for="floatingCidade">Cidade</label>
               </div>
             </div>
-          </nav>
-      </header>
-      <footer class="footer-dashboard">
-        <p class="m-0">Sistema para Médicos &copy; 2022</p>
-      </footer>
-    </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUF" class="form-control" v-model="this.uf" />
+                <label for="floatingUF">UF</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCEP" class="form-control" v-model="this.cep" />
+                <label for="floatingCEP">CEP</label>
+              </div>
+            </div>
+            <div class="">
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </transition>
+  <transition name="medico">
+    <main class="mx-auto" v-show="cadastroAtivo && medico">
+      <div class="card shadow my-5" id="formContainer">
+        <div class="card-body p-4 p-sm-5">
+          <form @submit.prevent="supabaseSignUp">
+            <h5 class="card-title text-start fw-light fs-5">Atualizar dados</h5>
+              <div class="d-flex gap-3">
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingFirstName" class="form-control" v-model="this.nome" />
+                      <label for="floatingFirstName">Nome</label>
+                    </div>
+                    <div class="col form-floating input-container flex-form">
+                      <input type="text" id="floatingSecondName" class="form-control" v-model="this.sobrenome" />
+                      <label for="floatingSecondName">Sobrenome</label>
+                    </div>
+              </div>
+            <div class="form-floating input-container">
+              <input type="email" class="form-control" id="floatingInput" v-model="this.email" />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingCPF" v-model="this.cpf" />
+              <label for="floatingCPF">CPF</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="date" class="form-control" id="floatingNascimento" v-model="this.nascimento" />
+              <label for="floatingNascimento">Data de Nascimento</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingRg" v-model="this.rg" />
+              <label for="floatingRg">RG</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCRM" class="form-control" v-model="this.crm" />
+                <label for="floatingCRM">CRM</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUfEmissao" class="form-control" v-model="this.ufemissao" />
+                <label for="floatingUfEmissao">UF de Emissão</label>
+              </div>
+            </div>
+            <div class="form-floating input-container">
+              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
+              <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="form-floating input-container">
+              <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
+              <label for="floatingEndereço">Endereço</label>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingBairro" class="form-control" v-model="this.bairro" />
+                <label for="floatingBairro">Bairro</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCidade" class="form-control" v-model="this.cidade" />
+                <label for="floatingCidade">Cidade</label>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingUF" class="form-control" v-model="this.uf" />
+                <label for="floatingUF">UF</label>
+              </div>
+              <div class="col form-floating input-container flex-form">
+                <input type="text" id="floatingCEP" class="form-control" v-model="this.cep" />
+                <label for="floatingCEP">CEP</label>
+              </div>
+            </div>
+            <div class="">
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </transition>
+  </div>
 </template>
 
 <script>
-import useAuthUser from '@/useAuthUser';
-
-const { logout, user } = useAuthUser()
-export default {
-  name: 'App',
-  data() {
-    return {
-      user
-    };
-  },
-  methods: {
-    async signOut(){
-      try{
-        await logout();
-        this.$router.replace("/");
-      }
-      catch{
-        alert(error.error_description || error.message)
-        this.errorMessage = error.message;
-      }
-      finally{
-        alert("Logged Out")
-      }
+import useAuthUser from "@/useAuthUser";
+  const { register } = useAuthUser();
+  export default {
+    data() {
+      return {
+        email: "",
+        password: "",
+        medico: false,
+        nome: "",
+        sobrenome: "",
+        cpf: "",
+        nascimento: "",
+        rg: "",
+        endereco: "",
+        bairro: "",
+        cidade: "",
+        uf: "",
+        cep: "",
+        crm: "",
+        ufemissao: "",
+  
+        xhrRequest: false,
+        errorMessage: "",
+        successMessage: "",
+        cadastroAtivo: false
+      };
     },
-  }
-}
+  
+    methods: {
+      async supabaseSignUp() {
+        try {
+          this.loading = true;
+          await register({
+            email: this.email,
+            password: this.password,
+            medico: this.medico,
+            nome: this.nome,
+            sobrenome: this.sobrenome,
+            cpf: this.cpf,
+            nascimento: this.nascimento,
+            rg: this.rg,
+            endereco: this.endereco,
+            bairro: this.bairro,
+            cidade: this.cidade,
+            uf: this.uf,
+            cep: this.cep,
+            crm: this.crm,
+            ufemissao: this.ufemissao,
+          });
+          this.successMessage = "Register Sucessfully";
+          this.$router.replace("/login");
+        } catch (error) {
+          alert(error.error_description || error.message);
+          this.errorMessage = error.message;
+        } finally {
+          this.loading = false;
+        }
+      },
+      setPaciente (){
+        if(!this.medico){
+          this.cadastroAtivo = !this.cadastroAtivo
+        }
+        else{
+          this.medico = false
+          if (!this.cadastroAtivo){
+            this.cadastroAtivo = !this.cadastroAtivo
+          }
+        }
+        // this.medico == false ? this.cadastroAtivo = !this.cadastroAtivo : this.medico = true
+      },
+      setMedico (){
+        if(this.medico){
+          this.cadastroAtivo = !this.cadastroAtivo
+        }
+        else{
+          this.medico = true
+          if (!this.cadastroAtivo){
+            this.cadastroAtivo = !this.cadastroAtivo
+          }
+        }
+        // this.medico == false ? this.cadastroAtivo = !this.cadastroAtivo : this.medico = true
+      },
+    },
+    Unmount() {
+      const divContainers = document.querySelectorAll(".container");
+      divContainers.style.display = "none";
+    }
+  };
 </script>
 
 <style scoped lang="scss">
-  $success: #395B59;
+  .paciente-enter-from{
+  opacity: 0;
+}
+.paciente-enter-to {
+  opacity: 1;
+}
+.paciente-enter-active {
+  transition: opacity 0.5s ease;
+}
 
-  @import "../../../node_modules/bootstrap/scss/bootstrap";
+.paciente-leave-from {
+  opacity: 1;
+}
+.paciente-leave-to {
+  opacity: 0;
+}
+.paciente-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-  header, div, footer {
-    font-family: 'Montserrat', sans-serif;
-  }
 
-  #containerAll {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: url(@/assets/backgroundDashboard.png);
-    background-attachment: scroll;
-    background-size: cover;
-  }
+.medico-enter-from{
+  opacity: 0;
+}
+.medico-enter-to {
+  opacity: 1;
+}
+.medico-enter-active {
+  transition: opacity 0.5s ease;
+}
 
-  footer {
-    margin-top: auto;
-  }
+.medico-leave-from {
+  opacity: 1;
+}
+.medico-leave-to {
+  opacity: 0;
+}
+.medico-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-  .div-User {
-    #userIcon {
-      font-size: 2.4rem;
-      color: white;
-    }
 
-    p {
-      color: white;
-    }
-  }
 
-  #formContainer {
-    max-width: 50%;
+$success: #008894;
+$primary: #008894;
 
-    form * {
-      border-radius: 0;
-    }
-  }
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 
-  .footer-dashboard {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #008894;
-    color: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+main {
+	width: 50%;
+}
 
-  .footer-dashboard p {
-    color: #EEEEEE;
-  }
+#cadastrarBtn {
+	padding-left: 5rem !important;
+	padding-right: 5rem !important;
+}
+
+.input-container {
+	margin-bottom: 1.7rem;
+}
+
+#formContainer {
+	border-radius: 0;
+	border: 1px solid rgba(131, 131, 131, 0.616);
+}
+
+form {
+	input {
+		border-radius: 0 !important;
+	}
+}
+
+.container-nome {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	justify-content: center;
+
+	.col {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+.flex-form {
+	padding-left: 1px;
+}
+
+* {
+	font-family: "Montserrat", sans-serif;
+}
+
+.btn-spn {
+	position: relative;
+	top: -3px;
+}
+
+.btn {
+	color: white !important;
+}
+
+header {
+	border: 1px solid rgba(88, 88, 88, 0.63);
+	padding: 3rem;
+	width: 70% !important;
+
+	h2 {
+		font-size: 2rem;
+		font-family: "Montserrat-Regular", sans-serif;
+	}
+}
+
+h5 {
+	margin-bottom: 5rem !important;
+}
+
+@media (max-width: 1300px) {
+	header {
+		width: 90% !important;
+	}
+	main {
+		width: 80%;
+	}
+}
+
+@media (max-width: 940px) {
+	header {
+		flex-direction: column;
+	}
+}
 </style>

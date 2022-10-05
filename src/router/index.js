@@ -125,7 +125,7 @@ const routes = [
   {
     path: "/atualizacaocadastral",
     name: "AtualizacaoCadastral",
-    component: () => import("../views/AtualizacaoCadastral.vue"),
+    component: () => import("../views/paciente/AtualizarCadastro.vue"),
     meta: {
       requiresAuth: true
     }
