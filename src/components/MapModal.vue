@@ -30,7 +30,7 @@
     },
   };
   </script>
-  <style>
+  <style scoped>
   .modal {
     position: fixed;
     z-index: 2;
@@ -53,7 +53,6 @@
   
   p {
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
   }
   

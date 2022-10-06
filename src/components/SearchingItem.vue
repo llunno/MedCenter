@@ -40,7 +40,7 @@
     },
   };
   </script>
-  <style>
+  <style scoped>
   .search-item {
     width: 400px;
     display: flex;
