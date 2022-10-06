@@ -2,7 +2,7 @@
 	<main class="container-fluid d-flex flex-column align-items-center justify-content-center" id="container-all">
 		<h2 class="mb-5 my-2" tabindex="0">Confirmar Endereço</h2>
 		<section id="manageEnderecos" class="container-fluid d-flex gap-2 mx-auto justify-content-center">
-			<div class="card actualEndereço p-2 justify-content-center m-2">
+			<div id="actualEndereco" class="card p-2 justify-content-center m-2">
 				<div class="card-body" tabindex="0">
 					<h5 class="card-title">Endereço: {{user.user_metadata.endereco}}</h5>
 					<p class="card-text">Bairro: {{user.user_metadata.bairro}}</p>
@@ -11,7 +11,7 @@
 					<p class="card-text">CEP: {{user.user_metadata.cep}}</p>
 				</div>
 			</div>
-			<div class="card newEndereço p-4 text-center justify-content-center m-2">
+			<div id="newEndereco" class="card p-4 text-center justify-content-center m-2">
 				<h5 class="card-title"></h5>
 				<div class="card-body" tabindex="0">
 					<font-awesome-icon id="idconPlus" icon="fa-solid fa-plus" />
@@ -65,17 +65,32 @@ export default {
         console.log(error)
       }
     },
-
+  },
+  mounted(){
+	const { user } = useAuthUser();
+	this.user = user;
   }
 }
 
 </script>
 
 <styles lang="scss" scoped>
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 $primary: #008894;
 
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-
+#actualEndereco {
+	background-color: #008894;
+	color: white;
+	border-radius: 0;
+	min-width: 30rem;
+}
+#newEndereco{
+	background-color: #008894;
+	color: white;
+	border-radius: 0;
+	min-width: 30rem;
+	cursor: pointer;
+}
 //@import "../../../node_modules/bootstrap/scss/functions";
 //@import "../../../node_modules/bootstrap/scss/variables";
 //@import "../../../node_modules/bootstrap/scss/mixins";
@@ -107,21 +122,12 @@ h1 {
 	font-size: 6rem;
 }
 
-.card {
-	background-color: #008894;
-	color: white;
-	border-radius: 0;
-	min-width: 30rem;
-}
 
 input {
 	border-radius: 0 !important;
 }
 
-.actualEndereço,
-.newEndereço {
-	cursor: pointer;
-}
+
 
 @media(max-width: 1413px) {
 	.card {
