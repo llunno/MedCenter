@@ -27,7 +27,7 @@
 								<button class="btn btn-success">Buscar</button>
 							</form>
 						</div>
-						<div class="div-User d-flex align-items-center gap-2">
+						<div id="div-User" class="d-flex align-items-center gap-2">
 							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
 							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
 							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
@@ -202,13 +202,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  $success: #395B59;
-
-  @import "../../../node_modules/bootstrap/scss/bootstrap";
-
-  header, div, footer {
-    font-family: 'Montserrat', sans-serif;
-  }
 
   #containerAll {
     display: flex;
@@ -225,11 +218,7 @@ export default {
         color: #395B59;
     }
 
-  footer {
-    margin-top: auto;
-  }
-
-  .div-User {
+  #div-User {
     #userIcon {
       font-size: 2.4rem;
       color: white;
@@ -246,22 +235,6 @@ export default {
     form * {
       border-radius: 0;
     }
-  }
-
-  .footer-dashboard {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #008894;
-    color: #FFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-dashboard p {
-    color: #EEEEEE;
   }
 
   html {

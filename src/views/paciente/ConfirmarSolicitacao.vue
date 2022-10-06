@@ -53,7 +53,7 @@
                     <p class="text-start total-text">Total: </p>
                     <p class="text-end">R$ 192,00</p>
                 </div>
-                <button class="btn btn-primary" @click.prevent="confirmar" tabindex="0">Confirmar solicitação</button>
+                <button id="confirmSolicitacaoBtn" class="btn btn-primary" @click.prevent="confirmar" tabindex="0">Confirmar solicitação</button>
             </section>
             <router-view/>
         </main>
@@ -87,8 +87,6 @@
     </script>
 <styles lang="scss" scoped>
 
-    $primary: #008894;
-    @import "../../../node_modules/bootstrap/scss/bootstrap";
     div#containerAll {
         min-height: 100vh;
         display: flex;
@@ -107,7 +105,6 @@
     }
 
     p {
-        margin: 0;
         padding: 0.2rem;
     }
 
@@ -158,7 +155,7 @@
         min-width: 14rem;
     }
 
-    .btn {
+    #confirmSolicitacaoBtn {
         margin-top: 1.3rem;
         color: white !important;
         padding: 1.2rem;

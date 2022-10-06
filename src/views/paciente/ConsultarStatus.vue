@@ -159,14 +159,6 @@ async mounted(){
 </script>
 
 <style scoped lang="scss">
-$success: #395B59;
-$primary: #008894;
-
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-
-header, div, footer {
-  font-family: 'Montserrat', sans-serif;
-}
 
 #containerAll {
   min-height: 100vh;
@@ -222,11 +214,13 @@ text-decoration: underline;
 }
 
 #tableContainer {
-max-width: 75%;
-border: 1px solid black;
-padding: 2rem 3rem 2rem 3rem;
-min-height: 20rem;
-overflow-x: auto;
+  max-width: 70%;
+  border: 1px solid black;
+  padding: 2rem 3rem 2rem 3rem;
+  min-height: 20rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 40rem;
 }
 
 .btn-voltar {
@@ -252,5 +246,11 @@ thead {
     min-width: 10rem;
   }
 }
+}
+
+@media(max-height: 800px) {
+  #tableContainer {
+    height: 25rem;
+  }
 }
 </style>

@@ -12,13 +12,4 @@ export default {
 </script>
 
 <style>
-@font-face {
-	font-family: "Montserrat";
-	src: local("Montserrat"), url("@/fonts/Montserrat-Medium.ttf") format("truetype");
-}
-
-@font-face {
-	font-family: "Montserrat-Regular";
-	src: local("Montserrat"), url("@/fonts/Montserrat-Regular.ttf") format("truetype");
-}
 </style>

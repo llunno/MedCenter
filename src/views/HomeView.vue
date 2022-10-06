@@ -30,8 +30,8 @@
             </ul>
             <div>
               <div class="div-buttons" v-if="!logado" >
-                <router-link class="btn btn-success text-light" to="/signup" tabindex="0">Cadastre-se</router-link>
-                <router-link type="button" class="btn btn-success text-light" to="/login" tabindex="0">Log-in</router-link>
+                <router-link class="btn btn-primary text-light" to="/signup" tabindex="0">Cadastre-se</router-link>
+                <router-link type="button" class="btn btn-primary text-light" to="/login" tabindex="0">Log-in</router-link>
               </div>
               <div class="div-buttons" v-else>
                 <router-link class="btn btn-success text-light" to="/dashboard" tabindex="0">Dashboard</router-link>
@@ -75,11 +75,11 @@
       </section>
       <section id="section-app" class="text-center">
         <h4>Baixe nosso app</h4>
-        <div id="gplay" class="d-flex justify-content-center gap-2 align-items-center mb-2 btn btn-primary">
+        <div id="gplay" class="d-flex justify-content-center gap-2 align-items-center mb-2 btn btn-success">
           <font-awesome-icon  id="icon-gplay" icon="fa-brands fa-google-play" />
           <p>Google Play</p>
         </div>
-        <div id="apple-store" class="d-flex justify-content-center gap-2 align-items-center btn btn-primary">
+        <div id="apple-store" class="d-flex justify-content-center gap-2 align-items-center btn btn-success">
           <font-awesome-icon icon="fa-brands fa-app-store" />
           <p>App Store</p>
         </div>
@@ -93,6 +93,7 @@
   </div>
 </template>
 
+<!-- eslint-disable no-undef -->
 <script>
   import Produtos from "@/components/Produtos";
   import Pacientes from "@/components/Pacientes";
@@ -170,10 +171,6 @@
 
 <style scoped lang="scss">
 
-  $primary: rgba(58, 58, 58, 0.329);
-  $success: #008894;
-
-  @import "../../node_modules/bootstrap/scss/bootstrap";
   @import "@/css/HomeViewBaseStyle.scss";
 
   @media(max-width: 970px) {

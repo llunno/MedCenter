@@ -70,10 +70,6 @@
         line-height: 2;
     }
 
-    section {
-        font-family: 'Montserrat', sans-serif;
-    }
-
     .card-title {
         font-weight: bold;
     }

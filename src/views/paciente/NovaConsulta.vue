@@ -53,6 +53,7 @@
     </div>
 </template>
 
+<!-- eslint-disable no-undef -->
 <script>
 import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
@@ -98,14 +99,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  $success: #395B59;
-  $primary: #008894;
-
-  @import "../../../node_modules/bootstrap/scss/bootstrap";
-
-  header, div, footer {
-    font-family: 'Montserrat', sans-serif;
-  }
 
   footer {
     margin-top: auto;

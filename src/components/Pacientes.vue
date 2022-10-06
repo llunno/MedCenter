@@ -39,10 +39,6 @@
         line-height: 2;
     }
 
-    section {
-        font-family: 'Montserrat', sans-serif;
-    }
-
     p {
         color: #395B59;
         font-size: 24px;

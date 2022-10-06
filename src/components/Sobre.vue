@@ -41,10 +41,6 @@
         font-size: 24px;
     }
 
-    section {
-        font-family: 'Montserrat', sans-serif;
-    }
-
     .card {
         width: 37rem;
         background-color: #008894;

@@ -39,32 +39,28 @@
         line-height: 2;
     }
 
-    section {
-        font-family: 'Montserrat', sans-serif;
-    }
-
     p {
         color: #395B59;
         font-size: 24px;
     }
 
     @media(max-width: 1172px) {
-        #divMedico {
-            flex-direction: column-reverse;
+			#divMedico {
+				flex-direction: column-reverse;
 
-            #texto-medico {
-                max-width: 100%;
-                line-height: 2;
+				#texto-medico {
+					max-width: 100%;
+					line-height: 2;
 
-                h3, p {
-                    text-align: center !important;
-                }
-            }
+					h3, p {
+							text-align: center !important;
+					}
+				}
 
-            img {
-                width: 80%;
-            }
-        }
+				img {
+						width: 80%;
+				}
+			}
     }
 
 </style>

@@ -48,7 +48,7 @@ export default {
     async supabaseLogin(){
       try {
           await login({ email: this.email,password: this.password });
-           this.$router.replace("dashboard");
+          this.$router.replace("dashboard");
         } 
       catch (error) {
           alert(error.error_description || error.message)
@@ -69,9 +69,6 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-  $primary: #008894;
-
-  @import "../../node_modules/bootstrap/scss/bootstrap";
 
   main {
     width: 50%;

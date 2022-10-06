@@ -56,11 +56,13 @@
 	</div>
 </template>
 
+<!-- eslint-disable no-undef -->
 <script>
 import SmallMap from "../../components/SmallMap.vue";
 import useAuthUser from "@/useAuthUser";
 
 const { logout, user } = useAuthUser();
+
 
 export default {
 	name: "App",
@@ -89,10 +91,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$success: #395b59;
-$primary: #008894;
-
-@import "../../../node_modules/bootstrap/scss/bootstrap";
 
 @import "@/css/DashBoardBaseStyle.scss";
 

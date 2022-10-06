@@ -247,135 +247,128 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.paciente-enter-from{
-  opacity: 0;
-}
-.paciente-enter-to {
-  opacity: 1;
-}
-.paciente-enter-active {
-  transition: opacity 0.5s ease;
-}
+  .paciente-enter-from{
+    opacity: 0;
+  }
+  .paciente-enter-to {
+    opacity: 1;
+  }
+  .paciente-enter-active {
+    transition: opacity 0.5s ease;
+  }
 
-.paciente-leave-from {
-  opacity: 1;
-}
-.paciente-leave-to {
-  opacity: 0;
-}
-.paciente-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-
-.medico-enter-from{
-  opacity: 0;
-}
-.medico-enter-to {
-  opacity: 1;
-}
-.medico-enter-active {
-  transition: opacity 0.5s ease;
-}
-
-.medico-leave-from {
-  opacity: 1;
-}
-.medico-leave-to {
-  opacity: 0;
-}
-.medico-leave-active {
-  transition: opacity 0.5s ease;
-}
+  .paciente-leave-from {
+    opacity: 1;
+  }
+  .paciente-leave-to {
+    opacity: 0;
+  }
+  .paciente-leave-active {
+    transition: opacity 0.5s ease;
+  }
 
 
+  .medico-enter-from{
+    opacity: 0;
+  }
+  .medico-enter-to {
+    opacity: 1;
+  }
+  .medico-enter-active {
+    transition: opacity 0.5s ease;
+  }
 
-$success: #008894;
-$primary: #008894;
+  .medico-leave-from {
+    opacity: 1;
+  }
+  .medico-leave-to {
+    opacity: 0;
+  }
+  .medico-leave-active {
+    transition: opacity 0.5s ease;
+  }
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+  main {
+    width: 50%;
+  }
 
-main {
-	width: 50%;
-}
+  #cadastrarBtn {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+  }
 
-#cadastrarBtn {
-	padding-left: 5rem !important;
-	padding-right: 5rem !important;
-}
+  .input-container {
+    margin-bottom: 1.7rem;
+  }
 
-.input-container {
-	margin-bottom: 1.7rem;
-}
+  #formContainer {
+    border-radius: 0;
+    border: 1px solid rgba(131, 131, 131, 0.616);
+  }
 
-#formContainer {
-	border-radius: 0;
-	border: 1px solid rgba(131, 131, 131, 0.616);
-}
+  form {
+    input {
+      border-radius: 0 !important;
+    }
+  }
 
-form {
-	input {
-		border-radius: 0 !important;
-	}
-}
+  .container-nome {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
 
-.container-nome {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	align-items: center;
-	justify-content: center;
+    .col {
+      width: 100%;
+      margin: 0;
+    }
+  }
 
-	.col {
-		width: 100%;
-		margin: 0;
-	}
-}
+  .flex-form {
+    padding-left: 1px;
+  }
 
-.flex-form {
-	padding-left: 1px;
-}
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
 
-* {
-	font-family: "Montserrat", sans-serif;
-}
+  .btn-spn {
+    position: relative;
+    top: -3px;
+  }
 
-.btn-spn {
-	position: relative;
-	top: -3px;
-}
+  .btn {
+    color: white !important;
+  }
 
-.btn {
-	color: white !important;
-}
+  header {
+    border: 1px solid rgba(88, 88, 88, 0.63);
+    padding: 3rem;
+    width: 70% !important;
 
-header {
-	border: 1px solid rgba(88, 88, 88, 0.63);
-	padding: 3rem;
-	width: 70% !important;
+    h2 {
+      font-size: 2rem;
+      font-family: "Montserrat-Regular", sans-serif;
+    }
+  }
 
-	h2 {
-		font-size: 2rem;
-		font-family: "Montserrat-Regular", sans-serif;
-	}
-}
+  h5 {
+    margin-bottom: 5rem !important;
+  }
 
-h5 {
-	margin-bottom: 5rem !important;
-}
+  @media (max-width: 1300px) {
+    header {
+      width: 90% !important;
+    }
+    main {
+      width: 80%;
+    }
+  }
 
-@media (max-width: 1300px) {
-	header {
-		width: 90% !important;
-	}
-	main {
-		width: 80%;
-	}
-}
-
-@media (max-width: 940px) {
-	header {
-		flex-direction: column;
-	}
-}
+  @media (max-width: 940px) {
+    header {
+      flex-direction: column;
+    }
+  }
 </style>

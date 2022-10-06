@@ -9,25 +9,25 @@
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label" role="Input nome">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" tabindex="0" aria-required>
+                        <input type="text" class="form-control rounded-4" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label" role="Input email">E-mail:</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" tabindex="0" aria-required>
+                        <input type="email" class="form-control rounded-4" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label" role="Input telefone">Telefone:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" tabindex="0" aria-required>
+                        <input class="form-control rounded-4" tabindex="0" aria-required>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <label class="col-sm-2 col-form-label" role="Descrição enviar">Descrição:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" tabindex="0" required aria-required></textarea>
+                        <textarea class="form-control rounded-4" tabindex="0" required aria-required></textarea>
                     </div>
                 </div>
                 <div class="container-fluid mx-auto" id="containerBtn">
@@ -39,21 +39,6 @@
 </template>
 
 <style scoped lang="scss">
-    $success: #395B59;
-    $input-border-color: #008894;
-    $input-border-width: 0.13rem;
-    $input-border-radius: 1rem;
-
-    @import "../../node_modules/bootstrap/scss/bootstrap";
-
-    .form-control:focus {
-        border-color: #008894;
-        box-shadow: 0 0 0 0.2rem #0088944d;
-    }
-
-    section, form {
-        font-family: 'Montserrat', sans-serif;
-    }
 
     #container {
         padding-bottom: 4rem;
@@ -102,12 +87,6 @@
 
     label {
         color: #395B59;
-    }
-
-
-
-    input {
-        border: 1px solid #008894;
     }
 
 </style>
