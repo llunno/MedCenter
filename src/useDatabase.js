@@ -2,7 +2,7 @@ import useSupabase from './supabase'
 import useAuthUser from './useAuthUser'
 import { ref } from "vue";
 const {user} = useAuthUser();
-let novaConsulta = ref({
+const novaConsulta = ref({
   consulta: "",
   hora_de: "",
   hora_ate: "",
@@ -52,13 +52,14 @@ export default function useDatabase() {
      .from('consultas')
      .insert([novaConsulta.value])
      if(error) throw error;
-     novaConsulta = ref({
+     novaConsulta.value = {
        consulta: "",
        hora_de: "",
        hora_ate: "",
        pagamento: "",
        usuario: user.value.id
-     });
+     };
+     console.log(novaConsulta)
      return data;
   };
   const pegarConsulta = async (passId) =>{
