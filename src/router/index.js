@@ -19,22 +19,6 @@ const routes = [
 		component: () => import("../views/Signup.vue"),
 	},
 	{
-		path: "/consultarstatus",
-		name: "ConsultarStatus",
-		component: () => import("../views/paciente/ConsultarStatus.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
-		path: "/clinicasprox",
-		name: "ClinicasProx",
-		component: () => import("../views/paciente/ClinicasProx.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
 		path: "/atualizarcadastro",
 		name: "AtualizarCadastro",
 		component: () => import("../views/paciente/AtualizarCadastro.vue"),
@@ -126,6 +110,22 @@ const routes = [
 				path: "/dashboard/consultaspaciente",
 				name: "ConsultasPaciente",
 				component: () => import("../views/paciente/ConsultasPaciente.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: "/dashboard/consultarstatus",
+				name: "ConsultarStatus",
+				component: () => import("../views/paciente/ConsultarStatus.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: "/dashboard/clinicasprox",
+				name: "ClinicasProx",
+				component: () => import("../views/paciente/ClinicasProx.vue"),
 				meta: {
 					requiresAuth: true,
 				},
