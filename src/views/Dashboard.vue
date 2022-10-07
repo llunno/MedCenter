@@ -4,11 +4,13 @@
 			Consultas</router-link>
 		<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/dashboard/novaconsulta"
 			v-if="!user.user_metadata.medico">Agendar Nova Consulta</router-link>
-		<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/consultarsolicitacoes" v-else>Consultar
+		<router-link type="button" class="btn btn-primary btn-cel cel cel-2" to="/dashboard/consultarsolicitacoes" v-else>
+			Consultar
 			Solicitações de consulta</router-link>
 		<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/dashboard/consultarstatus"
 			v-if="!user.user_metadata.medico">Acompanhar Status do Exame</router-link>
-		<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/editarstatusexame" v-else>Editar status de
+		<router-link type="button" class="btn btn-primary btn-cel cel cel-3" to="/dashboard/editarstatusexame" v-else>Editar
+			status de
 			exame</router-link>
 		<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/dashboard/clinicasprox">Consultar Clínicas
 			Próximas
@@ -56,6 +58,7 @@ export default {
 		.btn-cel {
 			padding-top: 2rem;
 			padding-bottom: 2rem;
+			font-size: 0.9rem;
 		}
 	}
 }

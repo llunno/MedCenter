@@ -160,7 +160,7 @@ table {
 
 @media(max-height: 800px) {
   #tableContainer {
-    height: 25rem;
+    max-height: 27rem;
   }
 }
 </style>
