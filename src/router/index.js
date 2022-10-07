@@ -51,22 +51,6 @@ const routes = [
 		},
 	},
 	{
-		path: "/consultarsolicitacoes",
-		name: "ConsultarSolicitacoes",
-		component: () => import("../views/medico/ConsultarSolicitacoes.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
-		path: "/editarstatusexame",
-		name: "EditarStatusExame",
-		component: () => import("../views/medico/EditarStatusExame.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
 		path: "/solicitacaoefetuada",
 		name: "SolicitacaoEfetuada",
 		component: () => import("../views/paciente/SolicitacaoEfetuada.vue"),
@@ -126,6 +110,22 @@ const routes = [
 				path: "/dashboard/clinicasprox",
 				name: "ClinicasProx",
 				component: () => import("../views/ClinicasProx.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: "/dashboard/editarstatusexame",
+				name: "EditarStatusExame",
+				component: () => import("../views/medico/EditarStatusExame.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: "/dashboard/consultarsolicitacoes",
+				name: "ConsultarSolicitacoes",
+				component: () => import("../views/medico/ConsultarSolicitacoes.vue"),
 				meta: {
 					requiresAuth: true,
 				},

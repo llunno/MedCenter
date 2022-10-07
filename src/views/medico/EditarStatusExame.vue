@@ -1,105 +1,63 @@
 <template>
-	<div id="containerAll">
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894"
-				id="navElement">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#">
-						<router-link to="/">
-							<img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24"
-								class="d-inline-block align-text-top" />
-						</router-link>
-						MedCenter
-					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse">
-						<div class="container-fluid" id="formContainer">
-							<form class="d-flex" role="search" @submit.prevent>
-								<input class="form-control me-2" type="search" placeholder="Pesquisar"
-									aria-label="Search" />
-								<button class="btn btn-success">Buscar</button>
-							</form>
-						</div>
-						<div class="div-User d-flex align-items-center gap-2">
-							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
-							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " +
-							user.user_metadata.sobrenome : user.email }}</p>
-							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
-							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</header>
-		<main
-			class="d-flex flex-column align-items-center justify-content-center gap-4 text-center container-fluid my-auto">
-			<div id="tableContainer" class="text-center container-fluid my-auto">
-				<table class="table table-responsive table-hover table-borderless align-middle">
-					<thead>
-						<tr>
-							<th scope="col">
-								<p>Tipo</p>
-							</th>
-							<th scope="col">
-								<p>Hora Marcada</p>
-							</th>
-							<th scope="col" v-if="!user.user_metadata.medico">
-								<p>Médico</p>
-							</th>
-							<th scope="col" v-else>
-								<p>Paciente</p>
-							</th>
-							<th scope="col">
-								<p>Observações</p>
-							</th>
-							<th scope="col">
-								<p>Status</p>
-							</th>
-							<th scope="col">
-								<p>Alterações</p>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr v-for="(c,index) in consultas" :key="index">
-							<td>
-								{{c.consulta}}
-							</td>
-							<td>
-								<input class="form-control" type="datetime-local"
-									v-model="this.hora_marcada[index].hora_marcada" @change="onChangeHora(index,c)" />
-							</td>
-							<td v-if="!user.user_metadata.medico">
-								{{c.pego? c.medico ? (c.medico.data.nome + " " + c.medico.data.sobrenome) : "-" : "Sem Médico"}}
-							</td>
-							<td v-else>
-								{{c.pego? c.usuario ? (c.usuario.data.nome + " " + c.usuario.data.sobrenome): "-" : "Sem Médico"}}
-							</td>
-							<td>
-								<input class="form-control" type="text" v-model="this.observacoes" />
-							</td>
-							<td>
-								{{c.pego ? (!!c.hora_marcada ? (c.situacao ? "Definido" : "Agendado") : "Não agendado")
-								: "Não Obtido" }}
-							</td>
-							<td v-show="this.alterado[index].value">
-								<button class="btn btn-primary" id="marcarBtn"
-									@click.prevent="acertarHora(c.id,index)">Confirmar</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<button class="btn btn-primary btn-voltar" @click="getBack">Voltar</button>
-		</main>
-		<footer class="footer-dashboard">
-			<p class="m-0">Sistema para Médicos &copy; 2022</p>
-		</footer>
-	</div>
+	<main class="d-flex flex-column align-items-center justify-content-center gap-4 text-center container-fluid my-auto">
+		<div id="tableContainer" class="text-center container-fluid my-auto">
+			<table class="table table-responsive table-hover table-borderless align-middle">
+				<thead>
+					<tr>
+						<th scope="col">
+							<p>Tipo</p>
+						</th>
+						<th scope="col">
+							<p>Hora Marcada</p>
+						</th>
+						<th scope="col" v-if="!user.user_metadata.medico">
+							<p>Médico</p>
+						</th>
+						<th scope="col" v-else>
+							<p>Paciente</p>
+						</th>
+						<th scope="col">
+							<p>Observações</p>
+						</th>
+						<th scope="col">
+							<p>Status</p>
+						</th>
+						<th scope="col">
+							<p>Alterações</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(c,index) in consultas" :key="index">
+						<td>
+							{{c.consulta}}
+						</td>
+						<td>
+							<input class="form-control" type="datetime-local" v-model="this.hora_marcada[index].hora_marcada"
+								@change="onChangeHora(index,c)" />
+						</td>
+						<td v-if="!user.user_metadata.medico">
+							{{c.pego? c.medico ? (c.medico.data.nome + " " + c.medico.data.sobrenome) : "-" : "Sem Médico"}}
+						</td>
+						<td v-else>
+							{{c.pego? c.usuario ? (c.usuario.data.nome + " " + c.usuario.data.sobrenome): "-" : "Sem Médico"}}
+						</td>
+						<td>
+							<input class="form-control" type="text" v-model="this.observacoes" />
+						</td>
+						<td>
+							{{c.pego ? (!!c.hora_marcada ? (c.situacao ? "Definido" : "Agendado") : "Não agendado")
+							: "Não Obtido" }}
+						</td>
+						<td v-show="this.alterado[index].value">
+							<button class="btn btn-primary" id="marcarBtn" @click.prevent="acertarHora(c.id,index)">Confirmar</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<button class="btn btn-primary btn-voltar" @click="getBack">Voltar</button>
+	</main>
 </template>
   
 <script>
@@ -199,66 +157,15 @@ export default {
 </script>
   
 <style scoped lang="scss">
-
-#containerAll {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	background-attachment: scroll;
-	background-size: cover;
-}
-
-footer {
-	margin-top: auto;
-}
-
-.div-User {
-	#userIcon {
-		font-size: 2.4rem;
-		color: white;
-	}
-
-	p {
-		color: white;
-	}
-}
-
-#formContainer {
-	max-width: 50%;
-
-	form * {
-		border-radius: 0;
-	}
-}
-
-.footer-dashboard {
-	position: relative;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	background-color: #008894;
-	color: #FFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.footer-dashboard p {
-	color: #EEEEEE;
-}
-
-#signout-btn {
-	color: rgb(236, 236, 236);
-	font-size: 0.7rem;
-	text-decoration: underline;
-}
-
 #tableContainer {
 	max-width: 75%;
 	border: 1px solid black;
 	padding: 2rem 3rem 2rem 3rem;
 	min-height: 20rem;
 	overflow-x: auto;
+	max-height: 27rem;
+	overflow-y: auto;
+	background-color: white;
 }
 
 .btn-voltar {
