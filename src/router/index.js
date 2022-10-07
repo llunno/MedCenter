@@ -18,16 +18,6 @@ const routes = [
 		name: "Signup",
 		component: () => import("../views/Signup.vue"),
 	},
-	/*
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: () => import("../views/paciente/Dashboard.old.vue"),
-    meta: {
-      requiresAuth: true
-    }
-  },
-  */
 	{
 		path: "/consultaspaciente",
 		name: "ConsultasPaciente",
@@ -36,16 +26,6 @@ const routes = [
 			requiresAuth: true,
 		},
 	},
-	/*
-	{
-		path: "/novaconsulta",
-		name: "NovaConsulta",
-		component: () => import("../views/paciente/NovaConsulta.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	*/
 	{
 		path: "/consultarstatus",
 		name: "ConsultarStatus",
@@ -71,7 +51,7 @@ const routes = [
 		},
 	},
 	{
-		path: "/confirmarendereco",
+		path: "/dashboard/novaconsulta/endereco",
 		name: "ConfirmarEndereco",
 		component: () => import("../views/paciente/ConfirmarEndereço.vue"),
 		meta: {
@@ -79,7 +59,7 @@ const routes = [
 		},
 	},
 	{
-		path: "/confirmarpagamento",
+		path: "/dashboard/novaconsulta/endereco/pagamento",
 		name: "ConfirmarPagamento",
 		component: () => import("../views/paciente/ConfirmarMeioPagamento.vue"),
 		meta: {
@@ -87,7 +67,7 @@ const routes = [
 		},
 	},
 	{
-		path: "/confirmarsolicitacao",
+		path: "/dashboard/novaconsulta/endereco/pagamento/resumo-solicitacao",
 		name: "ConfirmarSolicitacao",
 		component: () => import("../views/paciente/ConfirmarSolicitacao.vue"),
 		meta: {
@@ -114,14 +94,6 @@ const routes = [
 		path: "/solicitacaoefetuada",
 		name: "SolicitacaoEfetuada",
 		component: () => import("../views/paciente/SolicitacaoEfetuada.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
-		path: "/confirmarsolicitacao",
-		name: "ConfirmarSolicitacao",
-		component: () => import("../views/paciente/ConfirmarSolicitacao.vue"),
 		meta: {
 			requiresAuth: true,
 		},

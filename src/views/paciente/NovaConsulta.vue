@@ -44,7 +44,7 @@ export default {
       try{
         novaConsulta.value.consulta = consulta ;
         console.log(novaConsulta.value);
-        this.$router.replace("/confirmarendereco");
+        this.$router.replace("/dashboard/novaconsulta/endereco");
       }
       catch(error){
         alert(error.error_description || error.message)

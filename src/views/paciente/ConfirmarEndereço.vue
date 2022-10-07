@@ -32,7 +32,6 @@
 		</section>
 		<button id="confirmarEnderecoBtn" class="btn btn-primary mb-4" @click.prevent="selectHorario" tabindex="0">Confirmar</button>
 	</main>
-	<router-view/>
 </template>
 <script>
 import useAuthUser from '@/useAuthUser';
@@ -58,7 +57,7 @@ export default {
         novaConsulta.value.hora_de = this.hora_de ;
 		novaConsulta.value.hora_ate = this.hora_ate ;
         console.log(novaConsulta.value);
-        this.$router.replace("/confirmarpagamento");
+        this.$router.replace("/dashboard/novaconsulta/endereco/pagamento");
       }
       catch(error){
         alert(error.error_description || error.message)

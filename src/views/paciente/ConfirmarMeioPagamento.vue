@@ -23,7 +23,7 @@ export default {
       try{
 		novaConsulta.value.pagamento = pagamento ;
         console.log(novaConsulta.value);
-        this.$router.replace("/confirmarsolicitacao");
+        this.$router.replace("/dashboard/novaconsulta/endereco/pagamento/resumo-solicitacao");
       }
       catch(error){
         alert(error.error_description || error.message)
