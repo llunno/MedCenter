@@ -53,7 +53,7 @@ const routes = [
 	{
 		path: "/consultarsolicitacoes",
 		name: "ConsultarSolicitacoes",
-		component: () => import("../views/paciente/ConsultarSolicitacoes.vue"),
+		component: () => import("../views/medico/ConsultarSolicitacoes.vue"),
 		meta: {
 			requiresAuth: true,
 		},
@@ -61,7 +61,7 @@ const routes = [
 	{
 		path: "/editarstatusexame",
 		name: "EditarStatusExame",
-		component: () => import("../views/paciente/EditarStatusExame.vue"),
+		component: () => import("../views/medico/EditarStatusExame.vue"),
 		meta: {
 			requiresAuth: true,
 		},
@@ -125,7 +125,7 @@ const routes = [
 			{
 				path: "/dashboard/clinicasprox",
 				name: "ClinicasProx",
-				component: () => import("../views/paciente/ClinicasProx.vue"),
+				component: () => import("../views/ClinicasProx.vue"),
 				meta: {
 					requiresAuth: true,
 				},
