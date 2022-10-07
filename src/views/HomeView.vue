@@ -34,8 +34,8 @@
                 <router-link type="button" class="btn btn-primary text-light" to="/login" tabindex="0">Log-in</router-link>
               </div>
               <div class="div-buttons" v-else>
-                <router-link class="btn btn-success text-light" to="/dashboard" tabindex="0">Dashboard</router-link>
-                <button @click="signOut" class="btn btn-success text-light" tabindex="0">Log-out</button>
+                <router-link class="btn btn-primary text-light" to="/dashboard" tabindex="0">Dashboard</router-link>
+                <button @click="signOut" class="btn btn-primary text-light" tabindex="0">Log-out</button>
               </div>
             </div>
           </div>
