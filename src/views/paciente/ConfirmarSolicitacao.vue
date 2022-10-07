@@ -5,18 +5,18 @@
             <section id="containerCards" class="text-center d-flex flex-wrap justify-content-center align-items-center">
                 <article class="card" tabindex="0">
                     <h3 class="card-header">Tipo de Consulta</h3>
-                    <p class="card-body d-flex justify-content-center align-items-center">Coleta de Sangue</p>
+                    <p class="card-body d-flex justify-content-center align-items-center">{{novaConsulta.consulta}}</p>
                 </article>
                 <article class="card" tabindex="0">
                     <h3 class="card-header">Endereço</h3>
                     <div class="card-body">
-                        <p>Rua Lapada Paiva Souza, 467. Centro, Mogi das Cruzes - MG</p>
-                        <p>CEP: 12456-543</p>
+                        <p>{{user.user_metadata.endereco}}. {{user.user_metadata.bairro}}, {{user.user_metadata.cidade}} - {{user.user_metadata.uf}}</p>
+                        <p>CEP: {{user.user_metadata.cep}}</p>
                     </div>
                 </article>
                 <article class="card" tabindex="0">
                     <h3 class="card-header">Método de Pagamento</h3>
-                    <p class="card-body d-flex justify-content-center align-items-center">Cartão de crédito 5x</p>
+                    <p class="card-body d-flex justify-content-center align-items-center">{{novaConsulta.pagamento}}</p>
                 </article>
                 <article class="card" tabindex="0">
                     <h3 class="card-header">Horário</h3>
@@ -24,13 +24,13 @@
                         <div class="horarioDiv d-flex">
                             <p>De</p>
                             <div class="coreHorarioDiv">
-                                <p id="horarioInicial" class="horarioText">00:00</p>
+                                <p id="horarioInicial" class="horarioText">{{novaConsulta.hora_de}}</p>
                             </div>
                         </div>
                         <div class="horarioDiv d-flex">
                             <p>Até</p>
                             <div class="coreHorarioDiv">
-                                <p id="horarioFinal" class="horarioText">00:00</p>
+                                <p id="horarioFinal" class="horarioText">{{novaConsulta.hora_ate}}</p>
                             </div>
                         </div>
                     </div>
@@ -61,13 +61,20 @@
 </template>
 <script>
     import useDatabase from '@/useDatabase';
+
+    import useAuthUser from '@/useAuthUser';
+
+    const { user } = useAuthUser()
+
     
-    const { insertConsulta } = useDatabase();
+    const { insertConsulta, novaConsulta } = useDatabase();
     
     export default {
       name: 'App',
       data() {
         return {
+            novaConsulta,
+            user
         };
       },
       methods: {
@@ -82,6 +89,12 @@
           }
         },
     
+      },
+      mounted(){
+        const { user } = useAuthUser();
+        const { novaConsulta } = useDatabase();
+	    this.user = user;
+        this.novaConsulta = novaConsulta;
       }
     }
     </script>

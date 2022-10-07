@@ -11,7 +11,7 @@
       </div>
 </template>
 
-<!-- eslint-disable no-undef -->
+
 <script>
 import useAuthUser from '@/useAuthUser';
 import useDatabase from '@/useDatabase';
