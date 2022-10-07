@@ -4,7 +4,7 @@
     <section class="map">
       <div class="searching-section">
         <div class="searching-component">
-          <img class="search-icon" src="../../assets/icon-search.svg" />
+          <img class="search-icon" src="@/assets/icon-search.svg" />
           <input type="text" @input="handleInput" v-model="inputSearchValue" placeholder="Search..." />
         </div>
         <div v-if="resultList.length > 0" class="searching-list-component">
@@ -32,15 +32,15 @@
 
 import useAuthUser from '@/useAuthUser';
 import { computed, onMounted, ref } from "@vue/runtime-core";
-import { getLocation } from "../../services/MapServices";
+import { getLocation } from "../services/MapServices";
 import { Loader } from "@googlemaps/js-api-loader";
 import {
   getSearchingData,
   getResultMessage,
-} from "../../services/SearchingServices";
+} from "../services/SearchingServices";
 import MapModal from "@/components/MapModal.vue";
 import SearchingItem from "@/components/SearchingItem.vue";
-import { NO_FOUND_IMAGE_URL, SVG_PIN_PATH } from "../../utils/constants"
+import { NO_FOUND_IMAGE_URL, SVG_PIN_PATH } from "../utils/constants"
 
 const { logout, user } = useAuthUser()
 export default {
