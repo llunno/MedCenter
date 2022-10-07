@@ -7,17 +7,9 @@
 						<router-link to="/">
 							<img src="@/assets/logo.png" alt="logo-sistema" width="24" height="24" class="d-inline-block align-text-top" />
 						</router-link>
-						MedCenter 
+						MedCenter
 					</a>
-					<button
-						class="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse">
@@ -63,7 +55,6 @@ import useAuthUser from "@/useAuthUser";
 
 const { logout, user } = useAuthUser();
 
-
 export default {
 	name: "App",
 	components: {
@@ -91,7 +82,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @import "@/css/DashBoardBaseStyle.scss";
 
 @media (max-height: 900px) {

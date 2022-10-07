@@ -48,7 +48,7 @@ export default {
     async supabaseLogin(){
       try {
           await login({ email: this.email,password: this.password });
-          this.$router.replace("dashboard");
+          this.$router.replace("arealogada");
         } 
       catch (error) {
           alert(error.error_description || error.message)
@@ -58,7 +58,7 @@ export default {
     async loginGoogle(){
       try {
           await loginWithSocialProvider("google");
-          this.$router.replace("dashboard");
+          this.$router.replace("arealogada");
         } 
       catch (error) {
           alert(error.error_description || error.message)

@@ -129,6 +129,14 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/arealogada",
+    name: "ContainerAreaLogada",
+    component: () => import("../views/ContainerAreaLogada.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 
