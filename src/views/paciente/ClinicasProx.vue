@@ -1,5 +1,5 @@
 <template>
-  <div id="containerAll"> 
+  <div id="containerMaps"> 
     <header>
 			<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-nav" style="background-color: #008894" id="navElement">
 				<div class="container-fluid">
@@ -203,7 +203,7 @@ export default {
 
 <style scoped lang="scss">
 
-  #containerAll {
+  #containerMaps {
     display: flex;
     flex-direction: column;
     background-image: url(@/assets/backgroundDashboard.png);
@@ -227,6 +227,10 @@ export default {
     p {
       color: white;
     }
+  }
+
+  #signout-btn {
+    color: white;
   }
 
   #formContainer {

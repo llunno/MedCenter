@@ -1,5 +1,5 @@
 <template>
-    <div id="containerAll" class="container-fluid text-center">
+    <div id="containerSolicitacoes" class="container-fluid text-center">
         <h2 tabindex="0">Confirmação da solicitação</h2>
         <main class="container-content d-flex justify-content-between align-items-start container-fluid">
             <section id="containerCards" class="text-center d-flex flex-wrap justify-content-center align-items-center">
@@ -87,7 +87,7 @@
     </script>
 <styles lang="scss" scoped>
 
-    div#containerAll {
+    div#containerSolicitacoes {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -183,7 +183,7 @@
     }
 
     @media(max-width: 1412px) {
-        div#containerAll {
+        div#containerSolicitacoes {
             .container-content {
                 max-width: 90%;
             }

@@ -1,5 +1,5 @@
 <template>
-	<main class="container-fluid d-flex flex-column align-items-center justify-content-center" id="container-all">
+	<main class="container-fluid d-flex flex-column align-items-center justify-content-center" id="containerEnderecos">
 		<h2 class="mb-5 my-2 p-card-item" tabindex="0">Confirmar Endereço</h2>
 		<section id="manageEnderecos" class="container-fluid d-flex gap-2 mx-auto justify-content-center">
 			<div id="actualEndereco" class="card p-2 justify-content-center m-2">
@@ -30,7 +30,7 @@
 				<input class="form-control" type="datetime-local" v-model="this.hora_ate" />
 			</div>
 		</section>
-		<button class="btn btn-primary mb-4" @click.prevent="selectHorario" tabindex="0">Confirmar</button>
+		<button id="confirmarEnderecoBtn" class="btn btn-primary mb-4" @click.prevent="selectHorario" tabindex="0">Confirmar</button>
 	</main>
 	<router-view/>
 </template>
@@ -95,7 +95,7 @@ export default {
 		padding: 0.5rem;
 	}
 
-	#container-all {
+	#containerEnderecos {
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -106,7 +106,7 @@ export default {
 		max-height: 100%;
 	}
 
-	.btn {
+	#confirmarEnderecoBtn {
 		color: white !important;
 	}
 
