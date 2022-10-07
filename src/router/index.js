@@ -19,14 +19,6 @@ const routes = [
 		component: () => import("../views/Signup.vue"),
 	},
 	{
-		path: "/consultaspaciente",
-		name: "ConsultasPaciente",
-		component: () => import("../views/paciente/ConsultasPaciente.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
 		path: "/consultarstatus",
 		name: "ConsultarStatus",
 		component: () => import("../views/paciente/ConsultarStatus.vue"),
@@ -129,7 +121,15 @@ const routes = [
 				meta: {
 					requiresAuth: true,
 				},
-			}
+			},
+			{
+				path: "/dashboard/consultaspaciente",
+				name: "ConsultasPaciente",
+				component: () => import("../views/paciente/ConsultasPaciente.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
 		]
 	},
 ];
