@@ -25,5 +25,6 @@ createApp(App)
 .use(VueGoogleMaps, {
   load: {
       key: 'AIzaSyDGTj3uANtQSKlu4_-CSYTH0oAwU5qC8RY',
+      libraries: 'places'
   },
 }).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

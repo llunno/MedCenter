@@ -130,6 +130,12 @@ const routes = [
 					requiresAuth: true,
 				},
 			},
+			{
+				path: "/dashboard/testgmap",
+				name: "testGmap",
+				component: () => import("../views/paciente/testGmap.vue"),
+			},
+
 		]
 	},
 ];
