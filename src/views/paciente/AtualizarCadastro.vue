@@ -1,15 +1,5 @@
 <template>
      <div>
-    <header class="container-fluid mx-auto my-4 d-flex align-items-center justify-content-around gap-2">
-		<section id="paciente-signup" class="d-flex align-items-center justify-content-center gap-4">
-			<h2>Sou Paciente...</h2>
-			<button class="btn btn-success" @click.prevent="setPaciente">Cadastre-se</button>
-		</section>
-		<section id="medico-signup" class="d-flex align-items-center justify-content-center gap-4">
-			<h2>Sou Médico...</h2>
-			<button class="btn btn-success" @click.prevent="setMedico">Associe-se</button>
-		</section>
-	</header>
   <transition name="paciente">
     <main class="mx-auto" v-show="cadastroAtivo && !medico">
       <div class="card shadow my-5" id="formContainer">
@@ -43,10 +33,6 @@
               <label for="floatingRg">RG</label>
             </div>
             <div class="form-floating input-container">
-              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
-              <label for="floatingPassword">Senha</label>
-            </div>
-            <div class="form-floating input-container">
               <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
               <label for="floatingEndereço">Endereço</label>
             </div>
@@ -71,7 +57,7 @@
               </div>
             </div>
             <div class="">
-              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Atualizar</button>
             </div>
           </form>
         </div>
@@ -121,10 +107,6 @@
               </div>
             </div>
             <div class="form-floating input-container">
-              <input type="password" class="form-control" id="floatingPassword" v-model="this.password" />
-              <label for="floatingPassword">Senha</label>
-            </div>
-            <div class="form-floating input-container">
               <input type="text" class="form-control" id="floatingEndereço" v-model="this.endereco" />
               <label for="floatingEndereço">Endereço</label>
             </div>
@@ -149,7 +131,7 @@
               </div>
             </div>
             <div class="">
-              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Cadastrar</button>
+              <button class="btn btn-success btn-login p-3" type="submit" id="cadastrarBtn">Atualizar</button>
             </div>
           </form>
         </div>
@@ -161,25 +143,24 @@
 
 <script>
 import useAuthUser from "@/useAuthUser";
-  const { register } = useAuthUser();
+  const { register, user } = useAuthUser();
   export default {
     data() {
       return {
-        email: "",
-        password: "",
-        medico: false,
-        nome: "",
-        sobrenome: "",
-        cpf: "",
-        nascimento: "",
-        rg: "",
-        endereco: "",
-        bairro: "",
-        cidade: "",
-        uf: "",
-        cep: "",
-        crm: "",
-        ufemissao: "",
+        email: user.value.email,
+        medico: user.value.user_metadata.medico,
+        nome: user.value.user_metadata.nome,
+        sobrenome: user.value.user_metadata.sobrenome,
+        cpf: user.value.user_metadata.cpf,
+        nascimento: user.value.user_metadata.nascimento,
+        rg: user.value.user_metadata.rg,
+        endereco: user.value.user_metadata.endereco,
+        bairro: user.value.user_metadata.bairro,
+        cidade: user.value.user_metadata.cidade,
+        uf: user.value.user_metadata.uf,
+        cep: user.value.user_metadata.cep,
+        crm: user.value.user_metadata.crm,
+        ufemissao: user.value.user_metadata.ufemissao,
   
         xhrRequest: false,
         errorMessage: "",
@@ -242,6 +223,9 @@ import useAuthUser from "@/useAuthUser";
         }
         // this.medico == false ? this.cadastroAtivo = !this.cadastroAtivo : this.medico = true
       },
+    },
+    mounted(){
+      this.cadastroAtivo = true
     },
     Unmount() {
       const divContainers = document.querySelectorAll(".container");
