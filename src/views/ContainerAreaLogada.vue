@@ -29,7 +29,7 @@
 				</div>
 			</nav>
 		</header>
-		<dashboard></dashboard>
+		<router-view/>
 		<footer class="footer-dashboard">
 			<p class="m-0">Sistema para Médicos &copy; 2022</p>
 		</footer>
@@ -38,20 +38,17 @@
 
 <!-- eslint-disable no-undef -->
 <script>
-import Dashboard from "@/components/Dashboard";
+//import Dashboard from "@/components/Dashboard";
 import useAuthUser from "@/useAuthUser";
 
 const { logout, user } = useAuthUser();
 
 export default {
-	name: "containerAreaLogada",
+	name: "app",
 	data() {
 		return {
 			user,
 		};
-	},
-	components: {
-		dashboard: Dashboard,
 	},
 	methods: {
 		async signOut() {
