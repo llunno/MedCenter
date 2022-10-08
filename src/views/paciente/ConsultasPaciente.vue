@@ -36,10 +36,10 @@
               {{c.consulta}}
             </td>
             <td>
-              {{c.hora_de}}
+              {{converterFormatData(c.hora_de)}}
             </td>
             <td>
-              {{c.hora_ate}}
+              {{converterFormatData(c.hora_ate)}}
             </td>
             <td>
               {{c.pego ? c.hora_marcada : "-"}}
@@ -54,7 +54,8 @@
               Sem informações
             </td>
             <td v-show="!user.user_metadata.medico">
-              {{c.pego }}
+              <font-awesome-icon v-if="c.pego" id="fontIconCheckedConsPaciente" class="fontIconConsultasPaciente" icon="fa-solid fa-circle-check" />
+              <font-awesome-icon v-else id="fontIconWaitingConsPaciente" class="fontIconConsultasPaciente" icon="fa-solid fa-clock-rotate-left" />
             </td>
           </tr>
         </tbody>
@@ -76,7 +77,14 @@ export default {
   data() {
     return {
       user,
-      consultas: null
+      consultas: null,
+      options: {
+        hour: "2-digit",
+        minute: "2-digit",
+        day: "2-digit",
+        year: "numeric",
+        month: "2-digit"
+      }
     };
   },
   methods: {
@@ -96,6 +104,11 @@ export default {
     getBack() {
       this.$router.replace("/dashboard");
     },
+    converterFormatData(dataInDatabase) {
+      const parsedIntoDate = new Date(dataInDatabase);
+      const localFormatedDate = parsedIntoDate.toLocaleString("pt-BR", this.options)
+      return localFormatedDate
+    }
   },
   async mounted() {
     if (user.value.user_metadata.medico) {
@@ -123,10 +136,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.fontIconConsultasPaciente {
+  font-size: 1.2rem;
+}
+
+#fontIconCheckedConsPaciente {
+  color: green;
+}
+
+#fontIconWaitingConsPaciente {
+  color: rgb(29, 47, 68);
+}
+
 #tableContainer {
-  max-width: 70%;
+  max-width: 95%;
   border: 1px solid black;
-  padding: 2rem 3rem 2rem 3rem;
+  padding: 2rem 0.5rem 2rem 0.5rem;
   min-height: 20rem;
   overflow-x: auto;
   overflow-y: auto;

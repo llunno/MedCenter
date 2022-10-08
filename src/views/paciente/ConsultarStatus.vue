@@ -118,9 +118,9 @@ export default {
 
 <style scoped lang="scss">
 #tableContainer {
-  max-width: 70%;
+  max-width: 95%;
   border: 1px solid black;
-  padding: 2rem 3rem 2rem 3rem;
+  padding: 2rem 0.5rem 2rem 0.5rem;
   min-height: 20rem;
   overflow-x: auto;
   overflow-y: auto;

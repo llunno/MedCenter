@@ -16,9 +16,11 @@ import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+//import { faCircleXmark } from '@fortawesome/free-solid-svg-icons' reservado para uso futuro
+import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 //font-awesome
-library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle, faPlus, faCircleCheck]);
+library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle, faPlus, faCircleCheck, faClockRotateLeft]);
 
 createApp(App)
 .use(router)
