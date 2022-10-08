@@ -15,7 +15,7 @@
 		<router-link type="button" class="btn btn-primary btn-cel cel cel-4" to="/dashboard/clinicasprox">Consultar Clínicas
 			Próximas
 		</router-link>
-		<router-link type="button" class="btn btn-primary btn-cel cel cel-5" to="/atualizacaocadastral">Atualização
+		<router-link type="button" class="btn btn-primary btn-cel cel cel-5" to="/dashboard/atualizarcadastro">Atualização
 			Cadastral</router-link>
 		<div class="cel cel-6">
 			<small-map id="mapsGoogle" />

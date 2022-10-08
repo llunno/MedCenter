@@ -19,14 +19,6 @@ const routes = [
 		component: () => import("../views/Signup.vue"),
 	},
 	{
-		path: "/atualizarcadastro",
-		name: "AtualizarCadastro",
-		component: () => import("../views/paciente/AtualizarCadastro.vue"),
-		meta: {
-			requiresAuth: true,
-		},
-	},
-	{
 		path: "/dashboard/novaconsulta/endereco",
 		name: "ConfirmarEndereco",
 		component: () => import("../views/paciente/ConfirmarEndereço.vue"),
@@ -135,7 +127,14 @@ const routes = [
 				name: "testGmap",
 				component: () => import("../views/paciente/testGmap.vue"),
 			},
-
+			{
+				path: "/dashboard/atualizarcadastro",
+				name: "AtualizarCadastro",
+				component: () => import("../views/paciente/AtualizarCadastro.vue"),
+				meta: {
+					requiresAuth: true,
+				},
+			},
 		]
 	},
 ];

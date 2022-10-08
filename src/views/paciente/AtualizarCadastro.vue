@@ -255,7 +255,6 @@ import useAuthUser from "@/useAuthUser";
     transition: opacity 0.5s ease;
   }
 
-
   .medico-enter-from{
     opacity: 0;
   }
@@ -317,10 +316,6 @@ import useAuthUser from "@/useAuthUser";
     padding-left: 1px;
   }
 
-  * {
-    font-family: "Montserrat", sans-serif;
-  }
-
   .btn-spn {
     position: relative;
     top: -3px;
@@ -330,14 +325,8 @@ import useAuthUser from "@/useAuthUser";
     color: white !important;
   }
 
-  header {
-    border: 1px solid rgba(88, 88, 88, 0.63);
-    padding: 3rem;
-    width: 70% !important;
-
-    h2 {
-      font-size: 2rem;
-    }
+  h2 {
+    font-size: 2rem;
   }
 
   h5 {
@@ -345,17 +334,8 @@ import useAuthUser from "@/useAuthUser";
   }
 
   @media (max-width: 1300px) {
-    header {
-      width: 90% !important;
-    }
     main {
       width: 80%;
-    }
-  }
-
-  @media (max-width: 940px) {
-    header {
-      flex-direction: column;
     }
   }
 </style>
