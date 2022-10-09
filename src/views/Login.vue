@@ -100,4 +100,10 @@ export default {
   .btn {
     color: white !important;
   }
+
+  @media(max-width: 878px) {
+    main {
+      width: 80%;
+    }
+  }
 </style> 

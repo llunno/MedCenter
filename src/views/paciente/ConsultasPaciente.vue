@@ -36,13 +36,13 @@
               {{c.consulta}}
             </td>
             <td>
-              {{converterFormatData(c.hora_de)}}
+              {{`${converterFormatData(c.hora_de)}h`}}
             </td>
             <td>
-              {{converterFormatData(c.hora_ate)}}
+              {{`${converterFormatData(c.hora_ate)}h`}}
             </td>
             <td>
-              {{c.pego ? c.hora_marcada : "-"}}
+              {{c.pego ? c.hora_marcada : "Não marcado"}}
             </td>
             <td v-if="!user.user_metadata.medico">
               {{c.pego? c.medico ? (c.medico.data.nome + " " + c.medico.data.sobrenome) : "-" : "Sem Médico"}}
