@@ -9,27 +9,35 @@
 						</router-link>
 						MedCenter
 					</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button id="menuSidebar" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation" role="button">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse">
-						<div class="container-fluid" id="formContainer">
-							<form class="d-flex" role="search" @submit.prevent>
-								<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
-								<button class="btn btn-success">Buscar</button>
-							</form>
+					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" data-bs-scroll="true" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menus</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 						</div>
-						<div class="div-User d-flex align-items-center gap-2">
-							<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
-							<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
-							<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
-							<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
+						<div id="corpoSidebar" class="offcanvas-body">
+							<div class="container-fluid" id="formContainer">
+								<form class="d-flex" role="search" @submit.prevent>
+									<input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+									<button class="btn btn-success">Buscar</button>
+								</form>
+							</div>
+							<div class="div-User d-flex align-items-center gap-2">
+								<div id="idUserLogged" class="d-flex align-items-center gap-2">
+									<p class="m-0">{{ user.user_metadata.medico ? "Médico:" : "Paciente:" }}</p>
+									<p class="m-0">{{ user.user_metadata.nome ? user.user_metadata.nome + " " + user.user_metadata.sobrenome : user.email }}</p>
+									<font-awesome-icon id="userIcon" icon="fa-solid fa-circle-user" />
+								</div>
+								<button class="btn btn-sm" id="signout-btn" @click="signOut">Sign-Out</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<router-view/>
+		<router-view />
 		<footer class="footer-dashboard">
 			<p class="m-0">Sistema para Médicos &copy; 2022</p>
 		</footer>
@@ -148,6 +156,27 @@ export default {
 			-ms-filter: blur(10px);
 			filter: blur(10px);
 		}
+	}
+}
+
+@media (max-width: 991px) {
+	#corpoSidebar {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+
+		#formContainer {
+			max-width: 100%;
+			width: 100%;
+			padding: 0;
+			margin: 2rem 0 0 0;
+		}
+	}
+
+	.div-User {
+		justify-content: space-between;
+		padding: 0 0.2rem 0 0.2rem;
 	}
 }
 </style>

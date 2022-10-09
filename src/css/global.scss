@@ -1,25 +1,27 @@
-$success: #395B59;
+$success: #395b59;
 $primary: #008894;
 $input-border-color: #008894;
 $input-border-width: 0.13rem;
+$offcanvas-bg-color: #008894;
+$offcanvas-color: white;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 @font-face {
-  font-family: "Montserrat";
-  src: local("Montserrat"), url("@/fonts/Montserrat-Medium.ttf") format("truetype");
+	font-family: "Montserrsat";
+	src: local("Montserrat"), url("@/fonts/Montserrat-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Montserrat-Regular";
-  src: local("Montserrat"), url("@/fonts/Montserrat-Regular.ttf") format("truetype");
+	font-family: "Montserrat-Regular";
+	src: local("Montserrat"), url("@/fonts/Montserrat-Regular.ttf") format("truetype");
 }
 
 * {
-    font-family: "Montserrat", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 p {
-  margin: 0;
-  margin: 0;
+	margin: 0;
+	margin: 0;
 }
