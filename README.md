@@ -1,4 +1,15 @@
-# x-project
+<!--
+Copyright © and authorship:
+
+Lucas Nogueira <https://github.com/llunno>;
+Matias Reinke <https://github.com/MatyOS25>;
+Bruno Rudy <https://github.com/BK-Rudy>;
+Pedro Fonseca <https://github.com/pefonseca>;
+
+Attribution Required.
+-->
+
+# MedCenter
 
 ## Project setup
 ```

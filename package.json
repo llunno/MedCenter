@@ -1,5 +1,5 @@
 {
-  "name": "x-project",
+  "name": "MedCenter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,6 @@
     "@supabase/supabase-js": "^1.35.7",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
-    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
     "firebase": "^9.10.0",
     "vue": "^3.2.40",
