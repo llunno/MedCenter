@@ -296,3 +296,12 @@
     }
   }
 </style>
+
+<!-- Credits
+Assets:
+<a href="https://www.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_6190059.htm#query=doctor&position=21&from_view=keyword"> - Image by senivpetro</a> on Freepik
+
+<a href="https://www.freepik.com/free-photo/nurse-measuring-patient-blood-pressure_2769131.htm#query=medico&position=17&from_view=search&track=sph"> Image by rawpixel.com</a> on Freepik
+
+<a href="https://www.freepik.com/free-photo/happy-doctor-holding-clipboard-with-patients_861960.htm#query=doctor&position=17&from_view=search&track=sph"> Image by pressfoto</a> on Freepik
+-->
