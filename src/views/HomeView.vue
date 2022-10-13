@@ -147,10 +147,21 @@ export default {
     window.onscroll = () => {
       this.showScroll();
       this.showMenuSidebar();
-    },
-      this.logado = isLoggedIn();
+    };
 
+    const $thisScope = this
 
+    if (window.matchMedia("(max-width: 991px)").matches) {
+      const offcanvasClasses = [".offcanvas", ".offcanvas-header", ".offcanvas-body", ".nav-link", ".offcanvas-title", ".navbar-toggler", ".navbar-toggler-icon"]
+      document.body.addEventListener("click", function (e) {
+        if (!e.target.matches(offcanvasClasses))
+          if ($thisScope.shouldShowDivSidebar) {
+            $thisScope.toggleShowSidebarDiv()
+          }
+      })
+    }
+
+    this.logado = isLoggedIn();
   },
   methods: {
     scrollBack: function () {
