@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-//import 'bootstrap/dist/js/bootstrap.min.js'
 import "@/css/global.scss"
 
 import VueGoogleMaps from '@fawmi/vue-google-maps'
@@ -17,13 +17,13 @@ import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-//import { faCircleXmark } from '@fortawesome/free-solid-svg-icons' reservado para uso futuro
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 //font-awesome
 library.add([faGooglePlay, faAppStore, faChevronCircleUp, faUserCircle, faPlus, faCircleCheck, faClockRotateLeft]);
 
 createApp(App)
+.use(store)
 .use(router)
 .use(VueGoogleMaps, {
   load: {

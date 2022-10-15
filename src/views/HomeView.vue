@@ -8,7 +8,7 @@
               class="d-inline-block align-text-top" />
             MedCenter
           </a>
-          <button id="menuSidebarHome" class="navbar-toggler" v-show="shouldShowMenuSidebar"
+          <button id="menuSidebarHome" class="navbar-toggler" v-show="getShouldShowMenuSidebar"
             @click="toggleShowSidebarDiv" type="button" data-bs-target="#offcanvasNavbarHome"
             aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation" role="button">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
           </div>
         </div>
       </nav>
-      <div class="backgroundlayer" v-if="shouldShowDivSidebar"></div>
+      <div class="backgroundlayer" v-if="getShouldShowDivSidebar"></div>
       <router-view />
       <div class="home">
         <h1>Uma solução ideal para conectar necessidade e oportunidade</h1>
@@ -122,6 +122,7 @@ import Medicos from "@/components/Medicos";
 import Sobre from "@/components/Sobre";
 import Contato from "@/components/Contato";
 import useAuthUser from '@/useAuthUser';
+import {mapActions, mapGetters} from "vuex";
 
 const { logout, isLoggedIn, user, session } = useAuthUser();
 
@@ -139,8 +140,6 @@ export default {
     return {
       shouldShow: false,
       logado,
-      shouldShowMenuSidebar: true,
-      shouldShowDivSidebar: false,
     }
   },
   mounted() {
@@ -149,17 +148,7 @@ export default {
       this.showMenuSidebar();
     };
 
-    const $thisScope = this
-
-    if (window.matchMedia("(max-width: 991px)").matches) {
-      const offcanvasClasses = [".offcanvas", ".offcanvas-header", ".offcanvas-body", ".nav-link", ".offcanvas-title", ".navbar-toggler", ".navbar-toggler-icon"]
-      document.body.addEventListener("click", function (e) {
-        if (!e.target.matches(offcanvasClasses))
-          if ($thisScope.shouldShowDivSidebar) {
-            $thisScope.toggleShowSidebarDiv()
-          }
-      })
-    }
+    this.$store.dispatch("controlSidebarDisplayOnClick")
 
     this.logado = isLoggedIn();
   },
@@ -195,22 +184,16 @@ export default {
         this.errorMessage = error.message;
       }
     },
-    toggleShowSidebarDiv() {
-      const divSidebarElement = document.querySelector("#offcanvasNavbarHome");
-      if (this.shouldShowDivSidebar === false) {
-        divSidebarElement.classList.remove("offcanvasHide");
-        divSidebarElement.classList.add("offcanvasShow");
-      } else {
-        divSidebarElement.classList.add("offcanvasHide");
-      }
-      this.shouldShowDivSidebar = !this.shouldShowDivSidebar;
-    },
     closeSideBaronLinkClick() {
       if (window.matchMedia("(max-width: 991px)").matches) {
         this.toggleShowSidebarDiv();
       }
-    }
+    },
+    ...mapActions(["toggleShowSidebarDiv", "controlSidebarDisplayOnClick", "showMenuSidebar"])
   },
+  computed: {
+    ...mapGetters(["getShouldShowDivSidebar", "getShouldShowMenuSidebar"])
+  }
 };
 
 </script>
