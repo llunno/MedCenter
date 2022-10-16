@@ -148,9 +148,12 @@ export default {
       this.showMenuSidebar();
     };
 
-    this.$store.dispatch("controlSidebarDisplayOnClick")
+    this.controlSidebarDisplayOnClick();
 
     this.logado = isLoggedIn();
+  },
+  beforeUnmount() {
+    this.restartShouldShowDivSidebarState()
   },
   methods: {
     scrollBack: function () {
@@ -164,14 +167,6 @@ export default {
         this.shouldShow = true;
       } else {
         this.shouldShow = false;
-      }
-    },
-    showMenuSidebar() {
-      if (window.scrollY > 5) {
-        this.shouldShowMenuSidebar = false;
-      }
-      else {
-        this.shouldShowMenuSidebar = true;
       }
     },
     async signOut() {
@@ -189,7 +184,7 @@ export default {
         this.toggleShowSidebarDiv();
       }
     },
-    ...mapActions(["toggleShowSidebarDiv", "controlSidebarDisplayOnClick", "showMenuSidebar"])
+    ...mapActions(["toggleShowSidebarDiv", "controlSidebarDisplayOnClick", "restartShouldShowDivSidebarState", "showMenuSidebar"])
   },
   computed: {
     ...mapGetters(["getShouldShowDivSidebar", "getShouldShowMenuSidebar"])

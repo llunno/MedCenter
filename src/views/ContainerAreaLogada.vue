@@ -9,13 +9,13 @@
 						</router-link>
 						MedCenter
 					</a>
-					<button id="menuSidebar" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation" role="button">
+					<button id="menuSidebar" class="navbar-toggler" v-show="getShouldShowMenuSidebar" @click="toggleShowSidebarDiv" type="button" data-bs-target="#offcanvasNavbarHome" aria-controls="offcanvasNavbarHome" aria-expanded="false" aria-label="Toggle navigation" role="button">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" data-bs-scroll="true" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarHome" data-bs-scroll="true" aria-labelledby="offcanvasNavbarLabel">
 						<div class="offcanvas-header">
 							<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menus</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" @click="toggleShowSidebarDiv"></button>
 						</div>
 						<div id="corpoSidebar" class="offcanvas-body">
 							<div class="container-fluid" id="formContainer">
@@ -36,6 +36,7 @@
 					</div>
 				</div>
 			</nav>
+			<div class="backgroundlayer" v-if="getShouldShowDivSidebar"></div>
 		</header>
 		<router-view />
 		<footer class="footer-dashboard">
@@ -48,6 +49,7 @@
 <script>
 //import Dashboard from "@/components/Dashboard";
 import useAuthUser from "@/useAuthUser";
+import {mapActions, mapGetters} from "vuex";
 
 const { logout, user } = useAuthUser();
 
@@ -70,7 +72,17 @@ export default {
 				alert("Logged Out");
 			}
 		},
+		...mapActions(["toggleShowSidebarDiv", "controlSidebarDisplayOnClick", "restartShouldShowDivSidebarState", "showMenuSidebar"])
 	},
+	computed: {
+		...mapGetters(["getShouldShowDivSidebar", "getShouldShowMenuSidebar"])
+	},
+	mounted() {
+		this.controlSidebarDisplayOnClick();
+	},
+	beforeUnmount() {
+		this.restartShouldShowDivSidebarState();
+	}
 };
 </script>
 
@@ -103,6 +115,27 @@ export default {
 		-ms-filter: blur(2px);
 		filter: blur(2px);
 	}
+}
+
+.backgroundlayer {
+  background-color: rgba(0, 0, 0, 0.589);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.offcanvasShow {
+  transform: translateX(0%) !important;
+  visibility: visible;
+}
+
+.offcanvasHide {
+  transform: translateX(100%) !important;
 }
 
 .footer-dashboard {

@@ -14,8 +14,8 @@ export default createStore ({
     }
   },
   mutations: {
-    toggleShouldShowMenuSidebar(state) {
-      state.shouldShowMenuSidebar = !state.shouldShowMenuSidebar;
+    restartShouldShowDivSidebarState(state) {
+      state.shouldShowDivSidebar = !state.shouldShowMenuSidebar;
     },
     toggleShowSidebarDiv(state) {
       const divSidebarElement = document.querySelector("#offcanvasNavbarHome");
@@ -25,7 +25,6 @@ export default createStore ({
       } else {
         divSidebarElement.classList.add("offcanvasHide");
       }
-      console.log(state.shouldShowDivSidebar);
       state.shouldShowDivSidebar = !state.shouldShowDivSidebar;
     },
     controlSidebarDisplayOnClick(state) {
@@ -58,6 +57,9 @@ export default createStore ({
     },
     showMenuSidebar({commit}) {
       commit("showMenuSidebar")
+    },
+    restartShouldShowDivSidebarState({commit}) {
+      commit("restartShouldShowDivSidebarState")
     }
-    }
+  }
 });
