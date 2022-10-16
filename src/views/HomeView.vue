@@ -195,27 +195,7 @@ export default {
 
 <style scoped lang="scss">
 @import "@/css/HomeViewBaseStyle.scss";
-
-.backgroundlayer {
-  background-color: rgba(0, 0, 0, 0.589);
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-
-.offcanvasShow {
-  transform: translateX(0%) !important;
-  visibility: visible;
-}
-
-.offcanvasHide {
-  transform: translateX(100%) !important;
-}
+@import "@/css/SidebarMenuBaseStyle.scss";
 
 @media (max-width: 991px) {
   a:not(#brandHOmea) {

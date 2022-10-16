@@ -4,6 +4,16 @@ export default createStore ({
   state: {
     shouldShowMenuSidebar: true,
     shouldShowDivSidebar: false,
+    offcanvasClasses: [
+      ".offcanvas",
+      ".offcanvas-header",
+      ".offcanvas-body",
+      ".nav-link",
+      ".offcanvas-title",
+      ".navbar-toggler",
+      ".navbar-toggler-icon",
+      ".nav-item"
+    ]
   },
   getters: {
     getShouldShowMenuSidebar(state) {
@@ -15,7 +25,7 @@ export default createStore ({
   },
   mutations: {
     restartShouldShowDivSidebarState(state) {
-      state.shouldShowDivSidebar = !state.shouldShowMenuSidebar;
+      state.shouldShowDivSidebar = false;
     },
     toggleShowSidebarDiv(state) {
       const divSidebarElement = document.querySelector("#offcanvasNavbarHome");
@@ -29,15 +39,12 @@ export default createStore ({
     },
     controlSidebarDisplayOnClick(state) {
       const $thisScope = this
-      if (window.matchMedia("(max-width: 991px)").matches) {
-        const offcanvasClasses = [".offcanvas", ".offcanvas-header", ".offcanvas-body", ".nav-link", ".offcanvas-title", ".navbar-toggler", ".navbar-toggler-icon"]
-        document.body.addEventListener("click", function (e) {
-          if (!e.target.matches(offcanvasClasses))
-            if (state.shouldShowDivSidebar) {
-              $thisScope.dispatch("toggleShowSidebarDiv")
-            }
-        })
-      }
+      document.body.addEventListener("click", function (e) {
+        if (!e.target.matches(state.offcanvasClasses))
+          if (state.shouldShowDivSidebar) {
+            $thisScope.dispatch("toggleShowSidebarDiv")
+          }
+      })
     },
     showMenuSidebar(state) {
       if (window.scrollY > 5) {

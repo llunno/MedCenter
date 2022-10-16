@@ -9,7 +9,7 @@
 						</router-link>
 						MedCenter
 					</a>
-					<button id="menuSidebar" class="navbar-toggler" v-show="getShouldShowMenuSidebar" @click="toggleShowSidebarDiv" type="button" data-bs-target="#offcanvasNavbarHome" aria-controls="offcanvasNavbarHome" aria-expanded="false" aria-label="Toggle navigation" role="button">
+					<button id="menuSidebar" class="navbar-toggler" v-show="getShouldShowMenuSidebar" @click="toggleShowSidebarDiv" type="button" data-bs-target="#offcanvasNavbarHome" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation" role="button">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarHome" data-bs-scroll="true" aria-labelledby="offcanvasNavbarLabel">
@@ -87,6 +87,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/css/SidebarMenuBaseStyle.scss";
+
 #containerAreaLogada {
 	min-height: 100vh;
 	display: flex;
@@ -115,27 +117,6 @@ export default {
 		-ms-filter: blur(2px);
 		filter: blur(2px);
 	}
-}
-
-.backgroundlayer {
-  background-color: rgba(0, 0, 0, 0.589);
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-
-.offcanvasShow {
-  transform: translateX(0%) !important;
-  visibility: visible;
-}
-
-.offcanvasHide {
-  transform: translateX(100%) !important;
 }
 
 .footer-dashboard {
