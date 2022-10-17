@@ -13,7 +13,7 @@ Attribution Required.
 
 #### Uma aplicação web focada em prover um espaço interativo, onde as consultas podem ser solicitadas de acordo com critérios específicos, agendadas e acompanhadas pelos pacientes com o auxilio de um médico responsável.
 
-##### A web application focused on providing an interactive, where consultations can be requested according to specific criteria, scheduled and monitored by patients with the help of a responsible doctor.
+##### A web application focused on providing an interactive space, where consultations can be requested according to specific criteria, scheduled and monitored by patients with the help of a responsible doctor.
 
 ![home](src/assets/demo/demo1.png)
 
